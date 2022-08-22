@@ -1,3 +1,17 @@
+# Mockups of possible options
+
+We propose that the questions look very similiar to how they appear during the test.
+
+## Split view: Answer given vs. best possible answer
+
+This is most fitting for the print view. However, on displays, the user should be presented with a more flexible view, where they can choose what questions to focus on.
+
+## Split view: Answer given vs. best possible answer in presentation table
+
+## All in one: Answer given and best possible answer in question
+
+This view might be out of scope has it requires reworking how questions are rendered
+
 # To Do & Open Questions
 
 ## Presentation Table
@@ -15,6 +29,8 @@ If we chose a split layout, the further fields take horizontal space that squeez
 If we display the questions one after the other, there is a large empty space below them. In case of allowing no further fields, important fields should probably stay visible so that no displayed data is lost.
 
 If we choose to display the best possible solution inside the questions (no split view), the further field layout could probably stay as is.
+
+## Nice to have: Expanding all worngly answered questions
 
 ## New/extended UI Component?
 
