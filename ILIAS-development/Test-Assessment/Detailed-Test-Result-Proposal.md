@@ -1,14 +1,16 @@
 # Mockups of possible options
 
-We propose that the questions look very similiar to how they appear during the test.
+We propose that the questions look very similiar to how they appear during the test. The learner won't be confused by an unfamiliar layout and one design is easier to maintain than two.
 
 ## Split view: Answer given vs. best possible answer
 
-This is most fitting for the print view. However, on displays, the user should be presented with a more flexible view, where they can choose what questions to focus on.
+This is most fitting for a print view and not meant to be worked with on displays at all.
+
+On displays, the user should be presented with a more flexible view, where they can choose what questions to focus on as presented below.
 
 ## Split view: Answer given vs. best possible answer in presentation table
 
-## All in one: Answer given and best possible answer in question
+## All in one: Answer given and best possible answer inside the one question
 
 This view might be out of scope has it requires reworking how questions are rendered
 
@@ -34,6 +36,6 @@ If we choose to display the best possible solution inside the questions (no spli
 
 ## New/extended UI Component?
 
-Instead of just rendering hard-coded HTML, displaying the questions side by side could be done by an UI compnent. We could add a split panel to the UI component or a column layout UI component.
+Instead of just rendering hard-coded HTML, displaying the questions side by side could be done by an UI component. We could add a split panel to the UI component or a column layout UI component.
 
 Otherwise the HTML layout could be written in a classic HTML template as it often is.
