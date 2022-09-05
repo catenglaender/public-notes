@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Item Properties - UX Principles</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- REVEAL CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/dist/reveal.css">
+  
+  <link rel="stylesheet" href="libs/reveal.js/dist/theme/white.css" id="theme">
+  
+  
+  <!--
+  <link rel="stylesheet" href="libs/reveal.js/plugin/title-footer/title-footer-mod.css" />
+  -->
+
+  <!-- MERMAID-->
+  <!--
+  <script src="libs/reveal.js/plugin/mermaid/mermaid.min.js"></script>
+  <style>
+  .mermaid {
+    font-size: 0.5em;
+  }
+  </style>
+  -->
+  
+  <style>
+    [class*=task-list-item] {
+      min-height: 22px;
+      margin-top: 6px!important;
+      margin-bottom: 6px!important;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    [class*=task-list-item]>input:first-child {
+      position: absolute!important;
+      opacity: 0;
+      margin: 0;
+    }
+
+    [class*=task-list-item]>label {
+      padding-left: 29px!important;
+      min-height: 22px;
+      line-height: 22px;
+      display: inline-block;
+      position: relative;
+      vertical-align: top;
+      margin-bottom: 0;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .task-list-item>input:first-child:checked+input[type=hidden]+label::before, .task-list-item>input:first-child:checked+label::before {
+      background-color: #ecf0f1;
+      border-color: #ecf0f1;
+    }
+
+    [class*=task-list-item]>input:first-child+input[type=hidden]+label::before, [class*=task-list-item]>input:first-child+label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #D3CFC8;
+      border-radius: 0;
+      margin-left: -29px;
+    }
+
+    [class*=task-list-item]>input:first-child:checked+input[type=hidden]+label::after, [class*=task-list-item]>input:first-child:checked+label::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7px;
+      height: 10px;
+      border: 2px solid #fff;
+      border-left: none;
+      border-top: none;
+      transform: translate(7.75px,4.5px) rotate(45deg);
+      -ms-transform: translate(7.75px,4.5px) rotate(45deg);
+    }
+
+    .task-list-item>input:first-child:checked+input[type=hidden]+label::after, .task-list-item>input:first-child:checked+label::after {
+      border-bottom-color: #95a5a6;
+      border-right-color: #95a5a6;
+    }
+  </style>
+
+  <!-- Theme used for syntax highlighting of code -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/plugin/highlight/monokai.css">
+  
+
+  
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/dist/print/pdf.css' : 'libs/reveal.js/dist/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+     .line {
+      display: block;
+    }   
+
+    .line.focus {
+      background: #fdf6e3;
+      color: #657b83;
+    }
+
+    .reveal .slides section .fragment.current-only {
+      visibility: visible;
+      display: none;
+    }
+
+    .reveal .slides section .fragment.current-only.current-fragment {
+      display: block;
+    }
+
+    .line.focus {
+       opacity: 1.0;
+    } 
+
+    @media (device-width: 100vw) and (device-height: 100vh) {
+      .reveal pre code {
+        max-height: 50vh !important;
+      }
+    }
+
+    #logo img {
+      max-height: 3.5em;
+      max-width: none;
+      min-width: 50px;
+    }
+
+    .reveal .slides section .code-presenting-annotation {
+      color: white;
+      background: black;
+      padding: 0px 15px;
+      border-radius: 15px;
+      opacity: 0.75 !important;
+      font-size: 50% !important;
+    }
+  </style>
+  <script>
+    if (window.location.search.match(/print-pdf-now/gi)) {
+      window.print();
+    }
+  </script>
+</head>
+
+<body>
+  
+<div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1">
+  <img src="./img/logo.png" />
+</div>
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+  
+    <section >
+      <h1><a id="user-content-drowning-in-item-properties" class="anchor" href="#drowning-in-item-properties" aria-hidden="true"></a>Drowning in item properties</h1>
+<p>UX principles to ensure users see what’s relevant first</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p><strong>Ferdinand Engländer</strong></p>
+<p>Frontend Designer, CaT Concepts and Training GmbH</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Research project collaboration between</p>
+<ul>
+<li>the University of Bern</li>
+<li>CaT Concepts and Training</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>University of Bern: Timon Amstutz, Yvonne Seiler</p>
+<p>CaT Concepts and Training: Nils Haagen, Christoph Krahl, Richard Klees &amp; others</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p><strong>Questions about terms and phrases in the presentation:</strong> please raise your hand</p>
+<p><strong>Discussion topics and general questions:</strong> please keep them in mind for the end of this session</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p><img src="./img/course-item_example-il7.png" alt=""></p>
+<ul>
+<li class="fragment fade-in-then-semi-out">Properties blend together</li>
+<li class="fragment fade-in-then-semi-out">most of the text properties: same size, color, place</li>
+<li class="fragment fade-in-then-semi-out">takes time to locate the relevant date</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>The property area holds all kinds of things:</p>
+<p><img src="./img/course-item-room-equipment_example-il7.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-feature-request-for-catalogue-view" class="anchor" href="#feature-request-for-catalogue-view" aria-hidden="true"></a>Feature Request for Catalogue View</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <p><img src="./img/FR-item-catalogue-view.png" alt=""></p>
+<ul>
+<li class="fragment fade-in-then-semi-out">properties still blending together</li>
+<li class="fragment fade-in-then-semi-out">which properties get an icon or a color?</li>
+<li class="fragment fade-in-then-semi-out">Do they always get that icon or color?</li>
+<li class="fragment fade-in-then-semi-out">What’s the best order?</li>
+<li class="fragment fade-in-then-semi-out">How do we identify the “right” decisions?</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-guidelines" class="anchor" href="#guidelines" aria-hidden="true"></a>Guidelines?</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Criterias to make the best decisions for the</p>
+<ul>
+<li class="fragment fade-in-then-semi-out">positioning</li>
+<li class="fragment fade-in-then-semi-out">grouping</li>
+<li class="fragment fade-in-then-semi-out">formatting</li>
+</ul>
+<p class="fragment fade-in-then-semi-out">of properties on items (objects with properties)</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>to maximize</p>
+<ul>
+<li>readability</li>
+<li>ease of use</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-research" class="anchor" href="#research" aria-hidden="true"></a>Research</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-collecting" class="anchor" href="#collecting" aria-hidden="true"></a>Collecting</h3>
+<p>What</p>
+<ul>
+<li>types of properties</li>
+<li>design and layouts for properties</li>
+</ul>
+<p>already exist in ILIAS?</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Very helpful table in FR: Streamline Object Properties</p>
+<p><img src="./img/FR-streamline_obj-prop_table.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Collection of noteworthy property designs and functionality</p>
+<p><img src="./img/research_collection-property-types.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>but also small details like different link renderings:</p>
+<p><a href="#">Key: Value</a></p>
+<p>Key: <a href="#">Value</a></p>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-workshop-at-cat" class="anchor" href="#workshop-at-cat" aria-hidden="true"></a>Workshop at CaT</h3>
+<p>Developers and product managers discussing UX challenges with properties</p>
+<p>from their own experience or interaction with users</p>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>large amounts of irrelevant information when looking for a specific property</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>wasted empty space (in particular wide repository items with few or zero displayed properties)</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>failed communication through irrelevant pictures (in UI Cards)</li>
+</ul>
+<p><img src="./img/courses_card-items.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <p><img src="./img/page-editor_fake-cards_cate-start.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>unknown iconography (the empty UI Progress Meter)</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>University of Bern:</p>
+<ul>
+<li>great input from Timon and Yvonne</li>
+<li>funding to further explore this topic</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-established-ux-principles" class="anchor" href="#established-ux-principles" aria-hidden="true"></a>Established UX Principles</h3>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>Young, I. (2008). Mental Models - Aligning Strategy with Human Behavior.
+Rosenfeld Media, LLC</li>
+<li>Spencer D. (2010). A Practical Guide to Information Architecture. UXmastery.
+<a href="https://maadmob.com.au/wp-content/uploads/2021/03/PracticalGuideToInformationArchitecture.pdf">Link</a></li>
+<li>Prof. Mahyar, N. (2019). Mental Models - Conceptual Models and Design. Lecture
+at the University of Massachusetts Amherst.
+<a href="https://groups.cs.umass.edu/nmahyar/wp-content/uploads/sites/8/2019/03/690A-10-ConceptualModels.pdf">Link</a></li>
+<li>Babich N. (2020). The Beginner’s Guide to Information Architecture in UX.
+Adobe XD Website.
+<a href="https://xd.adobe.com/ideas/process/information-architecture/information-ux-architect/">Link</a></li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h4><a id="user-content-information-architecture" class="anchor" href="#information-architecture" aria-hidden="true"></a>Information Architecture</h4>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>not about visual design</li>
+<li>purely a semantic, layered structure</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>guide a user through layers, branches or funnels to the content or action they intended to find</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>Relevant data is provided when and where it is expected</li>
+<li>data irrelevant to the current user intent is minimized</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h4><a id="user-content-user-intent" class="anchor" href="#user-intent" aria-hidden="true"></a>User intent</h4>
+<ul>
+<li>describes the user’s goal of their current interaction with the interface</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h4><a id="user-content-the-users-mental-model" class="anchor" href="#the-users-mental-model" aria-hidden="true"></a>The Users Mental Model</h4>
+<ul>
+<li>describes how a user thinks they will get to their goal</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li class="fragment fade-in"><strong>User intent:</strong> pick a course from a category</li>
+<li class="fragment fade-in"><strong>mental model:</strong> file manager navigation:
+<ul>
+<li class="fragment fade-in">categories distinguishable from course objects</li>
+<li class="fragment fade-in">clicking on category goes one level deeper in the hierarchy</li>
+<li class="fragment fade-in">Potential mismatch: double-click?</li>
+</ul>
+</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>information architecture</li>
+<li>user intent</li>
+<li>mental model</li>
+</ul>
+<p>From theory to practical application in ILIAS?</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>In ILIAS…</p>
+<ul>
+<li>many different user roles</li>
+<li>dozens of different object types</li>
+<li>vastly different possible actions</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>In ILIAS it’s very challenging to</p>
+<ul>
+<li>guess one current user intent</li>
+<li>match their mental model</li>
+</ul>
+<p>because many views support more than one purpose or action.</p>
+
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-most-relevant-models" class="anchor" href="#most-relevant-models" aria-hidden="true"></a>Most relevant models?</h2>
+<p>What general types of user intents and mental models do we have in ILIAS?</p>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>Making a quick choice</li>
+<li>Comparing before choosing</li>
+<li>Managing multiple objects</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-making-a-quick-choice" class="anchor" href="#making-a-quick-choice" aria-hidden="true"></a>Making a quick choice</h3>
+<ul>
+<li class="fragment fade-in-then-semi-out">decide on which of some expected objects to click on (e.g. first semester vs. second semester)</li>
+<li class="fragment fade-in-then-semi-out">only 1 - 2 properties guide this decision</li>
+<li class="fragment fade-in-then-semi-out">most prominent action often is the reason why the user is here</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Example: Contact or Member Gallery</p>
+<p><img src="./img/contact-gallery.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-comparing-before-choosing" class="anchor" href="#comparing-before-choosing" aria-hidden="true"></a>Comparing before choosing</h3>
+<ul>
+<li class="fragment fade-in-then-semi-out">compare a selection of relevant properties of multiple objects before making a choice between them</li>
+<li class="fragment fade-in-then-semi-out">multiple properties seen as relevant help to make the decision</li>
+<li class="fragment fade-in-then-semi-out">usually there is one prominent action</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Example: Agenda View</p>
+<p><img src="./img/agenda-view.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-managing-multiple-objects" class="anchor" href="#managing-multiple-objects" aria-hidden="true"></a>Managing multiple objects</h3>
+<ul>
+<li class="fragment fade-in-then-semi-out">administrators or users with a special role</li>
+<li class="fragment fade-in-then-semi-out">want to collect, compare, and modify multiple objects and many of their properties</li>
+<li class="fragment fade-in-then-semi-out">for sorting and bulk processing actions</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Example: User Management</p>
+<p><img src="./img/user-management.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Different focus</p>
+<ul>
+<li>Quick choice = 1 - 2 properties</li>
+<li>Comparing before choosing = 3 - 4 properties</li>
+<li>Managing multiple objects = many properties</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-tendency-of-ui-components" class="anchor" href="#tendency-of-ui-components" aria-hidden="true"></a>Tendency of UI components</h3>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>Quick choice = card</li>
+</ul>
+<p><img src="./img/courses_card-items.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>Comparing before choosing = item, presentation table</li>
+</ul>
+<p><img src="./img/cate-Trainingssuche.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <ul>
+<li>Managing multiple objects = table</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-strategies" class="anchor" href="#strategies" aria-hidden="true"></a>Strategies</h2>
+<p>to assist the users with these mental models</p>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-user-adjusted-views" class="anchor" href="#user-adjusted-views" aria-hidden="true"></a>User adjusted views</h3>
+<p>User sets filters and sorting according to their current intent, leaving only (or mostly) the data they wish to work with.</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Filters for tables and repository items</p>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-curated-views" class="anchor" href="#curated-views" aria-hidden="true"></a>Curated views</h3>
+<p>Someone builds a view (or a sequence of views) choosing to include, exclude, deemphasize, and highlight data to support the user by anticipating a single (or a few) selected intents and needs.</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Managing users build card grids with the page editor</p>
+<p><img src="./img/page-editor_fake-card-grid.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-structured-patterns" class="anchor" href="#structured-patterns" aria-hidden="true"></a>Structured patterns</h3>
+<p>Semantic grouping</p>
+<p>User directs their attention to a section where they expect to consistently find the currently relevant data and actions.</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Advantage: View doesn’t change with user intent, but the user changes their focus.</p>
+
+    </section>
+  
+
+  
+    <section >
+      <p><img src="./img/course-item_example-il7.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <p><img src="./img/course-item_example-il7.png" alt=""></p>
+<h4><a id="user-content-groups-wip-example" class="anchor" href="#groups-wip-example" aria-hidden="true"></a>Groups (WIP example)</h4>
+<ul>
+<li class="fragment fade-in-then-semi-out">featured properties most relevant to most common user intent</li>
+<li class="fragment fade-in-then-semi-out">most important and other actions</li>
+<li class="fragment fade-in-then-semi-out">content detail properties</li>
+<li class="fragment fade-in-then-semi-out">community interaction</li>
+<li class="fragment fade-in-then-semi-out">additional (meta) data</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <h3><a id="user-content-example-grouping" class="anchor" href="#example-grouping" aria-hidden="true"></a>Example grouping</h3>
+
+    </section>
+  
+
+  
+    <section >
+      <p><img src="./img/course-item_example-il7.png" alt=""></p>
+<p><img src="./img/course-item_example-suggested-grouping.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Decending priorities &amp; learned positions</p>
+<p><img src="./img/course-item_example-suggested-grouping_prioritization.png" alt=""></p>
+<ul>
+<li class="fragment fade-in-then-semi-out">1 &amp; 2: featured properties most relevant to most common user intent</li>
+<li class="fragment fade-in-then-semi-out">A &amp; B: most important and C: other actions</li>
+<li class="fragment fade-in-then-semi-out">3: content detail properties</li>
+<li class="fragment fade-in-then-semi-out">I.: community interaction</li>
+<li class="fragment fade-in-then-semi-out">4: additional (meta) data</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Other experiments &amp; ideas</p>
+<p><img src="./img/course-item_example-suggested-grouping.png" alt=""></p>
+<ul>
+<li class="fragment fade-in-then-semi-out">Pulling most important action from dropdown as btn-primary</li>
+<li class="fragment fade-in-then-semi-out">Omitting keys when not needed</li>
+<li class="fragment fade-in-then-semi-out">Omitting current year, start or end dates</li>
+<li class="fragment fade-in-then-semi-out">Omitting registration dates when already registered</li>
+</ul>
+
+    </section>
+  
+
+  
+    <section >
+      <p>Wild thoughts</p>
+<ul>
+<li>Do properties have to appear on the item? How about in the slate? (screenshot from Nextcloud)</li>
+</ul>
+<p><img src="./img/nextcloud_sidebar.png" alt=""></p>
+
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-next-steps" class="anchor" href="#next-steps" aria-hidden="true"></a>Next steps</h2>
+<p class="fragment fade-in-then-semi-out">PR to the UI framework docs with the presented UX Guidelines and Models to reference and work with: <a href="http://github.com/ILIAS-eLearning/ILIAS/pull/4916/">github.com/ILIAS-eLearning/ILIAS/pull/4916/</a></p>
+<p class="fragment fade-in-then-semi-out">Implement structured patterns in WIP projects e.g <a href="https://docu.ilias.de/goto_docu_wiki_wpage_7399_1357.html">Streamline Object
+Properties</a></p>
+<p class="fragment fade-in-then-semi-out">Follow-up roadmap and feature requests?</p>
+
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-thank-you" class="anchor" href="#thank-you" aria-hidden="true"></a>Thank you!</h2>
+<h2><a id="user-content-questions--comments" class="anchor" href="#questions--comments" aria-hidden="true"></a>Questions &amp; Comments?</h2>
+
+    </section>
+  
+
+
+
+    </div>
+
+  </div>
+
+  <script src="libs/reveal.js/dist/reveal.js"></script>
+
+<script src="libs/reveal.js/plugin/zoom/zoom.js"></script>
+
+<script src="libs/reveal.js/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/plugin/search/search.js"></script>
+<script src="libs/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/plugin/math/math.js"></script>
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+        controls: true,
+        controlsTutorial: true,
+        controlsLayout: 'bottom-right',
+        controlsBackArrows: 'faded',
+        progress: true,
+        slideNumber: false,
+        history: true,
+        keyboard: true,
+        overview: true,
+        center: true,
+        touch: true,
+        loop: false,
+        rtl: false,
+        shuffle: false,
+        fragments: true,
+        fragmentInURL: false,
+        embedded: false,
+        help: true,
+        showNotes: false,
+        autoPlayMedia: false,
+        autoSlide: 0,
+        autoSlideStoppable: true,
+        autoSlideMethod: Reveal.navigateNext,
+        defaultTiming: 120,
+        mouseWheel: false,
+        hideAddressBar: true,
+        previewLinks: false,
+        transition: 'slide',
+        transitionSpeed: 'default',
+        backgroundTransition: 'default',
+        viewDistance: 3,
+        parallaxBackgroundImage: '',
+        parallaxBackgroundSize: '',
+        parallaxBackgroundHorizontal: 0,
+        parallaxBackgroundVertical: 0,
+        display: 'block',
+
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath],
+        
+        math: {
+            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+            config: 'TeX-AMS_HTML-full',
+            TeX: { Macros: { RR: "{\\bf R}" } }
+        },
+        /*
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
+            
+
+            
+            { src: 'libs/reveal.js-plugins/3.8.0/plugin/chalkboard/chalkboard.js' },
+                
+
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
+            
+
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
+            
+            {
+                src: 'libs/highlight.js/9.15.10/reveal-code-focus-1.0.0-mod.js',
+                async: true,
+                callback: function () {
+                    RevealCodeFocus();
+                }
+            },
+            // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
+        ],
+        keyboard: {
+            67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+            66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+            46: function () { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+            8: function () { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+            68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+        },
+        chart: {
+            defaults: {
+                global: {
+                    title: { fontColor: "#FFF" },
+                    legend: {
+                        position: "bottom",
+                            labels: { fontColor: "#FFF" },
+                    },
+                    tooltips: {
+                        labels: { fontColor: "#FFF" },
+                    },
+                },
+                scale: {
+                    scaleLabel: { fontColor: "#FFF" },
+                    gridLines: { color: "#FFF", zeroLineColor: "#FFF" },
+                    ticks: { fontColor: "#FFF" },
+                }
+            },
+            line: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"], "borderDash": [[5, 10], [0, 0]] },
+            bar: { backgroundColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+            pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
+            radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+        },
+        anything: [ 
+            {
+                className: "mermaid"
+            },
+            // ...
+        ],
+        menu: {
+            // Specifies which side of the presentation the menu will 
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+                // Specifies the width of the menu.
+                // Can be one of the following:
+                // 'normal', 'wide', 'third', 'half', 'full', or
+                // any valid css length value
+                width: 'normal',
+
+                    // Add slide numbers to the titles in the slide list.
+                    // Use 'true' or format string (same as reveal.js slide numbers)
+                    numbers: false,
+
+                        // Specifies which slide elements will be used for generating
+                        // the slide titles in the menu. The default selects the first
+                        // heading element found in the slide, but you can specify any
+                        // valid css selector and the text from the first matching
+                        // element will be used.
+                        // Note: that a section data-menu-title attribute or an element
+                        // with a menu-title class will take precedence over this option
+                        titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+                            // If slides do not have a matching title, attempt to use the
+                            // start of the text content as the title instead
+                            useTextContentForMissingTitles: false,
+
+                                // Hide slides from the menu that do not have a title.
+                                // Set to 'true' to only list slides with titles.
+                                hideMissingTitles: false,
+
+                                    // Adds markers to the slide titles to indicate the 
+                                    // progress through the presentation. Set to 'false'
+                                    // to hide the markers.
+                                    markers: true,
+
+                                        // Specify custom panels to be included in the menu, by
+                                        // providing an array of objects with 'title', 'icon'
+                                        // properties, and either a 'src' or 'content' property.
+                                        // custom: false,
+                                        custom: [],
+                                            // Specifies the themes that will be available in the themes
+                                            // menu panel. Set to 'true' to show the themes menu panel
+                                            // with the default themes list. Alternatively, provide an
+                                            // array to specify the themes to make available in the
+                                            // themes menu panel, for example...
+                                            // [
+                                            //     { name: 'Black', theme: 'css/theme/black.css' },
+                                            //     { name: 'White', theme: 'css/theme/white.css' },
+                                            //     { name: 'League', theme: 'css/theme/league.css' }
+                                            // ]
+                                            themes: false,
+
+                                                // Specifies the path to the default theme files. If your
+                                                // presentation uses a different path to the standard reveal
+                                                // layout then you need to provide this option, but only
+                                                // when 'themes' is set to 'true'. If you provide your own 
+                                                // list of themes or 'themes' is set to 'false' the 
+                                                // 'themesPath' option is ignored.
+                                                themesPath: 'css/theme/',
+
+                                                    // Specifies if the transitions menu panel will be shown.
+                                                    // Set to 'true' to show the transitions menu panel with
+                                                    // the default transitions list. Alternatively, provide an
+                                                    // array to specify the transitions to make available in
+                                                    // the transitions panel, for example...
+                                                    // ['None', 'Fade', 'Slide']
+                                                    transitions: false,
+
+                                                        // Adds a menu button to the slides to open the menu panel.
+                                                        // Set to 'false' to hide the button.
+                                                        openButton: true,
+
+                                                            // If 'true' allows the slide number in the presentation to
+                                                            // open the menu panel. The reveal.js slideNumber option must 
+                                                            // be displayed for this to take effect
+                                                            openSlideNumber: false,
+
+                                                                // If true allows the user to open and navigate the menu using
+                                                                // the keyboard. Standard keyboard interaction with reveal
+                                                                // will be disabled while the menu is open.
+                                                                keyboard: true,
+
+                                                                    // Normally the menu will close on user actions such as
+                                                                    // selecting a menu item, or clicking the presentation area.
+                                                                    // If 'true', the sticky option will leave the menu open
+                                                                    // until it is explicitly closed, that is, using the close
+                                                                    // button or pressing the ESC or m key (when the keyboard 
+                                                                    // interaction option is enabled).
+                                                                    sticky: false,
+
+                                                                        // If 'true' standard menu items will be automatically opened
+                                                                        // when navigating using the keyboard. Note: this only takes 
+                                                                        // effect when both the 'keyboard' and 'sticky' options are enabled.
+                                                                        autoOpen: true,
+
+                                                                            // If 'true' the menu will not be created until it is explicitly
+                                                                            // requested by calling RevealMenu.init(). Note this will delay
+                                                                            // the creation of all menu panels, including custom panels, and
+                                                                            // the menu button.
+                                                                            delayInit: false,
+
+                                                                                // If 'true' the menu will be shown when the menu is initialised.
+                                                                                openOnInit: false,
+
+                                                                                    // By default the menu will load it's own font-awesome library
+                                                                                    // icons. If your presentation needs to load a different
+                                                                                    // font-awesome library the 'loadIcons' option can be set to false
+                                                                                    // and the menu will not attempt to load the font-awesome library.
+                                                                                    loadIcons: false
+        },
+        chalkboard: {
+            toggleChalkboardButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+            toggleNotesButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
+
+        }
+        */
+    });
+
+</script>
+
+
+</body>
+
+</html>
