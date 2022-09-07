@@ -1,0 +1,7 @@
+@include rounded-corners($radius) {
+    border-radius: $radius;
+}
+
+.cardpanel {
+    @include rounded-corners(20px);
+}
