@@ -1,0 +1,433 @@
+---
+theme : "white"
+transition: "slide"
+highlightTheme: "monokai"
+logoImg: "./img/logo.png"
+slideNumber: false
+title: "Item Properties - UX Principles"
+---
+
+# Drowning in item properties
+
+UX principles to ensure users see what's relevant first
+
+---
+
+**Ferdinand Engländer**
+
+Frontend Developer, CaT Concepts and Training GmbH
+
+---
+
+Research project collaboration between
+* the University of Bern
+* CaT Concepts and Training
+
+---
+
+University of Bern: Timon Amstutz, Yvonne Seiler
+
+CaT Concepts and Training: Nils Haagen, Christoph Krahl, Richard Klees & others
+
+---
+
+**Questions about terms and phrases in the presentation:** please raise your hand
+
+**Discussion topics and general questions:** please keep them in mind for the end of this session
+
+---
+
+![](./img/course-item_example-il7.png)
+
+* Properties blend together {.fragment .fade-in-then-semi-out}
+* most of the text properties: same size, color, place {.fragment .fade-in-then-semi-out}
+* takes time to locate the relevant date {.fragment .fade-in-then-semi-out}
+
+---
+
+The property area holds all kinds of things:
+
+![](./img/course-item-room-equipment_example-il7.png)
+
+---
+
+## Feature Request for Catalogue View
+
+---
+
+![](./img/FR-item-catalogue-view.png)
+
+* properties still blending together {.fragment .fade-in-then-semi-out}
+* which properties get an icon or a color? {.fragment .fade-in-then-semi-out}
+* Do they always get that icon or color? {.fragment .fade-in-then-semi-out}
+* What's the best order? {.fragment .fade-in-then-semi-out}
+* How do we identify the "right" decisions? {.fragment .fade-in-then-semi-out}
+
+---
+
+## Guidelines?
+
+---
+
+Criterias to make the best decisions for the
+
+* positioning {.fragment .fade-in-then-semi-out}
+* grouping {.fragment .fade-in-then-semi-out}
+* formatting {.fragment .fade-in-then-semi-out}
+
+of properties on items (objects with properties) {.fragment .fade-in-then-semi-out}
+
+---
+
+to maximize
+
+* readability
+* ease of use
+
+---
+
+## Research
+
+---
+
+### Collecting
+
+What
+
+* types of properties
+* design and layouts for properties
+
+already exist in ILIAS?
+
+---
+
+Very helpful table in FR: Streamline Object Properties
+
+![](./img/FR-streamline_obj-prop_table.png)
+
+---
+
+Collection of noteworthy property designs and functionality
+
+![](./img/research_collection-property-types.png)
+
+---
+
+details like different link renderings:
+
+[Key: Value](#)
+
+Key: [Value](#)
+
+---
+
+### Workshop at CaT
+
+Developers and product managers discussing UX challenges with properties
+
+Issues from their own experience or reports from users:
+
+---
+
+* irrelevant information when looking for a specific property
+
+---
+
+* empty space (in particular wide repository items with few or zero displayed properties)
+
+---
+
+* failed communication through irrelevant pictures (in UI Cards) 
+
+![](./img/courses_card-items.png)
+
+---
+
+![](./img/page-editor_fake-cards_cate-start.png)
+
+---
+
+* unknown iconography (the empty UI Progress Meter)
+
+---
+
+University of Bern:
+* great input from Timon and Yvonne
+* funding to further explore this topic
+
+---
+
+### Established UX Principles
+
+---
+
+* Young, I. (2008). Mental Models - Aligning Strategy with Human Behavior.
+  Rosenfeld Media, LLC
+* Spencer D. (2010). A Practical Guide to Information Architecture. UXmastery.
+  [Link](https://maadmob.com.au/wp-content/uploads/2021/03/PracticalGuideToInformationArchitecture.pdf)
+* Prof. Mahyar, N. (2019). Mental Models - Conceptual Models and Design. Lecture
+  at the University of Massachusetts Amherst.
+  [Link](https://groups.cs.umass.edu/nmahyar/wp-content/uploads/sites/8/2019/03/690A-10-ConceptualModels.pdf)
+* Babich N. (2020). The Beginner’s Guide to Information Architecture in UX.
+  Adobe XD Website.
+  [Link](https://xd.adobe.com/ideas/process/information-architecture/information-ux-architect/)
+
+---
+
+#### Information Architecture
+
+---
+
+* not about visual design
+* purely a semantic, layered structure
+
+---
+
+* guide a user through layers, branches or funnels to the content or action they intended to find
+
+---
+
+* Relevant data is provided when and where it is expected
+* data irrelevant to the current user intent is minimized
+
+---
+
+#### User intent
+
+* describes the user's goal of their current interaction with the interface
+
+---
+
+#### The Users Mental Model
+
+* describes how a user thinks they will get to their goal
+
+---
+
+* **User intent:** pick a course from a category {.fragment .fade-in}
+* **mental model:** file manager navigation: {.fragment .fade-in}
+    * categories distinguishable from course objects {.fragment .fade-in}
+    * clicking on category goes one level deeper in the hierarchy {.fragment .fade-in}
+    * Potential mismatch: double-click? {.fragment .fade-in}
+
+---
+
+* information architecture
+* user intent
+* mental model
+
+From theory to practical application in ILIAS?
+
+---
+
+In ILIAS...
+
+* many different user roles
+* dozens of different object types
+* vastly different possible actions
+
+---
+
+In ILIAS it's very challenging to
+
+* guess one current user intent
+* match their mental model
+
+because many views support more than one purpose or action.
+
+---
+
+## Most relevant models?
+
+What general types of user intents and mental models do we have in ILIAS?
+
+---
+
+* Making a quick choice
+* Comparing before choosing
+* Managing multiple objects
+
+---
+
+### Making a quick choice
+
+* decide on which of some expected objects to click on (e.g. first semester vs. second semester) {.fragment .fade-in-then-semi-out}
+* only 1 - 2 properties guide this decision {.fragment .fade-in-then-semi-out}
+* most prominent action often is the reason why the user is here {.fragment .fade-in-then-semi-out}
+
+---
+
+Example: Contact or Member Gallery
+
+![](./img/contact-gallery.png)
+
+---
+
+### Comparing before choosing
+
+* compare a selection of relevant properties of multiple objects before making a choice between them {.fragment .fade-in-then-semi-out}
+* multiple properties seen as relevant help to make the decision {.fragment .fade-in-then-semi-out}
+* usually there is one prominent action {.fragment .fade-in-then-semi-out}
+
+---
+
+Example: Agenda View
+
+![](./img/agenda-view.png)
+
+---
+
+### Managing multiple objects
+
+* administrators or users with a special role {.fragment .fade-in-then-semi-out}
+* want to collect, compare, and modify multiple objects and many of their properties {.fragment .fade-in-then-semi-out}
+* for sorting and bulk processing actions {.fragment .fade-in-then-semi-out}
+
+---
+
+Example: User Management
+
+![](./img/user-management.png)
+
+---
+
+Different focus
+
+* Quick choice = 1 - 2 properties
+* Comparing before choosing = 3 - 4 properties
+* Managing multiple objects = many properties
+
+---
+
+### Tendency of UI components
+
+---
+
+* Quick choice = card
+
+![](./img/courses_card-items.png)
+
+---
+
+* Comparing before choosing = item, presentation table
+
+![](./img/cate-Trainingssuche.png)
+
+---
+
+* Managing multiple objects = table
+
+---
+
+## Strategies
+
+to assist the users with these mental models
+
+---
+
+### User adjusted views
+
+User sets filters and sorting according to their current intent, leaving only (or mostly) the data they wish to work with.
+
+---
+
+Filters for tables and repository items
+
+---
+
+### Curated views
+
+Someone builds a view (or a sequence of views) choosing to include, exclude, deemphasize, and highlight data to support the user by anticipating a single (or a few) selected intents and needs.
+
+---
+
+Managing users build card grids with the page editor
+
+![](./img/page-editor_fake-card-grid.png)
+
+---
+
+### Structured patterns
+
+Semantic grouping
+
+User directs their attention to a section where they expect to consistently find the currently relevant data and actions.
+
+---
+
+Advantage: View doesn't change with user intent, but the user changes their focus.
+
+---
+
+![](./img/course-item_example-il7.png)
+
+---
+
+![](./img/course-item_example-il7.png)
+
+#### Groups (WIP example)
+
+* featured properties most relevant to most common user intent {.fragment .fade-in-then-semi-out}
+* most important and other actions {.fragment .fade-in-then-semi-out}
+* content detail properties {.fragment .fade-in-then-semi-out}
+* community interaction {.fragment .fade-in-then-semi-out}
+* additional (meta) data {.fragment .fade-in-then-semi-out}
+
+---
+
+### Example grouping
+
+---
+
+![](./img/course-item_example-il7.png)
+
+![](./img/course-item_example-suggested-grouping.png)
+
+---
+
+Decending priorities & learned positions
+
+![](./img/course-item_example-suggested-grouping_prioritization.png)
+
+* 1 & 2: featured properties most relevant to most common user intent {.fragment .fade-in-then-semi-out}
+* A & B: most important and C: other actions {.fragment .fade-in-then-semi-out}
+* 3: content detail properties {.fragment .fade-in-then-semi-out}
+* I.: community interaction {.fragment .fade-in-then-semi-out}
+* 4: additional (meta) data {.fragment .fade-in-then-semi-out}
+
+---
+
+Other experiments & ideas
+
+![](./img/course-item_example-suggested-grouping.png)
+
+
+* Pulling most important action from dropdown as btn-primary {.fragment .fade-in-then-semi-out}
+* Omitting keys when not needed {.fragment .fade-in-then-semi-out}
+* Omitting current year, start or end dates {.fragment .fade-in-then-semi-out}
+* Omitting registration dates when already registered {.fragment .fade-in-then-semi-out}
+
+---
+
+Wild thoughts
+
+* Do properties have to appear on the item? How about in the slate? (screenshot from Nextcloud)
+
+![](./img/nextcloud_sidebar.png)
+
+---
+
+## Next steps
+
+PR to the UI framework docs with the presented UX Guidelines and Models to reference and work with: github.com/ILIAS-eLearning/ILIAS/pull/4916/ {.fragment .fade-in-then-semi-out}
+
+Implement structured patterns in WIP projects e.g [Streamline Object
+Properties](https://docu.ilias.de/goto_docu_wiki_wpage_7399_1357.html) {.fragment .fade-in-then-semi-out}
+
+Follow-up roadmap and feature requests? {.fragment .fade-in-then-semi-out}
+
+---
+
+## Thank you!
+
+## Questions & Comments?
