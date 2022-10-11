@@ -44,9 +44,9 @@ tendency: less general variables should influence most components in the same wa
 
 ---
 
-e.g. $ui-panel-border, $ui-item-seperator, hr
+e.g. `$ui-panel-border`, `$ui-item-seperator`, hr
 
-should all use $il-main-border-color and $il-main-border-width
+should all use `$il-main-border-color` and `$il-main-border-width`
 
 ---
 
@@ -166,6 +166,10 @@ Future projects like:
 
 ---
 
+### Flex-box and grid tools
+
+---
+
 ### Hack and Tweak layer?
 
 ```SCSS
@@ -266,6 +270,8 @@ Extends
 ---
 
 @warn, @error, @debug
+
+a11y checks could @warn
 
 Warning: Contrast between panel color and panel bg color is lower than 60%.
 
