@@ -50,6 +50,10 @@ should all use `$il-main-border-color` and `$il-main-border-width`
 
 ---
 
+not good: 3 unrelated components use `il-card-border-color`
+
+---
+
 ### 2. Dependencies
 
 * SCSS files from dependencies
@@ -114,7 +118,7 @@ Mixins & functions
 
 ---
 
-A suggestion for clear rules with MUST, SHOULD, MAY will follow
+Code Guidelines WIP: https://github.com/ILIAS-eLearning/ILIAS/blob/trunk/templates/Guidelines_SCSS-Coding.md
 
 ---
 
@@ -177,6 +181,10 @@ Future projects like:
   text-align: center;
 }
 ```
+
+---
+
+### Legacy Settings
 
 ---
 
@@ -261,7 +269,7 @@ Extends
 
 ---
 
-@while, @for, @if, @else
+@while, @each, @for, @if, @else
 
 ---
 
@@ -305,6 +313,12 @@ SCSS
 * partials with prefix `_` are never compiled on their own, have to be included by anotehr file
 * @import is deprecated instead: @use "file"
 * variables are locally solved on import within that file only
+
+---
+
+@use "folder"
+
+looks for an _index.scss in that folder
 
 ---
 
