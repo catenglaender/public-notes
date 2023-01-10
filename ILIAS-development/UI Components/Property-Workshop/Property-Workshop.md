@@ -144,3 +144,23 @@ Semantische Gruppen und Prioritätsstufen
 * Ziel
 * Definitionen
 * Problematische Fälle
+
+Headerbereich von item ähnlich wie header im Kurs (spricht für Kommentar Icons)
+
+Beschränkungen für Fokusbereich
+* Fokus Primary darf 1, Focus Secondary 2 Angaben
+
+Springende Properties? Wenn die Logik gut gemacht ist, fällt es nicht auf, weil die Info dort hinspringt, wo man es braucht
+
+Regeln für Fokusbereich statt allgemein primary, secondary auf Typ einschränken
+Focus Date
+Focus Personal
+Focus Precondition
+oder doch Primary, Secondary, Headerbar mit deutlichen Empfehlung
+
+Dynamische Veränderung ist ein gewöhnungsbedürftiges neues Konzept
+
+Regeln setzen für guten Standard, Maintainer definiert Logik für sein Objekt, wenn so etwas gewünscht ist.
+
+Nebenschauplätze
+Magazin Gruppieren nach
