@@ -289,9 +289,6 @@ For these cases, we propose priority areas that can pull single properties from 
 
 **Example:** Star rating
 
-## Guidleines for displaying properties
-No redundancy, if one property implies another
-
 ## Discarded concepts
 
 ### Expandable area
@@ -333,13 +330,21 @@ Providing suggestions for Leading Properties is a small project the paricipants 
 
 
 ### Won't jumping properties be distracting?
-* Pulling properties to featured areas conditionally might cause them to appear in different places at different times.
-* Properties loaded in a row might shift due to neighbouring properties being shown or hidden. Both might be percieved as restless when a long list of differently rendered items makes these shifts apparent.
-* However, we do believe that such a flexible display of properties is welcomed by the average user.
+Pulling properties to featured areas conditionally might cause them to appear in different places at different times.
 
-For example, if a course is not accessible because all seats are taken, a user is likely to be frustrated to find this information burried in a list of equally presented availability properties.
+Properties loaded in a row might shift due to neighbouring properties being shown or hidden.
+
+Both might be percieved as restless when a long list of differently rendered items makes these shifts apparent.
+
+However, we do believe that such a flexible display of properties is welcomed by the average user.
+
+#### Example
+
+If a course is not accessible because all seats are taken, a user is likely to be frustrated to find this information burried in a list of equally presented availability properties.
 
 As visually pleasing as it might be in theory to have a static order, the property keeping its default position and formatting is of no value in this case. The property jumping front and center into the Blocking Precondition area on the other hand addresses a possible confusion before it can even come up.
+
+#### Risks & Benefits
 
 While there will be cases where this logic will make wrong assumptions about what is a very important property at a given time, **the benefits of matching the user's interest most of the time will make for a much smoother and frictionless user experience.**
 
