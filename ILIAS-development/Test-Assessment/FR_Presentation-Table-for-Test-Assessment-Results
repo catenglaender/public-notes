@@ -1,20 +1,35 @@
 ## 1 Initial Problem
-The current result view of the Test Assessment
+The current detailed result view of the Test Assessment
 * requires many clicks and much scrolling to navigate,
-* renders questions disconnected from content styles,
-* is optimized for printing, but many user check their test results on screens
+* renders questions with no regard to the content styles,
+* and is optimized for printing, but many users evaluate test results on screens.
 
-
-
-
-
+This poses challenges for both users and developers:
+* Users see the questions in an unfamiliar, unstyled look - which causes them to wonder why the view "looks broken".
+* The lack of filters and view controls make it hard to narrow down and structure test results with many questions.
+* The view is rendered with deprecated legacy methods instead of using kitchen sink elements from the UI framework.
+* Some bugs and visual glitches are tricky to fix, because the content styles and the stripped down print rendering of the questions clash in unexpected ways.
 
 ## 2 Conceptual Summary
+
+We propose a detailed result view that is
+* using the global content style appearance for questions to minimize confusion and visual glitches
+* enabling the user to drill down to the information they seek using a flexible and filterable presentation table,
+* making maintenance easier by using modern UI components from the UI framework
+
+### Maximizing overview
+
+Here is an early mockup of how the view could look with all questions collapsed:
+
+### Drilling down for details
+
+### Filters for quicker evaluation
 
 ## 3 User Interface Modifications
 
 ### 3.1 List of Affected Views
-(screen_id)
+* ilrepositorygui > ilTestEvaluationGUI > outParticipantsPassDetails
+* the UI component Presentation Table requires
 
 ### 3.2 User Interface Details
 { For each of these views please list all user interface elements that should be modified, added or removed. Please provide the textual appearance of the UI elements and their interactive behaviour. }
