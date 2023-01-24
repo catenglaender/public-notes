@@ -5,29 +5,29 @@ The current detailed result view of the Test Assessment
 * and is optimized for printing, but many users evaluate test results on screens.
 
 This impacts the user experience negatively:
-* Users see the questions in an unfamiliar, unstyled look - which causes them to wonder why the view "looks broken".
-* The lack of filters and sorting can make it difficult and time consuming to evaluate tests with many questions.
+* Users see the questions in an unfamiliar, unstyled look causing them to wonder why the view "looks broken".
+* The lack of filters and sorting can makes evaluating tests with many questions difficult and time consuming.
 
 For developers there are drawbacks to how this view is currently assembled:
 
 * The view is rendered with deprecated legacy methods instead of using kitchen sink elements from the UI framework.
-* Some bugs and visual glitches are tricky to fix, because the content styles and the stripped down print rendering of the questions clash in unexpected ways.
+* Some bugs and visual glitches are tricky to fix, because the content styles and the print style rendering clash in unexpected ways.
 
 ## 2 Conceptual Summary
 
 We propose a new detailed result view that is
 * using the global content style appearance for questions to minimize confusion and visual glitches
-* enabling the user to intuitively drill down to the information they seek using a flexible and filterable presentation table,
+* enabling the user to intuitively navigate to the information they seek using a flexible and filterable presentation table,
 * making maintenance easier by using modern UI components from the UI framework.
 
 ### Layered Information Architecture
 
-The presentation table would improve on the two-layered approach for showing the test results.
+The current implementation has an overview table at the top and a long list of question content below. A presentation table will present these two layers of information in the same spot:
 
-* Layer 1: The collapsed rows of the presentation table only show a minimum of information to provide an uncluttered overview e.g. of which questions were anwered (in)correctly.
+* Layer 1: The collapsed rows of the presentation table will provide an uncluttered overview by showing only the most relevant information for the average user (e.g. which questions were answered (in)correctly)
 * Layer 2: On click, a row expands in place and reveals the content area with the question text, the answers and more information for in-depth test evaluation use cases.
 
-Filters and View Controls could help the user to narrow down which questions are shown and how they are sorted.
+Filters and View Controls will help the user to narrow down which questions are shown and how they are sorted.
 
 ### Current implementation
 
