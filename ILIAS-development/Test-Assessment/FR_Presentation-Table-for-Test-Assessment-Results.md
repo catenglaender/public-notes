@@ -22,7 +22,7 @@ We propose a new detailed result view that is
 
 ### Layered Information Architecture
 
-The current implementation has an overview table at the top and a long list of question content below. A presentation table will present these two layers of information in the same spot:
+The current implementation has an overview table at the top and a long list of question content below. A presentation table will hold these two layers of information intuitively in the same spot:
 
 * Layer 1: The collapsed rows of the presentation table will provide an uncluttered overview by showing only the most relevant information for the average user (e.g. which questions were answered (in)correctly)
 * Layer 2: On click, a row expands in place and reveals the content area with the question text, the answers and more information for in-depth test evaluation use cases.
@@ -59,15 +59,15 @@ Here is an example of how the new view could look with all questions wrapped wit
 
 ![](./img/detailed-results_all-collapsed.jpg)
 
-The collapsed rows with very condensed information helps users to
-* skim through the list of answers without being distracted by too many properties
-* get a rough feeling for the weakest and strongest parts of the test results without even opening a single question
-* quickly identify and jump to specific questions that they know about (e.g. a participant could find that one Cloze Test question they had trouble with during the test by focusing on the question title and type)
-
 To support quick identification
 * correct and incorrect/incomplete answers are more clearly distinguishable by an icon directly in front of the title
 * the values for reached and maximum points are pulled closer together instead of being pulled apart by a lot of white space in the legacy table
 * the tables view controls allow to quickly filter e.g. for complete and incorrect/incomplete answers
+
+The collapsed rows with very condensed information helps users to
+* skim through the list of answers without being distracted by too many properties
+* get a rough feeling for the weakest and strongest parts of the test results without even opening a single question
+* quickly identify and jump to specific questions that they know about (e.g. a participant could find that one Cloze Test question they had trouble with during the test by focusing on the question title and type)
 
 #### Layer 2: Drilling down for details
 
@@ -93,17 +93,13 @@ Although the user might have many different reasons for looking at this second l
 
 ### Filters for quicker evaluation
 
+Presentation Tables come with a View Control Area attached to them, which provides an excellent opportunity for introducing new ways to process and evaluate test result data.
 
-
-
-
-
-
-{ For each of these views please list all user interface elements that should be modified, added or removed. Please provide the textual appearance of the UI elements and their interactive behaviour. }
+* A Mode View Control could hold a quick filter for showing only Correct or Incorrect/Incomplete answers.
+* There could be a button to expand all rows with one click (e.g. for printing)
+* A Sortation View Control could sort the data by Points Reached so educators can get a clear picture where the participants scored poorly.
 
 ### 3.3 New User Interface Concepts
-
-#### Colum Panel
 
 #### New Presentation Table Features
 
