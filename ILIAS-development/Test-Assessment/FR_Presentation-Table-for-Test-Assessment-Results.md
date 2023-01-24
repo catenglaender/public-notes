@@ -6,7 +6,7 @@ The current detailed result view of the Test Assessment
 
 This impacts the user experience negatively:
 * Users see the questions in an unfamiliar, unstyled look - which causes them to wonder why the view "looks broken".
-* The lack of filters and view controls can make it difficult and time consuming to evaluate tests with many questions.
+* The lack of filters and sorting can make it difficult and time consuming to evaluate tests with many questions.
 
 For developers there are drawbacks to how this view is currently assembled:
 
@@ -20,14 +20,22 @@ We propose a new detailed result view that is
 * enabling the user to intuitively drill down to the information they seek using a flexible and filterable presentation table,
 * making maintenance easier by using modern UI components from the UI framework.
 
+### Layered Information Architecture
+
+The presentation table would improve on the two-layered approach for showing the test results.
+
+* Layer 1: The collapsed rows of the presentation table only show a minimum of information to provide an uncluttered overview e.g. of which questions were anwered (in)correctly.
+* Layer 2: On click, a row expands in place and reveals the content area with the question text, the answers and more information for in-depth test evaluation use cases.
+
+Filters and View Controls could help the user to narrow down which questions are shown and how they are sorted.
+
 ### Current implementation
 
 ![](./img/detailed-results_old-overview.jpg)
 
-### Mockup with possible optimizations
+### Draft for the new result view
 
 ![](./img/detailed-results_expaned-item-multiple-choice.jpg)
-
 
 ## 3 User Interface Modifications
 
@@ -35,38 +43,35 @@ We propose a new detailed result view that is
 * ilrepositorygui > ilTestEvaluationGUI > outParticipantsPassDetails
 * UI component Presentation Table
 
-
 ### 3.2 User Interface Details
 
-### Maximizing overview
+#### Layer 1: Maximizing overview
 
-The presentation table provides a two-layered approach to showing information. The first layer of information is shown on the collapsed rows: These are only the properties most important to the average user. Everything else is tucked away into the expandable area not currently shown, but easily accesible.
-
-This layer should suffice to provide a rough overview and help the user decide which answers they want to explore further.
-
-For comparison, this is how the table of contents at the top of the detailed result page currently looks
+This is how the table of contents at the top of the detailed result page currently looks
 
 ![](./img/detailed-results_old-table-of-content.jpg)
 
-Here is an example of how the new view could look with all questions collapsed within a presentation table:
+The rendering as a legacy table has some disadvantages:
+* Some properties are not of immediate interest to the average user, yet they take equal or more space than highly relevant information (e.g. Requested Hints vs Percentage Solved)
+* The property most valuable for understanding how well a question was answered is the Percentage Solved column, but because it's far away from the Question Title the eyes need to constantly dart back and forth.
+
+Here is an example of how the new view could look with all questions wrapped within a collapsed presentation table:
 
 ![](./img/detailed-results_all-collapsed.jpg)
 
-The collapsed  presentation table helps users to
-* skim through the list of answers without being distracted by too many properties (e.g. the number of Requested Hints is not of immediate interest for most users, but took over more space in the old legacy table than the highly relevant Percentage Solved column)
+The collapsed rows with very condensed information helps users to
+* skim through the list of answers without being distracted by too many properties
 * get a rough feeling for the weakest and strongest parts of the test results without even opening a single question
 * quickly identify and jump to specific questions that they know about (e.g. a participant could find that one Cloze Test question they had trouble with during the test by focusing on the question title and type)
 
-These points align with the user intend described as "Making a quick pick" in this UX document.
-
 To support quick identification
-* correct and incorrect/incomplete answers are more clearly distinguishable by an icon
+* correct and incorrect/incomplete answers are more clearly distinguishable by an icon directly in front of the title
 * the values for reached and maximum points are pulled closer together instead of being pulled apart by a lot of white space in the legacy table
-* the tables view controls make it easier to filter for complete and incorrect/incomplete answers, which serves of a spring board from the "quick choice" to the "comparing" user intent.
+* the tables view controls allow to quickly filter e.g. for complete and incorrect/incomplete answers
 
-### Drilling down for details
+#### Layer 2: Drilling down for details
 
-If the user is interested in the specifics of one or multiple answers, they can click on the row of the presentation table to expand the content area and reveal the second layer of information.
+If the user is interested in the specifics of one or multiple answers, they can simply click on the row of the presentation table to expand the content area and reveal the second layer of information, without loosing the position in the table.
 
 In the current implementation the viewport jumps to a question block inside a long list, which is rendered in this way:
 
@@ -76,15 +81,15 @@ This stripped down rendering of questions makes focused work difficult:
 * The feedback blends in with the body of the question
 * The other question blocks clutter and overwhelm the view even though they might not be of interest
 
-This is an example for a possible new rendering inside the presentation table:
+Here is an example for a more familiar and segmented rendering inside the presentation table:
 
 ![](./img/detailed-results_expaned-item.jpg)
 
-The aforementioned UX guide names the mode of exploring the details of multiple items as "Comparing before choosing". Although the user might have many different reasons for looking at this second layer of information, the presentation table still helps us to improve the user experience:
+Although the user might have many different reasons for looking at this second layer of information, the presentation table still helps us to improve the user experience:
 
 * users don't loose their position in the table when opening or closing a row entry
 * familiar styling makes important areas like the feedback box stand out and helps distinguish e.g. the question text from the rest of the answer.
-* more properties can be revealed for more rare use cases without taking up an entire table column (e.g. checking the question ID)
+* more properties can be revealed for more rare use cases without taking up an entire table column (e.g. the question ID)
 
 ### Filters for quicker evaluation
 
