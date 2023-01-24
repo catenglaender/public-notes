@@ -20,10 +20,13 @@ We propose a new detailed result view that is
 * enabling the user to intuitively drill down to the information they seek using a flexible and filterable presentation table,
 * making maintenance easier by using modern UI components from the UI framework.
 
-| Current implementation | Mockup with possible optimizations |
-| --- | --- |
-| ![](./img/detailed-results_old-overview.jpg) | ![](./img/detailed-results_expaned-item-multiple-choice.jpg) |
+### Current implementation
 
+![](./img/detailed-results_old-overview.jpg)
+
+### Mockup with possible optimizations
+
+![](./img/detailed-results_expaned-item-multiple-choice.jpg)
 
 
 ## 3 User Interface Modifications
@@ -63,9 +66,9 @@ To support quick identification
 
 ### Drilling down for details
 
-The second layer of information is shown when clicking on a row of the presentation table inside the expandable area. Users interested in specifics of one or multiple answers can find them with one click, without leaving their spot in the presentation table.
+If the user is interested in the specifics of one or multiple answers, they can click on the row of the presentation table to expand the content area and reveal the second layer of information.
 
-The current view jumps to a question block inside a long list, which is rendered in this way:
+In the current implementation the viewport jumps to a question block inside a long list, which is rendered in this way:
 
 ![](./img/detailed-results_old-multiple-answers-rendering.jpg)
 
@@ -77,7 +80,7 @@ This is an example for a possible new rendering inside the presentation table:
 
 ![](./img/detailed-results_expaned-item.jpg)
 
-The aforementioned UX guide names the mode of exploring the details of multiple items as "Comparing before choosing". While we are less certain of what information exactly the user is looking for, the presentation table still helps us to improve the user experience:
+The aforementioned UX guide names the mode of exploring the details of multiple items as "Comparing before choosing". Although the user might have many different reasons for looking at this second layer of information, the presentation table still helps us to improve the user experience:
 
 * users don't loose their position in the table when opening or closing a row entry
 * familiar styling makes important areas like the feedback box stand out and helps distinguish e.g. the question text from the rest of the answer.
