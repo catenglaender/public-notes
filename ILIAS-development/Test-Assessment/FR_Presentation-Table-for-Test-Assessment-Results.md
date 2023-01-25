@@ -10,22 +10,24 @@ This impacts the user experience negatively:
 
 For developers there are drawbacks to how this view is currently assembled:
 
-* The view is rendered with deprecated legacy methods instead of using kitchen sink elements from the UI framework.
+* The view is rendered with deprecated legacy methods instead of using kitchen sink elements from the UI framework. All legacy UI elements need to be removed with ILIAS 10 at the latest.
 * Some bugs and visual glitches are tricky to fix, because the content styles and the print style rendering clash in unexpected ways.
+
+We held two workshops and discussed the problems with the legacy test result presentation. Two suggestions to solve the issues were made by the community. The maintainer wants to progress with this approach:
 
 ## 2 Conceptual Summary
 
 We propose a new detailed result view that is
 * using the global content style appearance for questions to minimize confusion and visual glitches
-* enabling the user to intuitively navigate to the information they seek using a flexible and filterable presentation table,
+* enabling the user to intuitively navigate to the information they seek using a flexible and filterable Presentation Table,
 * making maintenance easier by using modern UI components from the UI framework.
 
 ### Layered Information Architecture
 
-The current implementation has an overview table at the top and a long list of question content below. A presentation table will hold these two layers of information intuitively in the same spot:
+The current implementation has an overview table at the top and a long list of question content below. A Presentation Table will hold these two levels of information intuitively in the same spot:
 
-* Layer 1: The collapsed rows of the presentation table will provide an uncluttered overview by showing only the most relevant information for the average user (e.g. which questions were answered (in)correctly)
-* Layer 2: On click, a row expands in place and reveals the content area with the question text, the answers and more information for in-depth test evaluation use cases.
+* Level 1: The collapsed rows of the Presentation Table will provide an uncluttered overview by showing only the most relevant information for the average user (e.g. which questions were answered (in)correctly)
+* Level 2: On click, a row expands in place and reveals the content area with the question text, the answers and more information for in-depth test evaluation use cases.
 
 Filters and View Controls will help the user to narrow down which questions are shown and how they are sorted.
 
@@ -45,7 +47,7 @@ Filters and View Controls will help the user to narrow down which questions are 
 
 ### 3.2 User Interface Details
 
-#### Layer 1: Maximizing overview
+#### Level 1: Maximizing overview
 
 This is how the table of contents at the top of the detailed result page currently looks
 
@@ -55,7 +57,7 @@ The rendering as a legacy table has some disadvantages:
 * Some properties are not of immediate interest to the average user, yet they take equal or more space than highly relevant information (e.g. Requested Hints vs Percentage Solved)
 * The property most valuable for understanding how well a question was answered is the Percentage Solved column, but because it's far away from the Question Title the eyes need to constantly dart back and forth.
 
-Here is an example of how the new view could look with all questions wrapped within a collapsed presentation table:
+Here is an example of how the new view could look with all questions wrapped within a collapsed Presentation Table:
 
 ![](./img/detailed-results_all-collapsed.jpg)
 
@@ -69,9 +71,9 @@ The collapsed rows with very condensed information helps users to
 * get a rough feeling for the weakest and strongest parts of the test results without even opening a single question
 * quickly identify and jump to specific questions that they know about (e.g. a participant could find that one Cloze Test question they had trouble with during the test by focusing on the question title and type)
 
-#### Layer 2: Drilling down for details
+#### Level 2: Drilling down for details
 
-If the user is interested in the specifics of one or multiple answers, they can simply click on the row of the presentation table to expand the content area and reveal the second layer of information, without loosing the position in the table.
+If the user is interested in the specifics of one or multiple answers, they can simply click on the row of the Presentation Table to expand the content area and reveal the second level of information, without loosing the position in the table.
 
 In the current implementation the viewport jumps to a question block inside a long list, which is rendered in this way:
 
@@ -81,11 +83,11 @@ This stripped down rendering of questions makes focused work difficult:
 * The feedback blends in with the body of the question
 * The other question blocks clutter and overwhelm the view even though they might not be of interest
 
-Here is an example for a more familiar and segmented rendering inside the presentation table:
+Here is an example for a more familiar and segmented rendering inside the Presentation Table:
 
 ![](./img/detailed-results_expaned-item.jpg)
 
-Although the user might have many different reasons for looking at this second layer of information, the presentation table still helps us to improve the user experience:
+Although the user might have many different reasons for looking at this second level of information, the Presentation Table still helps us to improve the user experience:
 
 * users don't loose their position in the table when opening or closing a row entry
 * familiar styling makes important areas like the feedback box stand out and helps distinguish e.g. the question text from the rest of the answer.
@@ -95,38 +97,74 @@ Although the user might have many different reasons for looking at this second l
 
 Presentation Tables come with a View Control Area attached to them, which provides an excellent opportunity for introducing new ways to process and evaluate test result data.
 
+The exact filters and view controls for this view are yet to be determined.
+
 * A Mode View Control could hold a quick filter for showing only Correct or Incorrect/Incomplete answers.
 * There could be a button to expand all rows with one click (e.g. for printing)
 * A Sortation View Control could sort the data by Points Reached so educators can get a clear picture where the participants scored poorly.
+* A search bar could  quickly hide questions that don't include the entered search term.
 
 ### 3.3 New User Interface Concepts
 
 #### New Presentation Table Features
 
-#### New Column Panel
+##### Hide Further Fields Box
 
-#### New View Controls
+Currently, a Presentation Table shows a Further Fields box when expanded and cannot be rendered without it. This box takes up space in the expandable area where we would want to show the given answer and the best possible answer side by side across the full width.
 
-{ If the proposal introduces any completely new user interface elements, you might consult UI Kitchen Sink in order to find the necessary information to propose new UI-Concepts. Note that any maintainer might gladly assist you with this. }
+We want to implement an alternative Presentation Table layout where further fields are shown in a full width section at the top of the expandable area instead. This opens up more use cases for the content of the Presentation Table while staying true to the concept of having two levels of properties.
+
+##### Expand-All viewcontrol
+
+In some cases, users need to expand all table rows at once to see all questions one after the other (e.g. for a printable list).
+
+Therefore, we would like to add
+* an optional View Control "Expand/Collapse" toggle, that can open and close all rows of the Presentation Table at once.
+* an optional default setting to have the Presentation Table render in an already expanded state (e.g. for a print view)
+
+##### Optimize Print Styling
+We would like to optimize the Presentation Table for printing, so that a dedicated print mode of this result screen ideally wouldn't be necessary at all.
+
+##### Leading Icon
+An icon next to the title should indicate if an answer has been evaluated as correct or incorrect/incomplete. This helps the average user to find the entries relevant to them more quickly. Therefore we suggest a Leading Icons feature (comparable to the Leading Icon of the UI Item).
+
+#### New Column Panel, Column Listing or Column Layout
+At the moment, the Presentation Table only accepts Descriptive Listings in the content area. If we want to show the Given Answer and Best Possible Answer side by side, we do not currently have an UI component that supports this.
+
+Possible options would be
+* adding a column feature to the UI Panel
+* adding a column feature to the UI Listing
+* adding a general UI column as a layout UI component
 
 ### 3.4 Accessibility Implications
-{ If the proposal contains potential accessibility issues that are neither covered by existing UI components nor clarified by guidelines, please list them here. For every potential issue please either propose a solution or write down a short risk assessment about potential fallout if there would be no solution for the issue. }
+These plans should have a positive impact on accessibility:
+* The view will be mostly rendered with UI components that have been built with accessibility in mind.
+* Should accessibility concerns arise, those might have to be addressed as an issue with the respective UI component in general.
+* Only the legacy rendering of the questions might not be fully optimized yet. In the worst case, accessibility of the question box will stay the same as it currently is. There are other ongoing pojects to turn the questions into UI components which should address all challenges with regard to accessibility.
 
 ## 4 Technical Information
-{ The maintainer has to provide necessary technical information, e.g. dependencies on other ILIAS components, necessary modifications in general services/architecture, potential security or performance issues. }
+Dependencies to UI components
+* Presentation Table
+* View Controls
+* Filter (Fields & Buttons)
+* possibly Panel, Listing, or a new Column Layout
+
+Dependency to legacy code
+* Test & Assessment processing of test results
+* Question Rendering
+* Content Styles
 
 ## 5 Privacy
-{ Please list all personal data that will need to be stored or processed to implement this feature. For each date give a short explanation why it is necessary to use that date. }
+The new view will render the same data as the current implementation.
 
 ## 6 Security
-{ Does the feature include any special security relevant changes, e.g. the introducion of new endpoints or other new possible attack vectors. If yes, please explain these implications and include a commitment to deliver a written security concept as part of the feature development. This concept will need an additional approvement by the JourFixe. }
-
+There are no security relevant changes expected.
 ## 7 Contact
 Author of the Request: Engländer, Ferdinand
-Maintainer:
+Maintainer: Strassner, Denis
 Implementation of the feature is done by: {The maintainer must add the name of the implementing developer.}
 
 ## 8 Funding
-If you are interest in funding this feature, please add your name and institution to this list.
+* KIT - Karlsruher Institut für Technologie
 
 ## 9 Discussion
