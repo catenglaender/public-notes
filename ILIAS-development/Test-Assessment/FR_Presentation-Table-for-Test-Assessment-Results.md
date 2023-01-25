@@ -108,13 +108,13 @@ The exact filters and view controls for this view are yet to be determined.
 
 #### New Presentation Table Features
 
-##### Hide Further Fields Box
+##### Alternative to Further Fields Box
 
 Currently, a Presentation Table shows a Further Fields box when expanded and cannot be rendered without it. This box takes up space in the expandable area where we would want to show the given answer and the best possible answer side by side across the full width.
 
 We want to implement an alternative Presentation Table layout where further fields are shown in a full width section at the top of the expandable area instead. This opens up more use cases for the content of the Presentation Table while staying true to the concept of having two levels of properties.
 
-##### Expand-All viewcontrol
+##### Expand-Collapse-Toggle View Control
 
 In some cases, users need to expand all table rows at once to see all questions one after the other (e.g. for a printable list).
 
@@ -161,7 +161,9 @@ The new view will render the same data as the current implementation.
 There are no security relevant changes expected.
 ## 7 Contact
 Author of the Request: Engländer, Ferdinand
+
 Maintainer: Strassner, Denis
+
 Implementation of the feature is done by: {The maintainer must add the name of the implementing developer.}
 
 ## 8 Funding
