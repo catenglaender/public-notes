@@ -19,7 +19,7 @@ title: "Item Properties - UX Principles"
 
 ---
 
-![Image of an item with many properties](img/item-with-many-properties.jpg)
+![Image of an item with many properties](img/item-with-many-properties.png)
 
 ---
 
@@ -43,21 +43,30 @@ Properties can pile up...
 
 ---
 
-### Example 1: ???
+### Example 1:  Why can't I register for the following event?
 
-![Example 1](img/example-01.jpg)
+* Course with availability, registration period and places
+* Problem: The interpretation of the many numbers in the same place requires great effort.
 
----
-
-### Example 2: ???
-
-![Example 2](img/example-02.jpg)
+![Example 1](img/example-01.png)
 
 ---
 
-### Example 3: ???
+### Example 2: Has anything happened since my last visit?
 
-![Example 3](img/example-03.jpg)
+* Forum with new, unread and several articles
+* Problem: The interesting information is hidden between other data.
+
+![Example 2](img/example-02.png)
+
+---
+
+### Example 3: How did users interact with this object?
+
+* Learning Module with comments, notes, tags, ratings
+* Problem: User reactions have to be gathered in various places.
+
+![Example 3](img/example-03.png)
 
 ---
 
@@ -65,7 +74,7 @@ Properties can pile up...
 
 Grouping doesn't change much for elements with little properties
 
-![Example 4](img/example-04.jpg)
+![Example 4](img/example-04.png)
 
 ---
 
