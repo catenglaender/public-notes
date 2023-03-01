@@ -45,36 +45,52 @@ Properties can pile up...
 
 ### Example 1:  Why can't I register for the following event?
 
-* Course with availability, registration period and places
-* Problem: The interpretation of the many numbers in the same place requires great effort.
+---
 
 ![Example 1](img/example-01.png)
 
 ---
 
+* Course with availability, registration period and places
+* Problem: The interpretation of the many numbers in the same place requires great effort.
+
+---
+
 ### Example 2: Has anything happened since my last visit?
 
-* Forum with new, unread and several articles
-* Problem: The interesting information is hidden between other data.
+---
 
 ![Example 2](img/example-02.png)
 
 ---
 
+* Forum with new, unread and several articles
+* Problem: The interesting information is hidden between other data.
+
+---
+
 ### Example 3: How did users interact with this object?
+
+---
+
+![Example 2](img/example-02.png)
+
+---
 
 * Learning Module with comments, notes, tags, ratings
 * Problem: User reactions have to be gathered in various places.
-
-![Example 3](img/example-03.png)
 
 ---
 
 ### Minimal items barely change
 
-Grouping doesn't change much for elements with little properties
+---
 
 ![Example 4](img/example-04.png)
+
+---
+
+Grouping doesn't change much for elements with little properties
 
 ---
 
@@ -165,7 +181,7 @@ General User Intents
 
 ## Result: Semantic Groups
 
-* Main Identifiers (title, tile image, icon, event date)
+* Primary & Secondary Identifier (title, tile image, icon, event date)
 * Personal Status (learning progress, membership)
 * Availability (availibility time frame, seats left)
 * Main Descriptors (description)
