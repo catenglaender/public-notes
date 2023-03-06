@@ -7,7 +7,9 @@ slideNumber: false
 title: "Item Properties - UX Principles"
 ---
 
-# Object Properties - bringing order to chaos
+# Bringing Order to Chaos
+
+Object Properties
 
 ---
 
@@ -43,7 +45,7 @@ Properties can pile up...
 
 ---
 
-### Example 1:  Why can't I register for the following event?
+### Example 1:  Why can't I register?
 
 ---
 
@@ -51,12 +53,7 @@ Properties can pile up...
 
 ---
 
-* Course with availability, registration period and places
-* Problem: The interpretation of the many numbers in the same place requires great effort.
-
----
-
-### Example 2: Has anything happened since my last visit?
+### Example 2: Anything new?
 
 ---
 
@@ -64,21 +61,11 @@ Properties can pile up...
 
 ---
 
-* Forum with new, unread and several articles
-* Problem: The interesting information is hidden between other data.
-
----
-
-### Example 3: How did users interact with this object?
+### Example 3: User interaction?
 
 ---
 
 ![Example 2](img/example-02.png)
-
----
-
-* Learning Module with comments, notes, tags, ratings
-* Problem: User reactions have to be gathered in various places.
 
 ---
 
@@ -90,15 +77,18 @@ Properties can pile up...
 
 ---
 
-Grouping doesn't change much for elements with little properties
+## Why look into this now?
+
+---
+
+Repository is switching from legacy components to UI components
+* [Transfer Repository Objects to KS Items
+](https://docu.ilias.de/goto_docu_wiki_wpage_6409_1357.html)
+* [Streamline Object Properties](https://docu.ilias.de/goto_docu_wiki_wpage_7399_1357.html)
 
 ---
 
 ## The approach to find groupings
-
----
-
-What is the system behind the example groupings?
 
 ---
 
@@ -108,17 +98,18 @@ What is the system behind the example groupings?
 
 ---
 
-* admin: wants to see all properties for managing and sorting
-* normal user (learner): trying to find something quickly
-
----
-
 [UX Guide for Repository Object Properties](https://github.com/ILIAS-eLearning/ILIAS/blob/trunk/src/UI/docu/ux-guide-repository-objects-properties-and-actions.md)
 
 General User Intents
 
-* Making a quick pick
 * Managing multiple objects
+* Making a quick pick
+
+
+---
+
+* admin: wants to see all properties for managing and sorting
+* normal user (learner): trying to find something quickly
 
 ---
 
@@ -128,12 +119,16 @@ General User Intents
 * glancing at one or two of its properties
 * action shown as the most prominent usually the reason why user came to this view
 
+---
+
+## Workshop
 
 ---
 
-### Existing collections of possible properties
+### Collection of possible properties
 
-* Very helpful table in FR [Streamline Object Properties](https://docu.ilias.de/goto_docu_wiki_wpage_7399_1357.html)
+* Very helpful tables in FR [Streamline Object Properties](https://docu.ilias.de/goto_docu_wiki_wpage_7399_1357.html)
+* such collections often focus on data types
 
 ---
 
@@ -148,10 +143,24 @@ General User Intents
 
 ---
 
-### Semantic Groups
+### Finding the Semantic Groups
 
+* Which properties belong together for the most optimal fulfillment of the user intent?
 * same kind of information close together
 * user learns default order and position
+
+---
+
+* hypothesis - argumentation - rearrangement / acceptance (several discussion rounds)
+
+---
+
+![Board](img/board.png)
+
+---
+
+* Product: Matrix with semantic groups (horizontal) and order of their necessity (vertical)
+* Additional: Arguments quickly showed that special mechanisms are needed (priority areas)
 
 ---
 
@@ -160,24 +169,6 @@ General User Intents
 * make important information jump out visually
 * e.g. user can't open a course, would immediately like to know why
 * really quick decisions become possible
-
----
-
-## Workshop
-
----
-
-### Finding the Semantic Groups
-
-* Which properties belong together for the most optimal fulfillment of the user intent?
-* hypothesis - argumentation - rearrangement / acceptance (several discussion rounds)
-
----
-
-* Product: Matrix with semantic groups (horizontal) and order of their necessity (vertical)
-* Additional: Arguments quickly showed that special mechanisms are needed (priority areas)
-
-![Board](img/board.png)
 
 ---
 
@@ -215,90 +206,84 @@ General User Intents
 
 ---
 
-### Result Semantic Groups
-
+## Result: Semantic Groups
 * Primary & Secondary Identifier (title, tile image, icon, event date)
 * Personal Status (learning progress, membership)
 * Availability (availibility time frame, seats left)
-* Main Descriptors (description)
+* Details (description, file type and size, other meta-data)
 * Reactions (comments, star-rating)
-* Generated Meta-Data (creation date, file type and size)
-* Custom Meta-Data and Legacy
 
 ---
 
-### Result Priority Areas
+## Result: Priority Areas
 
-Filled from the Main Identifier Group:
-
-* Primary Identifier (title)
-* Secondary Identifier (icon)
-
----
-
-Filled from the Availability Group: 
-
-* Blocking Preconditions (explain access restriction)
-
----
-
-Filled from Reactions:
-
-* Prioritized Reaction (comments might be more important than the star rating)
-
----
-
-Filled from any group:
-
-* Leading Properties (learning progress is important for follow-up visits)
+* Blocking Availability Condition (filled from Availability Group)
+* Main Details (filled from Details Group)
+* Prioritized Reaction (filled from Reactions Group)
+* Leading Properties (filled from any group)
 
 ---
 
 ### Leading Properties
 
-* anticipating main user intent is now possible
+* anticipating different user intents is now possible
 * there are good reasons for it, but not mandatory
 * exact logic has to be developed case by case
+    * for courses: event date
+    * for files: file type and size
 
 ---
 
 ## Coding
 
-* right now all properties are dumped into "withProperties"
+---
+
+* just examples and ideas
+* implementation details are yet to be determined
+
+---
+
+* flat hierarchy
+* DOM order = accessible screen reader order
+* Re-ordering with CSS grid or flexbox = best order and weighting for seeing users
+
+---
+
+* right now all properties are placed as a listing into "withProperties"
 
 ---
 
 * in the future properties could be sorted into the different groups
-    * withGroupMainIdentifiers
-    * withGroupPersonalStatus
-    * withGroupAvailability
-    * withGroupMainDescriptors
-    * withGroupReaction
-    * withGroupGeneratedMeta
-    * withGroupLegacy
+    * PrimaryIdentifier
+    * SecondaryIdentifier
+    * inGroupPersonalStatus
+    * inGroupAvailability
+    * inGroupDetails
+    * inGroupReaction
 
 ---
 
-* and additionally priority areas can be filled by marking specific properties (just and example, implementation details are yt to be determined)
+* priority areas could pull from these groups
 
 ```PHP
 $crs_item = f('title', 'icon') //define primary and secondary identifier during construction
     ->inGroupPersonalStatus('progress', 'membership')
         ->withLeadingProperty('progress')
-    ->withAvailibility('date', 'permissions', 'preconditions')
-        ->withBlockingCondition('precondition')
+    ->inGroupAvailability('date', 'seats', 'preconditions')
+        ->withBlockingAvailabilityCondition('preconditions')
 ```
 
 ---
 
-### Sortierung eröffnet Möglichkeiten
+### Semantic Grouping brings more opportunities
+
+* on other UI components, views and sidebars?
+* filter by group?
 
 ---
 
 ## Outlook
 
-Repository object MUST be replaced by UI item soon
-
----
-
-## Possible new look
+* Repository object MUST be replaced by UI item soon
+* Finalizing design suggestion for Delos
+* Finalizing PR -> Discussion/Refinement -> Implementation of UI Repository Item
