@@ -169,17 +169,53 @@ General User Intents
 
 ### Finding the Semantic Groups
 
+* Which properties belong together for the most optimal fulfillment of the user intent?
+* hypothesis - argumentation - rearrangement / acceptance (several discussion rounds)
+
+---
+
+* Product: Matrix with semantic groups (horizontal) and order of their necessity (vertical)
+* Additional: Arguments quickly showed that special mechanisms are needed (priority areas)
+
+![Board](img/board.png)
+
 ---
 
 ### Testing with Mockups
+
+* Initial wireframes give a sense that the division of semantic groups works for different objects (file, exercise, forum, group)
+
+![Evolution](img/evolution.png)
 
 ---
 
 ### Feedback and Tweaking
 
+* Naming of semantic groups and priority areas was revised for a better understanding and differentiation from each other
+* Think through different workflows and representations (f.e. what happens if a property is not present)
+
 ---
 
-## Result: Semantic Groups
+* Representation for different screen sizes were tried (xlarge, large, small)
+
+![Screen Sizes](img/screensizes.png)
+
+---
+
+* current classification allows future development of item and other representations
+
+---
+
+## Conclusion
+
+* What can we do to help the user make a decision quickly based on the properties on an item?
+    * Semantic Groups
+    * Priority Areas
+    * Leading Properties
+
+---
+
+### Result Semantic Groups
 
 * Primary & Secondary Identifier (title, tile image, icon, event date)
 * Personal Status (learning progress, membership)
@@ -191,7 +227,7 @@ General User Intents
 
 ---
 
-## Result Priority Areas
+### Result Priority Areas
 
 Filled from the Main Identifier Group:
 
