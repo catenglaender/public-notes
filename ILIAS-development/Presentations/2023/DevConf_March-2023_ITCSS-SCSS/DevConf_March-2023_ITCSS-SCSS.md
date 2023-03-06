@@ -1,4 +1,18 @@
-# Style Code Changes for 9: ITCSS and SASS
+# ILIAS 8 looks like this
+
+(screenshot delos_ILIAS-8.png)
+
+---
+
+# ILIAS 9 looks like this
+
+(screenshots delos_ILIAS-9.png)
+
+---
+
+What's the difference?
+
+---
 
 * switched CSS pre-processor from LESS to SASS
 * new structure of style code = ITCSS
@@ -16,7 +30,7 @@
 
 * we couldn't update Bootstrap 3 for years because they switched
 * many modern frameworks with useful concepts use SASS
-* more possibilities e.g. dictionary maps, if, each, functions
+* more possibilities e.g. more strict includes/namespaces, dictionary maps, if, each, functions
 * automatic checks and testing with warning and debug messages
 
 ---
@@ -55,6 +69,18 @@ Most important for many contributions:
 1. settings
 5. layout
 7. components
+
+---
+
+# ILIAS 8
+
+(screenshot Style-Code_ILIAS-8.png)
+
+---
+
+# ILIAS 9
+
+(screenshot Style-Code_ILIAS-9_editLink.png)
 
 ---
 
