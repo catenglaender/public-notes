@@ -65,7 +65,7 @@ Properties can pile up...
 
 ---
 
-![Example 2](img/example-02.png)
+![Example 2](img/example-03.png)
 
 ---
 
@@ -206,9 +206,13 @@ General User Intents
 
 ---
 
+(Image: Wireframe of the sections?)
+
+---
+
 ## Result: Semantic Groups
 * Primary & Secondary Identifier (title, tile image, icon, event date)
-* Personal Status (learning progress, membership)
+* Personal Status (learning progress, participant status)
 * Availability (availibility time frame, seats left)
 * Details (description, file type and size, other meta-data)
 * Reactions (comments, star-rating)
@@ -218,19 +222,19 @@ General User Intents
 ## Result: Priority Areas
 
 * Blocking Availability Condition (filled from Availability Group)
+* Leading Properties (filled from any group)
 * Main Details (filled from Details Group)
 * Prioritized Reaction (filled from Reactions Group)
-* Leading Properties (filled from any group)
 
 ---
 
 ### Leading Properties
 
 * anticipating different user intents is now possible
-* there are good reasons for it, but not mandatory
-* exact logic has to be developed case by case
     * for courses: event date
     * for files: file type and size
+* there are good reasons for it, but not mandatory
+* exact logic has to be developed case by case
 
 ---
 
@@ -238,18 +242,24 @@ General User Intents
 
 ---
 
-* just examples and ideas
+* just rough thoughts, examples and ideas
 * implementation details are yet to be determined
+
+---
+
+* current UI item: all properties as a listing into "withProperties"
+
+---
+
+* properties have to be sorted into the Semantic Groups
+* logic for Priority Areas is optional
+* we would like to offer making suggestions for leading properties and main details
 
 ---
 
 * flat hierarchy
 * DOM order = accessible screen reader order
 * Re-ordering with CSS grid or flexbox = best order and weighting for seeing users
-
----
-
-* right now all properties are placed as a listing into "withProperties"
 
 ---
 
@@ -268,9 +278,10 @@ General User Intents
 ```PHP
 $crs_item = f('title', 'icon') //define primary and secondary identifier during construction
     ->inGroupPersonalStatus('progress', 'membership')
-        ->withLeadingProperty('progress')
-    ->inGroupAvailability('date', 'seats', 'preconditions')
+    ->inGroupAvailability('availabilitydate', 'seats', 'preconditions')
         ->withBlockingAvailabilityCondition('preconditions')
+    ->inGroupDetails('eventdate', 'description')
+        ->withLeadingProperty('eventdate')
 ```
 
 ---
@@ -282,8 +293,10 @@ $crs_item = f('title', 'icon') //define primary and secondary identifier during 
 
 ---
 
-## Outlook
+## Outlook UI Repository item
 
 * Repository object MUST be replaced by UI item soon
 * Finalizing design suggestion for Delos
-* Finalizing PR -> Discussion/Refinement -> Implementation of UI Repository Item
+* Finalizing PR -> Discussion/Refinement -> Implementation of UI Repository Item in KS
+* FR [Transfer Repository Objects to KS Items
+](https://docu.ilias.de/goto_docu_wiki_wpage_6409_1357.html)
