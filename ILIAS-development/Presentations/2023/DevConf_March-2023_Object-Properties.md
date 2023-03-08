@@ -215,13 +215,9 @@ what can we do?
 
 ![Scheme Semantic Groups](img/Scheme-semgroups.png)
 
-
-
 ---
 
 ![Scheme Priority Areas](img/Scheme-prioarea.png)
-
-
 
 ---
 
@@ -232,6 +228,10 @@ what can we do?
     * for files: file type and size
 * there are good reasons for it, but not mandatory
 * exact logic has to be developed case by case
+
+---
+
+![File Leading Properties](img/file-leadprop.png)
 
 ---
 
