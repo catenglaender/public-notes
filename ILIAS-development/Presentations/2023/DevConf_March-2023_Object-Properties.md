@@ -208,7 +208,11 @@ what can we do?
 
 ---
 
-(Image: Wireframe of the sections?)
+![Scheme Complete](img/Scheme-complet.png)
+
+---
+
+![Scheme Semantic Groups](img/Scheme-semgroups.png)
 
 ---
 
@@ -218,6 +222,10 @@ what can we do?
 * Availability (availibility time frame, seats left)
 * Details (description, file type and size, other meta-data)
 * Reactions (comments, star-rating)
+
+---
+
+![Scheme Priority Areas](img/Scheme-prioarea.png)
 
 ---
 
