@@ -151,7 +151,7 @@ General User Intents
 
 ---
 
-* hypothesis - argumentation - rearrangement / acceptance (several discussion rounds)
+* hypothesis -> argumentation -> rearrangement OR acceptance (repeat)
 
 ---
 
@@ -159,8 +159,10 @@ General User Intents
 
 ---
 
-* Product: Matrix with semantic groups (horizontal) and order of their necessity (vertical)
-* Additional: Arguments quickly showed that special mechanisms are needed (priority areas)
+* find and recognize relevant information increase effectiveness and satisfaction
+* but we have so much properties in one semantic group
+
+what can we do?
 
 ---
 
@@ -168,13 +170,13 @@ General User Intents
 
 * make important information jump out visually
 * e.g. user can't open a course, would immediately like to know why
-* really quick decisions become possible
+* really quick decisions become possible (leading properties)
 
 ---
 
 ### Testing with Mockups
 
-* Initial wireframes give a sense that the division of semantic groups works for different objects (file, exercise, forum, group)
+* How about other objects like file, exercise, forum, group?
 
 ![Evolution](img/evolution.png)
 
@@ -182,18 +184,18 @@ General User Intents
 
 ### Feedback and Tweaking
 
-* Naming of semantic groups and priority areas was revised for a better understanding and differentiation from each other
-* Think through different workflows and representations (f.e. what happens if a property is not present)
+* Are the semantic groups sufficiently differentiated from each other?
+* Have different workflows been run through (e.g. what happens if a property is not available)?
 
 ---
 
-* Representation for different screen sizes were tried (xlarge, large, small)
+* How do the groups arrange themselves on different screen sizes? (large, small)
 
 ![Screen Sizes](img/screensizes.png)
 
 ---
 
-* current classification allows future development of item and other representations
+* Is the system flexible enough? (furter developments)
 
 ---
 
