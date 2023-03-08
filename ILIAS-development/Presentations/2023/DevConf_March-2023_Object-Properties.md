@@ -2,7 +2,8 @@
 theme : "white"
 transition: "slide"
 highlightTheme: "monokai"
-logoImg: "./img/logo.png"
+logoImg: "./img/CaT-and-Uni-Bern.png"
+customTheme: "style"
 slideNumber: false
 title: "Item Properties - UX Principles"
 ---
@@ -214,33 +215,19 @@ what can we do?
 
 ![Scheme Semantic Groups](img/Scheme-semgroups.png)
 
----
 
-## Result: Semantic Groups
-* Primary & Secondary Identifier (title, tile image, icon, event date)
-* Personal Status (learning progress, participant status)
-* Availability (availibility time frame, seats left)
-* Details (description, file type and size, other meta-data)
-* Reactions (comments, star-rating)
 
 ---
 
 ![Scheme Priority Areas](img/Scheme-prioarea.png)
 
----
 
-## Result: Priority Areas
-
-* Blocking Availability Condition (filled from Availability Group)
-* Leading Properties (filled from any group)
-* Main Details (filled from Details Group)
-* Prioritized Reaction (filled from Reactions Group)
 
 ---
 
 ### Leading Properties
 
-* anticipating different user intents is now possible
+* makes meeting different user expectations possible
     * for courses: event date
     * for files: file type and size
 * there are good reasons for it, but not mandatory
@@ -257,23 +244,19 @@ what can we do?
 
 ---
 
-* current UI item: all properties as a listing into "withProperties"
+current UI Item
+* all properties as a listing into "withProperties"
 
 ---
 
+the proposes UI Repository Item
 * properties have to be sorted into the Semantic Groups
 * logic for Priority Areas is optional
 * we would like to offer making suggestions for leading properties and main details
 
 ---
 
-* flat hierarchy
-* DOM order = accessible screen reader order
-* Re-ordering with CSS grid or flexbox = best order and weighting for seeing users
-
----
-
-* in the future properties could be sorted into the different groups
+* Collections for the Semantic Groups
     * PrimaryIdentifier
     * SecondaryIdentifier
     * inGroupPersonalStatus
@@ -296,6 +279,14 @@ $crs_item = f('title', 'icon') //define primary and secondary identifier during 
 
 ---
 
+HTML DOM
+
+* flat hierarchy
+* DOM order = accessible screen reader order
+* Re-ordering with CSS grid or flexbox = best order and weighting for seeing users
+
+---
+
 ### Semantic Grouping brings more opportunities
 
 * on other UI components, views and sidebars?
@@ -305,7 +296,7 @@ $crs_item = f('title', 'icon') //define primary and secondary identifier during 
 
 ## Outlook UI Repository item
 
-* Repository object MUST be replaced by UI item soon
+* Repository object MUST be replaced by UI Item soon
 * Finalizing design suggestion for Delos
 * Finalizing PR -> Discussion/Refinement -> Implementation of UI Repository Item in KS
 * FR [Transfer Repository Objects to KS Items
