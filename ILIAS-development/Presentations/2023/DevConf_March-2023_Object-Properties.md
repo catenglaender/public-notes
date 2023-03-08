@@ -195,7 +195,7 @@ what can we do?
 
 ---
 
-* Is the system flexible enough? (furter developments)
+* Is the system flexible enough? (further developments)
 
 ---
 
