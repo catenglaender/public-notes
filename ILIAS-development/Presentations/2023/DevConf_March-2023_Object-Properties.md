@@ -179,6 +179,8 @@ what can we do?
 
 * How about other objects like file, exercise, forum, group?
 
+---
+
 ![Evolution](img/evolution.png)
 
 ---
@@ -187,10 +189,9 @@ what can we do?
 
 * Are the semantic groups sufficiently differentiated from each other?
 * Have different workflows been run through (e.g. what happens if a property is not available)?
+* How do the groups arrange themselves on different screen sizes? (large, small)
 
 ---
-
-* How do the groups arrange themselves on different screen sizes? (large, small)
 
 ![Screen Sizes](img/screensizes.png)
 
