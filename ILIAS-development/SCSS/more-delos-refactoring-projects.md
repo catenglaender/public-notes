@@ -40,7 +40,7 @@ Now that Delos has been moved to the ITCSS SCSS codebase the following projects 
 * it's not really clear when to use xlarge, xxlarge or xxxlarge spacings
 * the spacings base, small and xs are tiny - increments of 3 px are not really readable as distinguished steps in spacing
 
-## Completing the set of variables for interactive/clickable elements
+## Completing the set of variables for clickable elements
 
 * clickable elements do not have the complete set of variables exposed to create very unqique styles e.g. links do not have a text-decoration variable
 * we probably need the following variable groups:
@@ -68,6 +68,11 @@ Now that Delos has been moved to the ITCSS SCSS codebase the following projects 
   * x__icon/glyph/toggle__display
   * x__min-height
   * x__padding
+
+## Add missing variables for mainbar/slate
+
+* not all colors in the mainbar or slate can be changed or inverted through variables, causing the need for complex and fragil patches in some system style skins
+* all colors should be accessible through variables, glyph colors should be easier to invert
 
 ## Refactoring Presentation Table to use flexbox layout
 
