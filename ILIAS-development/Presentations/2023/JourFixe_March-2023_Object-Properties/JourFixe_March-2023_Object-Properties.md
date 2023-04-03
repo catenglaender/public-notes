@@ -75,6 +75,13 @@ https://github.com/ILIAS-eLearning/ILIAS/pull/5688
 
 ---
 
+## Name
+
+* UI Repository Item = too sepcific, one use?
+* Entity Representation = more open and hint towards object/entity nature
+
+---
+
 ## Next steps
 
 * Start implementing the Repsoitory Item
