@@ -21,13 +21,13 @@ We would like to start implementing
 
 ---
 
-## Legacy vs. Repository Item
+Legacy vs. Repository Item
 
 ![](./img/example-01.png)
 
 ---
 
-## Legacy vs. Repository Item
+Legacy vs. Repository Item
 
 ![](./img/example-02.png)
 
