@@ -51,7 +51,11 @@
 
 ## Calendar
 
+### Screenshot
+
 ![](img/2023-04-04-16-45-26.png)
+
+### Details
 
 * Viewcontrols Day/Week/Month, pagination day/week/month
 * Action: create sub-item ("Create Appointment")
@@ -61,7 +65,11 @@
 
 ## Repository Category Object
 
+### Screenshot
+
 ![](img/2023-04-04-16-55-23.png)
+
+### Details
 
 * Action: create sub-item ("Add New Item")
 * Action: edit this item ("Customize Page")
@@ -71,7 +79,11 @@
 
 ## Repository Manage View
 
+### Screenshot
+
 ![](img/2023-04-04-16-57-51.png)
+
+### Details
 
 * Action: process one or multiple sub-items
 * has the arrow of a `ilTableCommandRow`
@@ -79,14 +91,22 @@
 
 ## Repository Sorting View
 
+### Screenshot
+
 ![](img/2023-04-04-17-05-31.png)
+
+### Details
 
 * Action: save a change of sub-items (sort order of sub-items)
 * B: `<div class="ilAdminRow">[...]<nav class="ilToolbar navbar navbar-default " id="2">`
 
 ## Repository Category > Settings > Multilingualism
 
+### Screenshot
+
 ![](img/2023-04-04-17-08-33.png)
+
+### Details
 
 * Action: create sub-item
 * Action: change a system setting (activate translation for Page Editing)
@@ -95,7 +115,11 @@
 
 ## Repository Category > Settings > Filter
 
+### Screenshot
+
 ![](img/2023-04-04-17-16-13.png)
+
+### Details
 
 * Action: jump to deeper settings (fieldselection for filter)
 * What are you supposed to actually do on this screen? couldn't it just show the fieldselection instead?
@@ -103,7 +127,11 @@
 
 ## Repository Category > Local User Administration
 
+### Screenshot
+
 ![](img/2023-04-04-17-24-03.png)
+
+### Details
 
 * Action: add sub-item (Local User)
 * Bulk-Action: Import (Users in Local User Administration)
@@ -111,14 +139,22 @@
 
 ## Repository Category > Export
 
+### Screenshot
+
 ![](img/2023-04-04-17-52-43.png)
+
+### Details
 
 * Action: add sub-item
 * A: `<div class="container-fluid ilToolbarContainer">[...]<nav class="ilToolbar navbar navbar-default " id="1">`
 
 ## Repository Category > Permissions
 
+### Screenshot
+
 ![](img/2023-04-04-17-54-47.png)
+
+### Details
 
 * Bulk-Action: Change to template selected from dropdown
 * Action: add sub-item (Add New Local Role, Import Role)
@@ -126,21 +162,33 @@
 
 ## Repository Category > Permission of User
 
+### Screenshot
+
 ![](img/2023-04-04-17-57-59.png)
+
+### Details
 
 * Action: query specific items by freely entered text
 * A: `<div class="container-fluid ilToolbarContainer">[...]<nav class="ilToolbar navbar navbar-default " id="1">`
 
 ## Search
 
+### Screenshot
+
 ![](img/2023-04-05-11-10-17.png)
+
+### Details
 
 * Action: search query items by freely entered text
 * D: `<div class="container-fluid" id="ilContentContainer">[...]<div class="ilToolbar" id="il_search_toolbar">`
 
 ## Learning Sequence
 
+### Screenshot
+
 ![](img/2023-04-05-11-21-10.png)
+
+### Details
 
 * Navigation: Next/Previous
 * Action: Mark (as completed)
@@ -152,7 +200,11 @@
 
 ## Private Notes
 
+### Screenshot
+
 ![](img/2023-04-05-11-47-17.png)
+
+### Details
 
 * Action: Download Export
 * View Controls for sub-items in view
@@ -163,21 +215,33 @@
 
 ## File Info
 
+### Screenshot
+
 ![](img/2023-04-05-12-00-05.png)
+
+### Details
 
 * Action: Download Export
 * A: `<div class="container-fluid ilToolbarContainer">[...]<nav class="ilToolbar navbar navbar-default " id="1">`
 
 ## Group > Members
 
+### Screenshot
+
 ![](img/2023-04-05-12-03-02.png)
+
+### Details
 
 * Bulk-Action: Message many (Mail to members)
 * A: `<div class="container-fluid ilToolbarContainer">[...]<nav class="ilToolbar navbar navbar-default " id="1">`
 
 ## Learning Module
 
+### Screenshot
+
 ![](img/2023-04-11-10-50-58.png)
+
+### Details
 
 * Navigation: Go to other page (info page)
 * Action: Manage connected status/attribute
@@ -186,7 +250,11 @@
 
 ## Mediapool
 
+### Screenshot
+
 ![](img/2023-04-11-11-01-48.png)
+
+### Details
 
 * Action: create sub-item
 * in TableControls:
@@ -196,21 +264,33 @@
 
 ## E-Mail
 
+### Screenshot
+
 ![](img/2023-04-11-11-06-18.png)
+
+### Details
 
 * Action: edit this item/view (Forward, Print, Delete, Move)
 * A: `<div class="container-fluid ilToolbarContainer">[...]<nav class="ilToolbar navbar navbar-default " id="1">`
 
 ## Survey - Landing
 
+### Screenshot
+
 ![](img/2023-04-11-11-14-28.png)
+
+### Details
 
 * Action: join with a specific role
 * A: `<div class="container-fluid ilToolbarContainer">[...]<nav class="ilToolbar navbar navbar-default " id="1">`
 
 ## Survey - Questions
 
+### Screenshot
+
 ![](img/2023-04-11-11-19-44.png)
+
+### Details
 
 * Navigation: Next/Previous
 * Navigation: Go to other page
@@ -219,7 +299,11 @@
 
 ## Forum
 
+### Screenshot
+
 ![](img/2023-04-11-11-32-00.png)
+
+### Details
 
 * Action: create sub-item
 * Bulk-Action: process multiple sub-items
@@ -227,7 +311,11 @@
 
 ## Forum Thread
 
+### Screenshot
+
 ![](img/2023-04-11-11-34-59.png)
+
+### Details
 
 * Action: create sub-item
 * Bulk-Action: process multiple sub-items
@@ -236,7 +324,11 @@
 
 ## Blog
 
+### Screenshot
+
 ![](img/2023-04-11-11-40-11.png)
+
+### Details
 
 * Navigation: Next/Previous Pagination/Month/Post
 * Action: edit this item/view
@@ -244,14 +336,22 @@
 
 ## Test - Info Tab
 
+### Screenshot
+
 ![](img/2023-04-18-11-25-59.png)
+
+### Details
 
 * Launch: Start a mode (start test)
 * A: `<div class="container-fluid ilToolbarContainer">[...]<nav class="ilToolbar navbar navbar-default " id="1">`
 
 ## Test - Running Test
 
+### Screenshot
+
 ![](img/2023-04-18-11-40-29.png)
+
+### Details
 
 * 3 Toolbar designs in one view
 * Interface: Show/hide sidebar
@@ -263,7 +363,11 @@
 
 ## Test Result
 
+### Screenshot
+
 ![](img/2023-04-18-11-42-08.png)
+
+### Details
 
 * Action: print
 * Action: Download Export
