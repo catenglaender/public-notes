@@ -1,6 +1,7 @@
 # Vorbereitung
 
 Date: 30.05.2023
+
 Teilnehmende: Timon, Richard, Ferdinand, Yvonne
 
 * card und item stellen öfters die gleichen Informationen dar
