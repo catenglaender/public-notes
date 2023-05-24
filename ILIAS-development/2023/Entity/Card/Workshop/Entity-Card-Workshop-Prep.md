@@ -1,5 +1,7 @@
 # Vorbereitung
 
+Date: 30.05.2023
+
 * card und item stellen öfters die gleichen Informationen dar
 * vor Property Projekt: Einteilung in section/Reihenfolge
 * Mapping Versuch Repo Sections entsprechend den semantischen Gruppen zuzuordnen
