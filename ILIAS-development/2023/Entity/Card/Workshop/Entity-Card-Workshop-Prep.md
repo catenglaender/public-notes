@@ -1,30 +1,30 @@
 # Vorbereitung
 
-Date: 30.05.2023
+Datum: 30.05.2023
 
 Teilnehmende: Timon, Richard, Ferdinand, Yvonne
 
-* card und item stellen öfters die gleichen Informationen dar
-* vor Property Projekt: Einteilung in section/Reihenfolge
-* Mapping Versuch Repo Sections entsprechend den semantischen Gruppen zuzuordnen
-* Ähnliche Ideen für feste Orte (ggf. an einem Grid ausrichten)
-
-* Progress Meter ist nicht selbsterklärend
-
-* ist nur die repo card eine entity oder alle?
 
 # Workshop Anlass
 
-* Ähnlichkeit card und item ist schon früher aufgefallen
-
+* Ähnlichkeit card und item ist schon früher aufgefallen, im Entity Projekt erneut.
+* Einteilung der Informationen in Cards soll klarer definiert werden (Sections vs. semantische Gruppen)
 
 # Workshop Ziel
 
-* Worin unterscheidet sich die Card vom Item?
 * Abgrenzung Entity vs. Nicht Entity (Entity vs. Item, Card Entity vs. Card vs. Repo Card)
 * Beschluss jetzige Karte umbauen oder neue Entity Card erstellen
-* Erste Schritte, grobe Roadmap festlegen
+* Projekt initiieren (Roadmap anfertigen)
 
+# Leitfrage
+
+* Worin unterscheidet sich Card von Item?
+
+# Ausgangslage
+
+* Card und Item können die gleichen Informationen darstellen
+* Mapping Versuch der semantischen Gruppen ist vor allem für Repository Card erfolgsversprechend
+* Ähnliche Ideen für "feste Orte" vorhanden (ggf. an einem Grid ausrichten)
 
 # Klassifizierung
 
@@ -34,9 +34,9 @@ Teilnehmende: Timon, Richard, Ferdinand, Yvonne
 # Actions
 
 * Card hat Call to Action Button
-* Dropdwon können beide haben
+* Dropdown können beide haben
 * Semantische Gruppen, Priority Areas, Reihenfolge gibt es bei Actions noch nicht
 
 # Long-term vision
 
-* Semantische Gruppen und Priority Areas könnten helfen reduzierte oder Detailansichten mit unterschiedlichem Detailgrad zu erzeugen
+* Semantische Gruppen und Priority Areas könnten helfen, Ansichten mit reduziertem oder hohem Detailgrad zu erzeugen, die User selber bestimmen kann.
