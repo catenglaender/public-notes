@@ -19,3 +19,5 @@
 | Link to slide                               | yes to heading and IDs                               | yes to ID                                            |
 | Maintainer philosophy                       | Minimalism, features as (tricky to install) add-ons  | Feature-rich out of the box                          |
 
+Alternative with realtime editor/preview:
+https://github.com/jxnblk/mdx-deck
