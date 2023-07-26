@@ -2,6 +2,20 @@
 marp: true
 ---
 
+Call for papers
+
+
+
+
+# What UI do users, designers and frontend developers really want?
+
+How do good UI and style-code make users, designers and frontend developers happy? ILIAS 9 comes with some new, some re-factored and some visually improved UI Components to offer more frictionless user experiences and a highly manageable code base.
+
+After many lessons learned in development, we share best practices, checklists and solutions that anyone working with style code in ILIAS 9 might find useful.
+
+
+---
+
 # What the user always wanted
 
 Creating intuitive concepts and efficient style code for UI components
