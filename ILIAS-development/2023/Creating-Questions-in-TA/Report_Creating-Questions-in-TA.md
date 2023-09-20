@@ -111,6 +111,8 @@ Adding multiple choice options not possible
 
 ### Too many features too visible
 
+...
+
 ### Preview disconnected from creation
 
 ...
@@ -133,7 +135,7 @@ For presentations there are markdown based presentation tools like Reveal.js or 
 
 ...
 
-### WYSIWYG makes previews unnecessary
+### WYSIWYG makes preview steps unnecessary
 
 ...
 
@@ -144,6 +146,10 @@ For presentations there are markdown based presentation tools like Reveal.js or 
 ## Recommendations
 
 ### Creating questions as a flow
+
+...
+
+### Overview during question creation
 
 ...
 
