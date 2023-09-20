@@ -34,7 +34,7 @@ To get behind how we could improve the user's general satisfaction we will
 
 When looking at other tools that allow creating questions for an interactive test or quiz, it's striking that ILIAS requires both the most amount of clicks and most amount times the interface replaces most of its content (e.g. shows a new view or tab).
 
-In this table below we counted clicks and view changes when
+In the table below we counted clicks and view changes when
 
 * starting on the overview screen of an empty test or quiz
 * creating one single choice true/false question,
@@ -42,12 +42,17 @@ In this table below we counted clicks and view changes when
 * assigning 10 points to the correct answers,
 * ending on the overview screen
 
+Screen recordings of the question creation in ILIAS and on Quiz-Maker.com:
+
+![](./img/Click-Count_Test_ILIAS_Timelapse.gif)
+
+![](./img/Click-Count_Test_quiz-maker_Timelapse.gif)
 
 | Tool           | Click Count | Change of View | Set 10 points for correct answers |
 | -------------- | ----------- | -------------- | --------------------------------- |
-| ILIAS          | 31          | 8              | possible                          |
-| typeform       | 19          | 3              | possible                          |
-| quiz-maker.com | 18          | 3              | possible                          |
+| ILIAS          | 33          | 8              | possible                          |
+| Typeform       | 19          | 3              | possible                          |
+| Quiz-Maker.com | 18          | 3              | possible                          |
 | H5P            | 16          | 0              | not possible                      |
 
 H5P misses a feature to assign custom point values to correct answers (if it did it would probably require 20 clicks in total).
