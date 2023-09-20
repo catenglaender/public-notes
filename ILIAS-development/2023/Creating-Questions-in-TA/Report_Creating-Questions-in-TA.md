@@ -91,7 +91,7 @@ During question creation users mostly see forms with very little visual weightin
 
 ## Core issues
 
-### No flow state possible
+### No flow during question creation
 
 Sometimes the authors of tests have to enter dozens of questions
 
@@ -145,7 +145,11 @@ For presentations there are markdown based presentation tools like Reveal.js or 
 
 ## Recommendations
 
-### Creating questions as a flow
+### Minimizing page loads
+
+...
+
+### Validation and error messages
 
 ...
 
@@ -153,14 +157,10 @@ For presentations there are markdown based presentation tools like Reveal.js or 
 
 ...
 
-#### Minimizing page loads
-
-...
-
 ### Hide and decouple advanced features
 
 ...
 
-### Keyboard navigation: Flow feature or accessibility patch?
+### Keyboard navigation: Feature not accessibility patch!
 
 ...
