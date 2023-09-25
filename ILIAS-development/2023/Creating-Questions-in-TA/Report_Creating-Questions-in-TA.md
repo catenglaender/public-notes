@@ -48,12 +48,13 @@ Screen recordings of the question creation in ILIAS and on Quiz-Maker.com:
 
 ![](./img/Click-Count_Test_quiz-maker_Timelapse.gif)
 
-| Tool           | Click Count | Change of View | Set 10 points for correct answers |
-| -------------- | ----------- | -------------- | --------------------------------- |
-| ILIAS          | 33          | 8              | possible                          |
-| Typeform       | 19          | 3              | possible                          |
-| Quiz-Maker.com | 18          | 3              | possible                          |
-| H5P            | 16          | 0              | not possible                      |
+| Tool            | Click Count | Change of View | Set 10 points for correct answers |
+| --------------- | ----------- | -------------- | --------------------------------- |
+| ILIAS           | 33          | 8              | possible                          |
+| Typeform        | 19          | 3              | possible                          |
+| Quiz-Maker.com  | 18          | 3              | possible                          |
+| H5P             | 16          | 0              | not possible                      |
+| Articulate Rise | 13 - 16     | 0              | not possible                      |
 
 H5P misses a feature to assign custom point values to correct answers (if it did it would probably require 20 clicks in total).
 
@@ -93,27 +94,56 @@ During question creation users mostly see forms with very little visual weightin
 
 ### No flow during question creation
 
-Sometimes the authors of tests have to enter dozens of questions
+Sometimes the authors of tests have to enter dozens of questions. However, in its current state the interface requires many clicks and view changes that slow the user down or interrupt their focus.
 
-...
+For example, to finish one question and create another the user has to...
+* finish question with a click on "save and return" in form actions
+  
+![](img/2023-09-25-13-55-13.png)
 
-The goal is to allow a flow state, where the interface is an unobtrusive room for the users thoughts rather than causing them to think about the interface itself.
+* exit the preview by clicking on "Back to the Test" in sub tabs
 
-...
+![](img/2023-09-25-13-56-57.png)
+
+* click on "Create Question" in Questions overview page
+
+![](img/2023-09-25-13-58-53.png)
+
+That's three clicks in three different locations across three views. That's too many for a user intent that we can be relatively certain of: most of the time when a user creates one question, they also want to create another one.
+
+Compare this to Quiz-Maker.com where creating a new question is always possible at the bottom of the view and you never need to indicate that you are done editing a question:
+
+![](img/2023-09-25-14-01-38.png)
+
+Additionally, there is no interrupting validation of the user input in Quiz-Maker on this screen.
+
+In ILIAS you may forget to add "0" as a point value for the incorrect answers. The resulting error causes the page to reload and scroll up which is quite jarring to a user needing to enter many questions.
+
+![](img/2023-09-25-14-10-14.png)
+
+The goal should be to allow a flow state, where the interface is an unobtrusive room for the user's thoughts rather than causing them to think about the interface itself.
 
 ### Using the keyboard
 
-Tabbing always starts with breadcrumbs
+While keyboard navigation in ILIAS is technically possible, it is far from being a pleasant experience. After every page reload the keyboard focus tabbing begins at the breadcrumb bar, which is not at all relevant to a user wanting to blaze through the input of many questions.
 
-Adding multiple choice options not possible
+We believe that a fluent and consistent keyboard support can make the input of many questions a lot easier as moving the hand from keyboard to mouse repeatedly can be perceived as friction for the user experience.
 
-...
+In Quiz Maker, keyboard focus is automatically set to the question text after creating a new question, which feels very natural and saves a click.
 
 ### Too many features too visible
 
-...
+Because ILIAS supports many different use cases there are many features that might not be interesting to all authors. ILIAS often shows these features with the same visual priority or even forces an input.
+
+In our research, we noticed that some tools (Quiz-Maker, Typeform) keep scoring hidden from the average user and just award answers marked as correct with 1 point unless otherwise specified in an optional second step.
+
+The Lifecycle field is the most useful as a bulk operation in an overview screen. Setting all questions to "Final" during creation is a huge waste of time.
+
+While skipping this step is probably not suitable for an exam, not being forced to enter point values greatly speeds up some use cases e.g. the creation of little test that someone might want to add to chapters in a learning sequence.
 
 ### Preview disconnected from creation
+
+
 
 ...
 
@@ -121,15 +151,17 @@ Adding multiple choice options not possible
 
 ### Flow state
 
-Due to the limited screen space, many good mobile apps have mastered how to optimize interfaces by minimizing the amount of options shown at one time and leading users through multiple views relatively seamless.
+Due to the limited screen space, many good mobile apps have mastered how to optimize interfaces by minimizing the amount of options shown at one time and leading users through multiple views with ease.
 
-If you learn a language in Duolingo or create a rental on Airbnb you are lead through many little steps through onboardings and bite sized prompts. The screens with the most options are usually setting or selection screens probing for the user intent. The actual work process is then done in very minimal interfaces step by step.
+If you learn a language in Duolingo or create a rental on Airbnb you are guided in many little steps through onboardings and bite sized prompts. The screens with the most options are usually setting or selection screens probing for the user intent. The actual work process is then done in very minimal interfaces step by step.
 
-Even on larger desktop screens, there are use cases for minimal interfaces: Distraction free text editors are very popular among writers and programmers.
+Even on larger desktop screens, there are use cases for minimal interfaces: Distraction free text editors are very popular among writers and programmers. Project management software like Asana, Trello and Active Collab are able to display quite complex entities with many properties, but reduce the amount of information displayed in certain views.
 
-For presentations there are markdown based presentation tools like Reveal.js or Marp. Slidebean completely splits up content from design as a distinct two step process, so the user can be either in the writing or design mindset, but doesn't have to jump back and forth between them like in Power Point.
+Markdown based presentation tools like Reveal.js or Marp and the pitch deck service Slidebean separate content creation from design as a distinct two step process. This way the user can be either in the writing or design mindset (and their distinct mental models) and doesn't have to jump back and forth between both like in Power Point.
 
-...
+We believe that there are two things from these examples we should re-create in ILIAS:
+* reducing and segmenting the interface where it feels natural and smooth to the user (and vice versa combine steps that the user would expect to be combined)
+* take inspiration from data entry, writing and markdown-based tools that allow a flow state for entering large amounts of texts without ever interrupting the user with unnecessary obstacles.
 
 ### Decoupling scoring from question creation
 
@@ -143,7 +175,7 @@ For presentations there are markdown based presentation tools like Reveal.js or 
 
 ...
 
-## Recommendations
+## Incremental Improvements
 
 ### Minimizing page loads
 
@@ -159,8 +191,26 @@ For presentations there are markdown based presentation tools like Reveal.js or 
 
 ### Hide and decouple advanced features
 
+### Duplicate Questions
+
+### Reasonable Defaults
+
+Single Choice questions should have true and false as a default.
+
+Cloze Questions could have an example input placeholder text with one gap in it to demonstrate how it's done.
+
 ...
 
 ### Keyboard navigation: Feature not accessibility patch!
 
+Focus on question title
+
 ...
+
+## Overall Model
+
+### Markdown
+
+### Full WYSIWYG
+
+### Oveview in Slate & new form features
