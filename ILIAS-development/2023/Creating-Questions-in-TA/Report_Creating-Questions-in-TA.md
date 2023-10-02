@@ -125,27 +125,33 @@ The goal should be to allow a flow state, where the interface is an unobtrusive 
 
 ### Using the keyboard
 
-While keyboard navigation in ILIAS is technically possible, it is far from being a pleasant experience. After every page reload the keyboard focus tabbing begins at the breadcrumb bar, which is not at all relevant to a user wanting to blaze through the input of many questions.
+While keyboard navigation in ILIAS is technically possible, it is far from being a pleasant experience. After every page reload the keyboard focus tabbing begins all the way at the top in the breadcrumb bar, which is not at all relevant to a user wanting to blaze through the input of many questions.
 
 We believe that a fluent and consistent keyboard support can make the input of many questions a lot easier as moving the hand from keyboard to mouse repeatedly can be perceived as friction for the user experience.
 
-In Quiz Maker, keyboard focus is automatically set to the question text after creating a new question, which feels very natural and saves a click.
+In Quiz Maker, keyboard focus is automatically set to the question text after creating a new question, which feels very natural and saves a click (and in ILIAS would save many keyboard tabs)
 
-### Too many features too visible
+### Feature overload
 
-Because ILIAS supports many different use cases there are many features that might not be interesting to all authors. ILIAS often shows these features with the same visual priority or even forces an input.
+Because ILIAS supports many different use cases there are many features that might not be relevant for most user intents. ILIAS often shows these features with the same visual priority or even requires an input. Additionally, it seems that some very prominent features are not used in a way that they could unfold their full potential.
+
+There is a field to change the author's name for a question as one of the first and therefore most visible form fields. While there might be use cases (entering questions on a professor's behalf or marking co-authorship) it would make much more sense to change the author name once for all operations following thereafter. Changing the author's name for each new question manually adds to the already quite large click count.
+
+The Lifecycle field that marks the approval status of a questions would be the most useful as a bulk operation in an overview screen or an approval mode to quickly approve or disapprove an entire question set. Setting all questions to "Final" during creation is a huge waste of time as questions set to "Draft" do appear in the quiz anyway.
 
 In our research, we noticed that some tools (Quiz-Maker, Typeform) keep scoring hidden from the average user and just award answers marked as correct with 1 point unless otherwise specified in an optional second step.
 
-The Lifecycle field is the most useful as a bulk operation in an overview screen. Setting all questions to "Final" during creation is a huge waste of time.
+While skipping the scoring step is probably not suitable for setting up a complex exam, it can greatly speed up some use cases. The creation of little brain teaser tests that someone might want to add to a learning sequence or at the end of a live lesson would greatly benefit from a more simplified scoring option.
 
-While skipping this step is probably not suitable for an exam, not being forced to enter point values greatly speeds up some use cases e.g. the creation of little test that someone might want to add to chapters in a learning sequence.
+The features that are separated in sub-tabs from the core question input do not always benefit from the separation. While some people might prefer to enter feedback texts separately from the answer options, there are also advantages of having such a field right in the vicinity. While an author thinks of an incorrect option, they often time might have a feedback in mind that goes with it. To enter that feedback you would have to switch to yet another view.
+
+ILIAS forms currently do not have advanced sections that can be collapsed and expanded or fields and buttons that only show up once certain fields are selected.
 
 ### Preview disconnected from creation
 
+After a question has been created with a click on "save and return", the user does not actually return to a previous view, but is directed to a preview of the question.
 
-
-...
+While previewing the test is a valid user intent at some point in the process, an author who is creating many questions in a row might feel bothered by being repeatedly forced to click out of the preview.
 
 ## Inspiration from other apps
 
@@ -153,64 +159,200 @@ While skipping this step is probably not suitable for an exam, not being forced 
 
 Due to the limited screen space, many good mobile apps have mastered how to optimize interfaces by minimizing the amount of options shown at one time and leading users through multiple views with ease.
 
-If you learn a language in Duolingo or create a rental on Airbnb you are guided in many little steps through onboardings and bite sized prompts. The screens with the most options are usually setting or selection screens probing for the user intent. The actual work process is then done in very minimal interfaces step by step.
+If you learn a language in Duolingo or create a rental on Airbnb you are guided in many little steps through onboardings, wizards and bite sized prompts. The screens with the most options are usually setting or selection screens probing for the user intent. The actual work process is then done in very minimal interfaces step by step.
 
-Even on larger desktop screens, there are use cases for minimal interfaces: Distraction free text editors are very popular among writers and programmers. Project management software like Asana, Trello and Active Collab are able to display quite complex entities with many properties, but reduce the amount of information displayed in certain views.
+Even on larger desktop screens, there are many use cases for minimal interfaces: Distraction free text editors are very popular among writers and programmers. Project management software like Asana, Trello, Notion and Active Collab work with quite complex entities with many properties, but show reduced versions and simplified input forms in most views.
 
-Markdown based presentation tools like Reveal.js or Marp and the pitch deck service Slidebean separate content creation from design as a distinct two step process. This way the user can be either in the writing or design mindset (and their distinct mental models) and doesn't have to jump back and forth between both like in Power Point.
+Markdown based presentation tools like Reveal.js or Marp and the pitch deck service Slidebean separate content creation from design as a distinct two step process. This way the user can focus fully either on writing or the design (and their distinctly different user intents and mental models) and doesn't have to jump back and forth between both like how Power Point generally is used.
 
 We believe that there are two things from these examples we should re-create in ILIAS:
 * reducing and segmenting the interface where it feels natural and smooth to the user (and vice versa combine steps that the user would expect to be combined)
-* take inspiration from data entry, writing and markdown-based tools that allow a flow state for entering large amounts of texts without ever interrupting the user with unnecessary obstacles.
+* take inspiration from data entry, focused writing and markdown-based tools that allow a flow state for entering large amounts of texts without ever interrupting the user with unnecessary obstacles.
 
 ### Decoupling scoring from question creation
 
-...
+Notably, Typeform and Quiz-Maker have whole separate view for assigning point scores and assessment logic. It's an extra step meant to be done after the input of all questions is complete.
+
+![](img/2023-09-27-13-58-38.png)
+*Adding scores and feedback in Quiz-Maker*
+
+In Typeform this is especially needed as branching paths can be set up in a mind-map style editor and they decided to keep all settings related to the logic separated from content creation.
+
+![](img/2023-09-27-13-54-38.png)
+*Logic Editor in Typeform*
+
+Given that ILIAS is meant to design exams, we might want to consider building a view that is specialized on helping authors with the intent to set up complex scoring concepts and logic.
 
 ### WYSIWYG makes preview steps unnecessary
 
-...
+Typeform questions look (almost) exactly the same during editing as they look to the user taking the test. This makes a preview step obsolete.
+
+### Constant overview
+
+Typeform and Rise show a sidebar with all questions. Quiz-Maker and H5P display all questions on one page. This makes going back to an overview screen which you are constantly forced to do in ILIAS unnecessary.
 
 ### Fast keyboard navigation
 
-...
+While Quiz-Maker is severely lacking in accessibility otherwise, keyboard input inside a question works exceptionally well:
 
-## Incremental Improvements
+Right after the question type is selected, the question text field automatically gets keyboard focus - this saves many clicks and contributes greatly to a feeling of flow.
+
+Tabbing to the last answer option text field adds another answer option automatically. To not have another answer option, it can just be left blank.
+
+In ILIAS you have to focus on and then press plus and minus buttons to add and remove answer options and then tab forward to enter their text fields. This feels very clunky.
+
+## Improvements to current implementation
 
 ### Minimizing page loads
 
-...
+There are page loads and view changes we can avoid right now to support people with the user intent to add many questions:
 
-### Validation and error messages
+To skip over the (for this user intent annoying) preview view and overview screen during the creation of many questions there could be a "Save and create new question" button at the end of the question form.
 
-...
+Furthermore the "Save and return" button should be re-labeled to "Save and preview" to make clear where the user will end up.
+
+### Point validation and default values
+
+When leaving the point field for scoring an answer blank, the page reloads with an error message. The author sees part of the error at the top, but has to scroll down to find the actual field, which feels quite jarring.
+
+It would be better if the field could be marked without a page reload as long as the input is invalid.
+
+Additionally, one could argue that leaving the field blank already indicated the user's intent to score this answer with 0 points and the error is due to a misinterpretation. 0 could be the default value of the point input field.
 
 ### Overview during question creation
 
-...
+The ILIAS test can already show a table of content question list during the test. If we showed this list during question creation and even allow the adding questions with a button, most users will most likely not want to return to the overview screen.
 
-### Hide and decouple advanced features
+The overview screen could then be specialized to better fulfill user intent of managing users e.g. bulk setting the author field or (in the question pool) assigning and changing taxonomy tags of many questions at once.
 
-### Duplicate Questions
+### Hide and optimize advanced features
 
-### Reasonable Defaults
+We should further investigate which fields are rarely used or don't really have a concept behind them. For example:
 
-Single Choice questions should have true and false as a default.
+#### Author Field
 
-Cloze Questions could have an example input placeholder text with one gap in it to demonstrate how it's done.
+While you can set an author name and it's shown very prominently at the beginning of each questions shown you can neither filter for it nor do bulk operations based on it. We should either add features that make this information actually usable or consider removing it from one of the most visible places of the form.
 
-...
+#### Thumbnail Size
 
-### Keyboard navigation: Feature not accessibility patch!
+Prompting the user to enter thumbnail sizes in pixel is bad practice for mobile responsiveness. Making images look nicely in the test is not something that should be on our user's mind. Instead the test styling should automatically deal with images, while the upload itself should reject unreasonably large files.
 
-Focus on question title
+#### Semantic groupings and hiding
 
-...
+Right now, the forms barely show any chunks that the brain could categorize as a group of connected options and there is not much visual distinction between options - both small and very impactful options take one line of the form.
 
-## Overall Model
+While this would require a whole development and design process beyond the scope of this document, we suspect that there are two promising approaches to continue with:
+
+* The existing form group capabilities could help to split the form into clear sections (e.g. Question, Answer Configuration, Answer Options). While it will add to the length of the page it might help the brain to feel less overwhelmed (see Miller's law).
+* Quiz-Maker makes extensive use of showing additional elements only on mouse hover or keyboard focus. We believe that some smart hiding of fields until their parent or sibling field is selected could greatly reduce how intimidating creating questions in ILIAS feels.
+
+These improvements would be in line with Miller's law trying to limit the amount of semantic chunks to around 7.
+
+### Keyboard navigation is a feature not an accessibility afterthought
+
+None of the quiz and exam tools we looked at for this paper were 100% keyboard accessible, with ILIAS actually being the one where most buttons and fields were technically reachable via keyboard. In most of the others, keyboard tabbing was eventually stuck (Easy Test Maker), important buttons could not be selected (Quiz-Maker) or the keyboard focus was not even visible (Rise).
+
+However, since question creation requires so many steps authors have to repeat over and over again, we believe that a good keyboard support could be a helpful, core feature.
+
+As mentioned above, Quiz-Maker is giving us a sneak peak of how wonderful speeding through questions with the keyboard could feel. Automatically passing the focus to the question text field after adding a question, or offering another answer option field automatically when the last of a repeating group of fields has been reached can reduce friction when done right.
+
+![](img/Peek%202023-10-02%2010-47.gif)
+
+Typeform selects the entire text of an answer field when you focus on it, which saves a click if the user intended to write a completely new answer.
+
+Since we have to pay close attention to keyboard accessibility in ILIAS, we might as well refine it so that anyone has the option to use the keyboard when navigating with the mouse would take more time.
+
+## Overall Approach
+
+If we want to go beyond mere fixes and patches, we believe that the following approaches would be promising options for an overhauled and all around improved user experience during question creation:
 
 ### Markdown
 
+A markdown editor has just been added to ILIAS as a UI component. Maybe markdown could be a suitable format to write down many questions in one flow without being interrupted by any page reloads or view changes.
+
+#### Pro
+
+* There are some existing projects we could choose to build on:
+  * https://github.com/bonartm/quizdown-js/
+  * https://github.com/gpoore/text2qti
+* A stand-alone version of this markdown parser that works without ILIAS could bring in more users and more developers for this part of ILIAS.
+
+#### Cons
+
+* While markdown is popular among programmers, most ILIAS users will most likely never have heard of it
+* Even if you know markdown, you still have to learn additional syntax especially for scoring and feedback logic. Maybe some good auto-complete suggestions can nudge new users in the right direction, but some of it will not be self-explanatory.
+* While writing the markdown might feel frictionless, later having to hunt for errors when markdown parsing fails might be a very frustrating experience.
+
 ### Full WYSIWYG
 
-### Oveview in Slate & new form features
+Typeform feels very sleek and modern because of two very impactful concepts:
+* They split up options into very distinct areas of their interface, one view or tab per user intent
+* The area where you enter the question looks almost exactly how it will look for the test participant ("What you see is what you get" approach, WYSIWYG for short).
+
+This is the question in the editor:
+
+![](img/2023-09-27-17-00-29.png)
+
+This is the question in their player:
+
+![](img/2023-09-27-17-01-53.png)
+
+Interfaces like this are quite doable in modern HTML5 [using the contenteditable property for divs.](https://medium.com/@jitubutwal144/three-different-ways-to-build-inline-content-editor-using-javascrpit-d58c2edac9cb)
+
+You might be wondering if we could fit all the advanced options that ILIAS offers into a WYSIWYG interface. Quiz-Maker shows us how this could be possible: When you focus or hover on certain areas, more options become visible.
+
+![](img/Peek%202023-10-02%2010-23.gif)
+
+This is quite a modern way of tucking away options that is rarely used in ILIAS, but might be an excellent first location to experiment with this kind of dynamic interfaces.
+
+#### Pro
+
+* no more need to switch to a preview screen (in ILIAS 8, questions are rendered in 3 different ways, this would increase a feeling of familiarity in all parts of the process)
+* Modern WYSIWYG UI concepts align with mental models people are used to from mobile apps.
+* The page editor could benefit from a WYSIWYG input field for text.
+
+#### Contra
+
+* Not all options would be visible at once - some ILIAS user have gotten used to that.
+* This would stand out from the other form-heavy configuration screens.
+* Writing a good WYSIWYG is challenging. Here, a developer describes their [struggles with contenteditable](https://answerly.io/blog/my-pain-developing-a-WYSIWYG-editor-with-contenteditable/)
+
+### Overview in slate & new form features
+
+For this approach, we are staying in the world of ILIAS features and concepts that are already established. There are a number of tweaks we can do to drastically improve the interface without diving into drastically new kinds of interfaces:
+
+* The slate is already an established tool to hold table of contents and lists. It could permanently show the overview of all questions and the options to create new ones, making the need to constantly go back to an overview screen obsolete.
+* The UI framework already offers switchable and optional groups that can show more form fields on selection. This could greatly reduce visual clutter and react dynamically to indicated user intents
+  * The feedback fields could be on the main question screen, but only show up when "add custom feedback text" is checked.
+  * All answer options marked as correct could be automatically scored with 1 point, and only if the user checks "set custom point scores", the areas for setting the point values needs to show.
+
+Additionally, we could implement without leaving established ILIAS concepts too much:
+* a new optional group type that doesn't use a checkbox, but a text field. If the text field is filled, more of the form is triggered to show up. This could be used to implement the expanding answer options seen in Quiz-Maker.
+* the first form field could catch keyboard focus for screens that only consist of a form
+* maybe there could be inline forms where form fields can be displayed next to each other to bundle strongly connected options together to one chunk
+* question preview could be quickly shown and hidden as a modal
+* "Create another question" button/dropdown
+* further explore which steps of the question creation should be merged into the slate or the question input form and which one should get or remain separated
+* overhaul question types with a thorough concept (setting goals, mockups, tests, then implementation) that were heavily criticized in the ILIAS NRW survey (order, cloze and formula)
+
+#### Pro
+
+* everything builds on existing concepts and should feel familiar to the user
+* other parts of ILIAS benefit from more general UI component features to the input forms
+
+#### Contra
+
+* It will likely not feel as modern as a WYSIWYG interface
+* We are not forced to think completely new, which will lead to compromises that might harm the user experience
+
+## Recommendation for the overall approach
+
+From a design and UX standpoint the author of this paper sees the biggest possible leap for the most frictionless UI in committing to a WYSIWYG interface. It could potentially feel the most modern and forces us to come up with a concept thinking and planning from scratch.
+
+However, such a WYSIWYG approach is a huge undertaking that we might not be able to handle. A huge amount of resources both for concept work, mockups and implementation would be needed to do this properly.
+
+While we think that the markdown concept is promising for users willing to learn a dedicated syntax, it's definitely a concept that requires learning and will feel old-fashioned for many users.
+
+Consequently, the next best thing would be to work inside the concepts and UI components that already exist in ILIAS.
+
+While we don't think that this approach will lead to revolutionary never before seen interface ideas, adding to the slate and forms with clear and precise, carefully crafted concepts will deliver plenty of opportunities to make the input of questions feel easier and reduce friction for all users.
