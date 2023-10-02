@@ -8,7 +8,7 @@ In this report we analyze the current state of the question creation process and
 
 ## User feedback
 
-An E-Assesment conducted by ILIAS NRW among teaching staff of universities with 326 evaluated submissions gives us good insights on how the Test & Assessment Center is currently perceived (Report and Presentation in German): https://www.ilias.nrw/goto.php?target=cat_212
+An E-Assesment conducted by ILIAS NRW among teaching staff of universities with 326 evaluated submissions gives us good insights on how the Test & Assessment Center is currently perceived (Report and Presentation is in German): https://www.ilias.nrw/goto.php?target=cat_212
 
 Here are some user voices from the report PDF report highlighting room for optimization with regards to question creation (English translation has been added):
 * "Die Erstellung von Lückentextfragen ist nicht sehr benutzerfreundlich." (p. 22) / "The creation of Cloze Questions is not very user friendly."
@@ -39,7 +39,7 @@ In the table below we counted clicks and view changes when
 * starting on the overview screen of an empty test or quiz
 * creating one single choice true/false question,
 * creating one multiple choice question with four options,
-* assigning 10 points to the correct answers,
+* assigning 10 points to the every single correct answer option (or if assigning points to a single answer option is not possible, 10 points for passing the question),
 * ending on the overview screen
 
 Screen recordings of the question creation in ILIAS and on Quiz-Maker.com:
@@ -48,17 +48,18 @@ Screen recordings of the question creation in ILIAS and on Quiz-Maker.com:
 
 ![](./img/Click-Count_Test_quiz-maker_Timelapse.gif)
 
-| Tool            | Click Count | Change of View | Set 10 points for correct answers |
-| --------------- | ----------- | -------------- | --------------------------------- |
-| ILIAS           | 33          | 8              | possible                          |
-| Typeform        | 19          | 3              | possible                          |
-| Quiz-Maker.com  | 18          | 3              | possible                          |
-| H5P             | 16          | 0              | not possible                      |
-| Articulate Rise | 13 - 16     | 0              | not possible                      |
+| Tool            | Click Count | Change of View | Set 10 points for correct answers  |
+| --------------- | ----------- | -------------- | ---------------------------------- |
+| ILIAS           | 33          | 8              | possible                           |
+| Typeform        | 19          | 3              | possible                           |
+| Quiz-Maker.com  | 18          | 3              | possible                           |
+| EasyTestMaker   | 18          | 4              | only for overall correct/incorrect |
+| H5P             | 16          | 0              | not possible                       |
+| Articulate Rise | 13 - 16     | 0              | not possible                       |
 
-H5P misses a feature to assign custom point values to correct answers (if it did it would probably require 20 clicks in total).
+H5P, Rise and EasyTestMake miss a feature to assign custom point values to single answer options (if they did, it would most likely require 3 - 6 more clicks).
 
-Quiz-Maker and Typeform have true/false or yes/no as a default option for a question with two choices. This saves 2 clicks as they didn't need to be changed. 
+Quiz-Maker, EasyTestMaker and Typeform have true/false or yes/no as a default option for a question with two choices. This saves 2 clicks as they didn't need to be changed. 
 
 We only looked at the most simple question types as these are the most comparable across all the apps.
 
@@ -117,11 +118,13 @@ Compare this to Quiz-Maker.com where creating a new question is always possible 
 
 Additionally, there is no interrupting validation of the user input in Quiz-Maker on this screen.
 
+When submitting a question, EasyTestMaker asks with a modal for the next question type that the user would like to use. An extra click is only necessary when you are done with the very last question.
+
 In ILIAS you may forget to add "0" as a point value for the incorrect answers. The resulting error causes the page to reload and scroll up which is quite jarring to a user needing to enter many questions.
 
 ![](img/2023-09-25-14-10-14.png)
 
-The goal should be to allow a flow state, where the interface is an unobtrusive room for the user's thoughts rather than causing them to think about the interface itself.
+The goal should be to allow a flow state, where the interface is an unobtrusive room for the user's thoughts rather than causing them to think about the interface itself. Loosing your position in an unexpected way, does not feel like a smooth user experience at all.
 
 ### Using the keyboard
 
@@ -129,7 +132,7 @@ While keyboard navigation in ILIAS is technically possible, it is far from being
 
 We believe that a fluent and consistent keyboard support can make the input of many questions a lot easier as moving the hand from keyboard to mouse repeatedly can be perceived as friction for the user experience.
 
-In Quiz Maker, keyboard focus is automatically set to the question text after creating a new question, which feels very natural and saves a click (and in ILIAS would save many keyboard tabs)
+In Quiz Maker, keyboard focus is automatically set to the question text after creating a new question, which feels very natural and saves a click (and in ILIAS would save many keyboard tabs).
 
 ### Feature overload
 
@@ -270,8 +273,34 @@ If we want to go beyond mere fixes and patches, we believe that the following ap
 
 A markdown editor has just been added to ILIAS as a UI component. Maybe markdown could be a suitable format to write down many questions in one flow without being interrupted by any page reloads or view changes.
 
+The basics of markdown feel quite intuitive. Instead of picking formatting options from a menu or buttons, the user puts control syntax into the text that change how the text is later rendered.
+
+```markdown
+# This would be a headline
+
+This would just be a normal paragraph of text leading into some bullet points:
+* This is a bullet point
+* And here is another bullet points
+```
+
+Here is a possible question syntax taken from [text2qti](https://github.com/gpoore/text2qti):
+
+```markdown
+1.  What is 2+3?
+a)  6
+b)  1
+*c) 5
+
+1.  Which of the following are dinosaurs?
+[ ] Woolly mammoth
+[*] Tyrannosaurus rex
+[*] Triceratops
+[ ] Smilodon fatalis
+```
+
 #### Pro
 
+* A simple quiz is very readable in markdown
 * There are some existing projects we could choose to build on:
   * https://github.com/bonartm/quizdown-js/
   * https://github.com/gpoore/text2qti
@@ -319,25 +348,29 @@ This is quite a modern way of tucking away options that is rarely used in ILIAS,
 
 ### Overview in slate & new form features
 
-For this approach, we are staying in the world of ILIAS features and concepts that are already established. There are a number of tweaks we can do to drastically improve the interface without diving into drastically new kinds of interfaces:
+For this approach, we are staying in the world of ILIAS features and concepts that are already established. There are a number of tweaks we can do to greatly improve the interface without diving into drastically new kinds of interfaces:
 
 * The slate is already an established tool to hold table of contents and lists. It could permanently show the overview of all questions and the options to create new ones, making the need to constantly go back to an overview screen obsolete.
 * The UI framework already offers switchable and optional groups that can show more form fields on selection. This could greatly reduce visual clutter and react dynamically to indicated user intents
   * The feedback fields could be on the main question screen, but only show up when "add custom feedback text" is checked.
   * All answer options marked as correct could be automatically scored with 1 point, and only if the user checks "set custom point scores", the areas for setting the point values needs to show.
+* Is it really necessary to have offer simple text fields, a page editor area and the TinyMCE/markdown as an option to add content - can we reduce it to one?
 
-Additionally, we could implement without leaving established ILIAS concepts too much:
-* a new optional group type that doesn't use a checkbox, but a text field. If the text field is filled, more of the form is triggered to show up. This could be used to implement the expanding answer options seen in Quiz-Maker.
+Additionally, we could implement the following features without leaving established ILIAS concepts too much:
+* a new optional group type that doesn't use a checkbox, but a text field. If the text field is filled, more of the form is triggered to show up. This could be used to implement the automatic addition of another answer option seen in Quiz-Maker.
 * the first form field could catch keyboard focus for screens that only consist of a form
 * maybe there could be inline forms where form fields can be displayed next to each other to bundle strongly connected options together to one chunk
 * question preview could be quickly shown and hidden as a modal
 * "Create another question" button/dropdown
-* further explore which steps of the question creation should be merged into the slate or the question input form and which one should get or remain separated
-* overhaul question types with a thorough concept (setting goals, mockups, tests, then implementation) that were heavily criticized in the ILIAS NRW survey (order, cloze and formula)
+* If true/false questions are a common use case, maybe there should be a question type specifically for it with reasonable default settings that save a few clicks in place.
+* We should further explore which steps of the question creation should be merged into the slate or the question input form and which one should get or remain separated.
+* We should consider overhauling question types that were heavily criticized in the ILIAS NRW survey (order, cloze and formula questions)
+* The drag and drop dependencies for order questions have not been updated for years. If we switch/modernize them, they should support touch drag and drop by default.
+* Coming up with filters and use cases that give the Lifecycle and Author field a useful purpose.
 
 #### Pro
 
-* everything builds on existing concepts and should feel familiar to the user
+* everything builds on existing concepts and should feel familiar to ILIAS users
 * other parts of ILIAS benefit from more general UI component features to the input forms
 
 #### Contra
@@ -347,12 +380,12 @@ Additionally, we could implement without leaving established ILIAS concepts too 
 
 ## Recommendation for the overall approach
 
-From a design and UX standpoint the author of this paper sees the biggest possible leap for the most frictionless UI in committing to a WYSIWYG interface. It could potentially feel the most modern and forces us to come up with a concept thinking and planning from scratch.
+From a design and UX standpoint the author of this paper sees the biggest possible leap for the most frictionless UI in committing to a WYSIWYG interface. It could potentially feel the most modern and forces us to come up with a consistent concept, because we have to plan most aspects from scratch.
 
-However, such a WYSIWYG approach is a huge undertaking that we might not be able to handle. A huge amount of resources both for concept work, mockups and implementation would be needed to do this properly.
+However, such a WYSIWYG approach is a huge undertaking that we might not be able to handle. A huge amount of resources both for concept work, mockups and implementation would be needed to tackle this properly.
 
 While we think that the markdown concept is promising for users willing to learn a dedicated syntax, it's definitely a concept that requires learning and will feel old-fashioned for many users.
 
 Consequently, the next best thing would be to work inside the concepts and UI components that already exist in ILIAS.
 
-While we don't think that this approach will lead to revolutionary never before seen interface ideas, adding to the slate and forms with clear and precise, carefully crafted concepts will deliver plenty of opportunities to make the input of questions feel easier and reduce friction for all users.
+While we don't think that this approach will lead to revolutionary, never before seen interface ideas, adding to the slate and forms with carefully crafted concepts will deliver plenty of opportunities to make the input of questions feel easier and reduce friction for all users.
