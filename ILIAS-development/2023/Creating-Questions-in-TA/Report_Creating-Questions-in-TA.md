@@ -57,7 +57,7 @@ Screen recordings of the question creation in ILIAS and on Quiz-Maker.com:
 | H5P             | 16          | 0              | not possible                       |
 | Articulate Rise | 13 - 16     | 0              | not possible                       |
 
-H5P, Rise, and EasyTestMake miss a feature to assign custom point values to single answer options (if they did, it would most likely require 3 - 6 more clicks).
+H5P, Rise, and EasyTestMaker miss a feature to assign custom point values to single answer options (if they did, it would most likely require 3 - 6 more clicks).
 
 Quiz-Maker, EasyTestMaker, and Typeform have true/false or yes/no as a default option for a question with two choices. This saves 2 clicks as they didn't need to be changed. 
 
@@ -116,9 +116,10 @@ Compare this to Quiz-Maker.com where creating a new question is always possible 
 
 ![](img/2023-09-25-14-01-38.png)
 
-!!! Additionally, there is no pop-up, validation error messages concerning the user input in Quiz-Maker on this screen. Rather, errors are neatly marked to be reviewed.
 
 In ILIAS, if you forget to add "0" as a point value for the incorrect answers, the resulting error causes the page to reload and scroll up, which is quite jarring to a user needing to enter many questions.
+
+Some tools mark required fields or fields with invalid input in red without a page reload, which feels much better.
 
 When submitting a question, EasyTestMaker asks for a modal of the next question type that the user would like to use. An extra click is only necessary when you are done with the very last question.
 
@@ -140,7 +141,7 @@ Because ILIAS supports many different use cases, there are many features that mi
 
 There is a field to change the author's name for a question as one of the first and therefore most visible form fields. While there might be use cases (entering questions on a professor's behalf or marking co-authorship) it would make much more sense to change the author name once for all following operations thereafter. Changing the author's name for each new question manually adds to the already large click count.
 
-!!! The Lifecycle field that marks the approval status of a question would be most useful as a bulk operation in an overview screen, or an approval mode to quickly approve or disapprove an entire question set. Setting all questions to "Final" during creation is a huge waste of time, as questions set to "Draft" appear in the quiz anyway.
+Another field in the question creation form that feels like it is part of an unfinished feature is the Lifecycle field. It can be used to mark a question with an approval status like "Draft", "To be Reviewed" or "Final". However, currently, it does not effect if the question is displayed during a test. You can neither filter for it or run a bulk operation to approve some or all questions at once. Therefor, setting all questions to "Final" during creation is a huge waste of time. Because the Lifecycle property is lacking a clear purpose, it does not deserve its prominent position at the top of the question creation.
 
 In our research, we noticed that some tools (Quiz-Maker, Typeform) keep scoring hidden from the average user and just award answers marked as correct with 1 point unless otherwise specified in an optional second step.
 
@@ -210,7 +211,7 @@ In ILIAS you have to focus on and then press plus and minus buttons to add and r
 
 There are page loads and view changes we can avoid right now to support the user intent of adding many questions:
 
-!!! To skip over the (for this user intent - annoying) preview and overview screens. During the creation of many questions there could be a "Save and Create New Question" button at the end of the question form.
+Being forced to see the question preview after clicking on "Save and Return" is quite annoying for the user intent of creating many questions in a row. We recommend rather adding a "Save and Create New Question" button at the end of the form.
 
 Furthermore the "Save and Return" button should be re-labeled as "Save and Preview" to make clear where the user will end up.
 
