@@ -233,9 +233,9 @@ The overview screen could then be specialized to better fulfill the user intent 
 
 We should further investigate which fields are rarely used or don't really have a concept behind them. For example:
 
-#### Author Field
+#### Author & Lifecycle Field
 
-While you can set an author's name, which is shown very prominently at the beginning of each question, you can neither filter for it, nor do bulk operations based on it. We should either add features that make this information actually usable or consider removing it from one of the most visible places of the form.
+While you can set an author's name and a Lifecycle status, which is shown very prominently at the beginning of each question, you can neither filter for it, nor do bulk operations based on it. We should either add features that make this information actually usable or consider removing them from one of the most visible places of the form.
 
 #### Thumbnail Size
 
