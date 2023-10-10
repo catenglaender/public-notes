@@ -141,7 +141,9 @@ Because ILIAS supports many different use cases, there are many features that mi
 
 There is a field to change the author's name for a question as one of the first and therefore most visible form fields. While there might be use cases (entering questions on a professor's behalf or marking co-authorship) it would make much more sense to change the author name once for all following operations thereafter. Changing the author's name for each new question manually adds to the already large click count.
 
-Another field in the question creation form that feels like it is part of an unfinished feature is the Lifecycle field. It can be used to mark a question with an approval status like "Draft", "To be Reviewed" or "Final". However, currently, it does not effect if the question is displayed during a test. You can neither filter for it or run a bulk operation to approve some or all questions at once. Therefor, setting all questions to "Final" during creation is a huge waste of time. Because the Lifecycle property is lacking a clear purpose, it does not deserve its prominent position at the top of the question creation.
+Another field in the question creation form that feels like it is part of an unfinished feature is the Lifecycle field. It can be used to mark a question with an approval status like "Draft", "To be Reviewed" or "Final". However, currently, it does not effect if the question is displayed during a test. In the Test's overview list, you cannot filter for it - only the overview of the Question Pool has filters. Neither in the Test overview nor in the Question Pool you can run a bulk operation to approve some or all questions at once.
+
+Therefor, setting all questions to "Final" during creation is a huge waste of time. Because the Lifecycle property is lacking a clear purpose, it does not currently deserve its prominent position at the top of the question creation.
 
 In our research, we noticed that some tools (Quiz-Maker, Typeform) keep scoring hidden from the average user and just award answers marked as correct with 1 point unless otherwise specified in an optional second step.
 
@@ -235,7 +237,7 @@ We should further investigate which fields are rarely used or don't really have 
 
 #### Author & Lifecycle Field
 
-While you can set an author's name and a Lifecycle status, which is shown very prominently at the beginning of each question, you can neither filter for it, nor do bulk operations based on it. We should either add features that make this information actually usable or consider removing them from one of the most visible places of the form.
+While you can set an author's name and a Lifecycle status, which is shown very prominently at the beginning of each question, you can neither filter for it (in the Test question overview), nor do bulk operations (in the Question Pool and Test overview) based on it. We should either add features that make this information actually usable or consider removing them from one of the most visible places of the form.
 
 #### Thumbnail Size
 
@@ -367,7 +369,7 @@ Additionally, we could implement the following features without deviating from e
 * We should further explore which steps of the question creation should be merged into the slate or the question input form, and which ones should get or remain separated.
 * We should consider overhauling question types that were heavily criticized in the ILIAS NRW survey (order, cloze, and formula questions).
 * The drag and drop dependencies for order questions have not been updated for years. If we switch/modernize them, they should support touch drag and drop by default.
-* Coming up with filters and use cases that give the Lifecycle and Author field a useful purpose.
+* Coming up with consistent filter options and use cases that give the Lifecycle and Author field a useful purpose.
 
 #### Pros
 
