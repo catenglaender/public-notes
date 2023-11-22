@@ -18,3 +18,18 @@ Easy before difficult
 
 Compares Label positioning
 * https://xd.adobe.com/ideas/principles/web-design/best-practices-form-design/
+
+Group
+* https://www.123formbuilder.com/blog/10-best-practices-for-complex-web-forms/
+
+Discussion Multi columns in form groups: only form groups jump to second column on desktop, consider highlight
+* https://ux.stackexchange.com/questions/46019/what-is-the-best-way-to-deal-with-very-complex-forms
+
+Set auto-focus
+* https://wpmanageninja.com/design-better-forms-user-friendly-form-design-tips/
+
+Effectiveness of methods to evaluate user interfaces
+* https://web.archive.org/web/20030816131108/http://www.cs.bath.ac.uk:80/~pwild/CM30141/p119-jeffries.pdf
+
+Left aligned labels isn't always bad, success message for follow up information, smart defaults, vertically stacked tabs (!!!)
+* Luke Wroblewski's "Web Form Design: Filling in the Blanks" pdf
