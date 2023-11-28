@@ -33,3 +33,6 @@ Effectiveness of methods to evaluate user interfaces
 
 Left aligned labels isn't always bad, success message for follow up information, smart defaults, vertically stacked tabs (!!!)
 * Luke Wroblewski's "Web Form Design: Filling in the Blanks" pdf
+
+Accordions in forms
+https://baymard.com/blog/accordion-and-tab-design
