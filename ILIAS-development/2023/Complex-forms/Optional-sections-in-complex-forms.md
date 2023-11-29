@@ -42,8 +42,8 @@ Optional sections in ILIAS forms should meet the following goals:
 # User Intents
 
 While using forms the users focus and main intention can be vastly different. These different focuses are mainly defined by...
-* the user intent: What conscious goal does the user have?
-* the mental model: What expectations based on previous experiences and learned patterns does the user have on how to achieve that goal?
+* the user intent: "the purpose of a user’s series of actions" [^1]
+* the mental model: "what users know (or think they know) about a system" [^2]
 
 For this analysis we had a look at many forms in ILIAS and sorted them into three general categories:
 
@@ -59,11 +59,11 @@ An object created by submitting an information prompt likely has many more prope
 
 ### Examples:
 
-Wikipedia User Registration
+*[Wikipedia.org](https://en.wikipedia.org/) User Registration*
 
 ![](img/wikipedia_login.png)
 
-A rating question in Typeform
+*A rating question in Typeform*
 
 ![](img/typeform_star-rating.png)
 
@@ -79,9 +79,7 @@ While more experienced users will be better at jumping to the input elements tha
 
 When a user wants to change an already existing object they are often thrown into the same form that was used for creating it.
 
-However, when coming back to existing objects, the user intent is often different:
-* Checking settings
-* Changing settings
+However, when coming back to existing objects, the user intent is often different: They want to change or check a specific amount of settings (e.g. switch a test from offline to online).
 
 As the mental modal is no longer a sequential field by field processing, getting an overview and jumping to the relevant spot in the form is now the main focus.
 
@@ -95,9 +93,11 @@ Fortunately, other projects had to solve similar challenges before us and we can
 
 It might seem obvious, but the best way to maintain a feeling of overview is to not have that many options in a form to begin with.
 
-If there are fields that are barely used or are left overs from abandoned or never finished concepts, they should either be brought to full functionality or removed. Moving such fields to an hidden advanced or optional section only moves the problem out of direct sight, but does not solve it.
+"In any situation where completion is important (which is almost always), minimize the number of fields you use." [^3]
 
-When following the approach that all properties and settings of an object are mapped almost completely to a form, administrators and managing users will be left with quite a few options. However, there might still be possibilities to remove fields:
+If there are fields that are barely used or are left over from abandoned or never finished concepts, they should either be brought to full functionality or be removed. Moving such fields to a hidden advanced or optional section only shifts the problem out of direct sight, but does not solve it.
+
+When following the approach that all properties and settings of an object are mapped almost completely to a form, managing users will be left with quite a few options. However, there might still be possibilities to remove fields:
 
 The business software ERPNext for example allows administrators to remove not mandatory field from forms permanently for the entire instance. This makes a lot of sense if an instance is not ever using certain functionalities as it reduces unnecessary weight of the interface for all users.
 
@@ -107,6 +107,8 @@ Some CRM software like WordPress distinguishes between end-user facing content a
 
 How do most forms on the web and in SaaS handle the actual hiding and showing of additional form elements?
 
+"Progressive disclosure in forms refers to the method of only displaying inputs when they become necessary." [^4]
+
 During this chapter we will reference the book Web Form Design: Filling in the Blanks by Luke Wroblewski when referring to studies and user evaluations comparing different methods and their perceived ease of use and satisfaction ratings.
 
 ### Conditional visibility
@@ -115,13 +117,30 @@ We already have a UI component in ILIAS that allows hiding and showing sub-forms
 
 This is an example of conditional visibility that can be set up in many form builders and is frequently used in forms all over the internet.
 
-User testing rated revealing sub-forms by checking radio buttons as follows:
-* has the advantage of always keeping all the initial options — and a person’s
-selection among those options — visible
+#### Radio button reveals sub-form
 
-Conditional visibility could potentially also be triggered by other field types e.g. a dropdown:
+Using radio buttons for progressive disclosure (like the Switchable Group in ILIAS) gets quite a positive verdict in Luke Wroblewski's user testing:
+* They "can maintain the context of a person’s initial selection while introducing the required selection-dependent inputs where they are most relevant". [^5]
+* They "achieved near-perfect satisfaction ratings". [^5]
+* A "small number of selection-dependent inputs and animated transitions when people change their initial selections [...] help make this method work." [^6]
+
+#### Dropdown reveals sub-form
+
+Conditional visibility could potentially also be triggered by other field types e.g. a dropdown.
 
 ![](img/codepen_conditional-dropdown.gif)
+
+*Screencapture shows a codepen by Dustin Horstman* [^7]
+
+User testing yielded the following conclusions:
+
+* "obscures most of the initial options—as only one option is visible in the drop-down list" [^8]
+* "using a single control may better
+communicate the scope and impact of the
+initial selection" [^8]
+* "easy on the eyes and completed quite quickly" [^9]
+* "relatively high satisfaction scores" [^9]
+* "safe [...] when your list of initial options scales past a number that either horizontal or vertical tabs can support" [^9]
 
 
 
@@ -168,3 +187,13 @@ These components could be a very important tool when dealing with advanced and b
 ## Optimized for viewing and checking
 
 ## Multi-column approaches
+
+[^1]: Ciprian Borodescu. A gentle introduction to orchestrating intelligent journeys with User Intent Graphs. February 13, 2022 https://uxdesign.cc/a-gentle-introduction-to-orchestrating-intelligent-journeys-with-user-intent-graphs-503192a637e2 visited November 29, 2023.
+[^2]: Jakob Nielsen. Mental Models. nngroup.com. October 17, 2010. https://www.nngroup.com/articles/mental-models/ visited November 29, 2023.
+[^3]: Designlab.com. Form UI Design: 36 Tips & Best Practices. June 16, 2022. https://designlab.com/blog/form-ui-design-best-practices/ visited November 29, 2023.
+[^4]: DHIS2 Documentation. Forms. https://ui.dhis2.nu/principles/forms/ visited November 29, 2023.
+[^5]: Luke Wroblewski. Web Form Design - Filling in the Blanks. Rosenfeld Media. Brooklyn, New York. 2008; p. 318.
+[^6]: Wroblewski. Web Form Design - Filling in the Blanks. p. 320.
+[^7]: Dustin Horstmann. Conditional Form Field with Bootstrap. February 26, 2018. https://codepen.io/horstmannd/pen/jZeXev screen recording from November 29, 2023.
+[^8]: Wroblewski. Web Form Design - Filling in the Blanks. p. 286.
+[^9]: Wroblewski. Web Form Design - Filling in the Blanks. p. 287.

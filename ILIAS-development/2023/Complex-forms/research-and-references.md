@@ -13,7 +13,7 @@ Single column beats multi-column, radio buttons vs dropdowns
 Goldman Sachs Design Pattern, term progressive disclosure for checkbox ticked unhiding
 * https://design.gs.com/patterns/forms
 
-Easy before difficult
+Easy before difficult, modals
 * https://www.uxmatters.com/mt/archives/2017/05/designing-ux-forms.php
 
 Compares Label positioning
@@ -36,3 +36,9 @@ Left aligned labels isn't always bad, success message for follow up information,
 
 Accordions in forms
 https://baymard.com/blog/accordion-and-tab-design
+
+Good user intents
+https://www.uxmatters.com/mt/archives/2012/10/the-importance-of-knowing-user-intent.php
+
+User Intent Navigational Informational Transactional
+https://uxdesign.cc/a-gentle-introduction-to-orchestrating-intelligent-journeys-with-user-intent-graphs-503192a637e2
