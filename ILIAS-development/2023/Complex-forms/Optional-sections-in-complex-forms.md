@@ -42,8 +42,8 @@ Optional sections in ILIAS forms should meet the following goals:
 # User Intents
 
 While using forms the users focus and main intention can be vastly different. These different focuses are mainly defined by...
-* the user intent: "the purpose of a user’s series of actions" [^1]
-* the mental model: "what users know (or think they know) about a system" [^2]
+* the user intent: "the purpose of a user’s series of actions" [^intro-user-graph]
+* the mental model: "what users know (or think they know) about a system" [^nielsen_mental-models]
 
 For this analysis we had a look at many forms in ILIAS and sorted them into three general categories:
 
@@ -93,9 +93,9 @@ Fortunately, other projects had to solve similar challenges before us and we can
 
 It might seem obvious, but the best way to maintain a feeling of overview is to not have that many options in a form to begin with.
 
-"In any situation where completion is important (which is almost always), minimize the number of fields you use." [^3]
+"In any situation where completion is important (which is almost always), minimize the number of fields you use." [^designlabs_tricks]
 
-A project at ebay that removed many fields from the registration process to an optional after registration form proved to be very succesful: "The impact [...] was tremendous because a lot more people registered successfully and began to use eBay. And perhaps ironically, significantly more people answered the optional questions when they were asked after they registered!" [^3B]
+A project at ebay that removed many fields from the registration process to an optional after registration form proved to be very successful: "The impact  was tremendous because a lot more people registered successfully and began to use eBay. And perhaps ironically, significantly more people answered the optional questions when they were asked after they registered!" [^web-form-design_ebay]
 
 If there are fields that are barely used or are left over from abandoned or never finished concepts, they should either be brought to full functionality or be removed. Moving such fields to a hidden advanced or optional section only shifts the problem out of direct sight, but does not solve it.
 
@@ -109,7 +109,7 @@ Some CRM software like WordPress distinguishes between end-user facing content a
 
 How do most forms on the web and in SaaS handle the actual hiding and showing of additional form elements?
 
-"Progressive disclosure in forms refers to the method of only displaying inputs when they become necessary." [^4]
+"Progressive disclosure in forms refers to the method of only displaying inputs when they become necessary." [^dhis2-doc]
 
 During this chapter we will reference the book Web Form Design: Filling in the Blanks by Luke Wroblewski when referring to studies and user evaluations comparing different methods and their perceived ease of use and satisfaction ratings.
 
@@ -122,9 +122,9 @@ This is an example of conditional visibility that can be set up in many form bui
 #### Radio button reveals sub-form
 
 Using radio buttons for progressive disclosure (like the Switchable Group in ILIAS) gets quite a positive verdict in Luke Wroblewski's user testing:
-* They "can maintain the context of a person’s initial selection while introducing the required selection-dependent inputs where they are most relevant". [^5]
-* They "achieved near-perfect satisfaction ratings". [^5]
-* A "small number of selection-dependent inputs and animated transitions when people change their initial selections [...] help make this method work." [^6]
+* They "can maintain the context of a person’s initial selection while introducing the required selection-dependent inputs where they are most relevant". [^web-form-design_318]
+* They "achieved near-perfect satisfaction ratings". [^web-form-design_318]
+* A "small number of selection-dependent inputs and animated transitions when people change their initial selections [...] help make this method work." [^web-form-design_320]
 
 #### Dropdown reveals sub-form
 
@@ -132,15 +132,15 @@ Conditional visibility could potentially also be triggered by other field types 
 
 ![](img/codepen_conditional-dropdown.gif)
 
-*Screencapture shows a codepen by Dustin Horstman* [^7]
+*Screencapture shows a codepen by Dustin Horstman* [^conditional-form-field]
 
 User testing yielded the following conclusions:
 
-* It "obscures most of the initial options—as only one option is visible in the drop-down list" [^8] which could be a downside if the goal is maximum overview at a glance, but an upside if you want to de-clutter the screen
-* "Using a single control may better communicate the scope and impact of the initial selection". [^8]
-* "It's easy on the eyes and completed quite quickly" [^9]
-* It had "relatively high satisfaction scores" [^9]
-* Dropdowns are "safe [...] when your list of initial options scales past a number that either horizontal or vertical tabs can support" [^9]
+* It "obscures most of the initial options—as only one option is visible in the drop-down list" [^web-form-design_286] which could be a downside if the goal is maximum overview at a glance, but an upside if you want to de-clutter the screen
+* "Using a single control may better communicate the scope and impact of the initial selection". [^web-form-design_286]
+* "It's easy on the eyes and completed quite quickly" [^web-form-design_287]
+* It had "relatively high satisfaction scores" [^web-form-design_287]
+* Dropdowns are "safe [...] when your list of initial options scales past a number that either horizontal or vertical tabs can support" [^web-form-design_287]
 
 ### Accordion
 
@@ -148,8 +148,8 @@ One of the most frequently suggested tools to group and hide content are inline 
 
 User testing from the Baymard Institute and Luke Wroblewski working with London-based usability firm Etre came to the following conclusions:
 
-* On the upside, "accordion forms have the potential to be really effective because [...] hiding irrelevant form controls from people until they need them results in forms that are easy on the eyes." [^10]
-* On the downside, they "can inadvertently confuse users, or even flat out violate their expectation." when "users can’t figure out which form fields will be submitted – whether it is only the fields in the currently active inline accordion or tab “sheet”, or whether the collapsed “sheets” will be submitted as well."[^11]
+* On the upside, "accordion forms have the potential to be really effective because hiding irrelevant form controls from people until they need them results in forms that are easy on the eyes." [^testing-accordion-forms]
+* On the downside, they "can inadvertently confuse users, or even flat out violate their expectation." when "users can’t figure out which form fields will be submitted – whether it is only the fields in the currently active inline accordion or tab “sheet”, or whether the collapsed “sheets” will be submitted as well."[^holst_accordion-ux]
 * "Allowing multiple open sheets suggests that all sheets will be submitted, although the user may be unsure if only the open ones will be submitted."
 
 However, notably, in a testing with e-commerce checkout forms, accordion forms tested surprisingly well:
@@ -189,22 +189,22 @@ WordPress Plugin Multi-Step Checkout for WooCommerce by Silyk Press
 ILIAS 9 has UI components called Optional Group and Switchable Group that can reveal further input fields when a checkbox or radio button is ticked. This UI component is not widely used yet and there are many legacy modules where this feature could only be utilized after a switch to the new UI framework.
 
 These components could be a very important tool when dealing with advanced and branching form options.
-[^10B]
+
 ## Wizards for filling out in sequence
 
 ## Optimized for viewing and checking
 
 ## Multi-column approaches
 
-[^1]: Ciprian Borodescu. A gentle introduction to orchestrating intelligent journeys with User Intent Graphs. February 13, 2022 https://uxdesign.cc/a-gentle-introduction-to-orchestrating-intelligent-journeys-with-user-intent-graphs-503192a637e2 visited November 29, 2023.
-[^2]: Jakob Nielsen. Mental Models. nngroup.com. October 17, 2010. https://www.nngroup.com/articles/mental-models/ visited November 29, 2023.
-[^3]: Designlab.com. Form UI Design: 36 Tips & Best Practices. June 16, 2022. https://designlab.com/blog/form-ui-design-best-practices/ visited November 29, 2023.
-[^3B]: Luke Wroblewski. Web Form Design - Filling in the Blanks. Rosenfeld Media. Brooklyn, New York. 2008; p. 233.
-[^4]: DHIS2 Documentation. Forms. https://ui.dhis2.nu/principles/forms/ visited November 29, 2023.
-[^5]: Wroblewski. Web Form Design - Filling in the Blanks. p. 318.
-[^6]: Wroblewski. Web Form Design - Filling in the Blanks. p. 320.
-[^7]: Dustin Horstmann. Conditional Form Field with Bootstrap. February 26, 2018. https://codepen.io/horstmannd/pen/jZeXev screen recording from November 29, 2023.
-[^8]: Wroblewski. Web Form Design - Filling in the Blanks. p. 286.
-[^9]: Wroblewski. Web Form Design - Filling in the Blanks. p. 287.
-[^10]: Luke Wroblewski. Testing Accordion Forms. A List Apart - Issue 314. September 21, 2010. https://alistapart.com/article/testing-accordion-forms/ visited on December 4, 2023.
-[^11]: Jamie Holst. Accordion UX: The Pitfalls of Inline Accordion and Tab Designs. Baymard Institute. October 21, 2014 https://baymard.com/blog/accordion-and-tab-design visited December 4, 2023.
+[^intro-user-graph]: Ciprian Borodescu. A gentle introduction to orchestrating intelligent journeys with User Intent Graphs. February 13, 2022 https://uxdesign.cc/a-gentle-introduction-to-orchestrating-intelligent-journeys-with-user-intent-graphs-503192a637e2 visited November 29, 2023.
+[^nielsen_mental-models]: Jakob Nielsen. Mental Models. nngroup.com. October 17, 2010. https://www.nngroup.com/articles/mental-models/ visited November 29, 2023.
+[^designlabs_tricks]: Designlab.com. Form UI Design: 36 Tips & Best Practices. June 16, 2022. https://designlab.com/blog/form-ui-design-best-practices/ visited November 29, 2023.
+[^web-form-design_ebay]: Luke Wroblewski. Web Form Design - Filling in the Blanks. Rosenfeld Media. Brooklyn, New York. 2008; p. 233.
+[^dhis2-doc]: DHIS2 Documentation. Forms. https://ui.dhis2.nu/principles/forms/ visited November 29, 2023.
+[^web-form-design_318]: Wroblewski. Web Form Design - Filling in the Blanks. p. 318.
+[^web-form-design_320]: Wroblewski. Web Form Design - Filling in the Blanks. p. 320.
+[^conditional-form-field]: Dustin Horstmann. Conditional Form Field with Bootstrap. February 26, 2018. https://codepen.io/horstmannd/pen/jZeXev screen recording from November 29, 2023.
+[^web-form-design_286]: Wroblewski. Web Form Design - Filling in the Blanks. p. 286.
+[^web-form-design_287]: Wroblewski. Web Form Design - Filling in the Blanks. p. 287.
+[^testing-accordion-forms]: Luke Wroblewski. Testing Accordion Forms. A List Apart - Issue 314. September 21, 2010. https://alistapart.com/article/testing-accordion-forms/ visited on December 4, 2023.
+[^holst_accordion-ux]: Jamie Holst. Accordion UX: The Pitfalls of Inline Accordion and Tab Designs. Baymard Institute. October 21, 2014 https://baymard.com/blog/accordion-and-tab-design visited December 4, 2023.
