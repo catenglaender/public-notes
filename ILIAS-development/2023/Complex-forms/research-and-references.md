@@ -1,4 +1,4 @@
-Going from accordion and tabs to wizard
+Going from side tabs and tabs to wizard
 * https://medium.com/seek-blog/complex-forms-made-simple-50754a68a6e2
 
 Open-Source Design System: Show options only when checkbox is ticked
