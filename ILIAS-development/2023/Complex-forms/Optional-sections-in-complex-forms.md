@@ -107,7 +107,9 @@ Consequently, if there are fields that are barely used or are left over from aba
 
 When following the approach that all properties and settings of an object are mapped almost completely to a form, managing users will be left with quite a few options. However, there might still be possibilities to remove fields:
 
-The business software ERPNext for example allows administrators to remove not mandatory field from forms permanently for the entire instance. This makes a lot of sense if an instance is not ever using certain functionalities as it reduces unnecessary weight of the interface for all users.
+The open-source business software ERPNext for example allows administrators to remove not mandatory field from forms for the entire instance. This makes a lot of sense if an instance is not ever using certain functionalities as it reduces unnecessary weight of the interface for all users.
+
+![](img/ERPNext_hide-fields.gif)
 
 Some CRM software like WordPress distinguishes between end-user facing content and setting forms for the managing users. The advantage is that most WordPress form plugins only expose forms that are greatly simplified and optimized for conversion to the average user and only administrators see the complex setting forms where everything is visible.
 
@@ -116,6 +118,14 @@ Some CRM software like WordPress distinguishes between end-user facing content a
 How do most forms on the web and in SaaS handle the actual hiding and showing of additional form elements?
 
 "Progressive disclosure in forms refers to the method of only displaying inputs when they become necessary." [^dhis2-doc]
+
+The most ideal software would be highly tailored to one exact purpose and some very specific user intents around it.
+
+The challenge with ILIAS is that every single institution and company has some very individual requirements and use cases for it. Some ILIAS instances are mainly used for booking and managing course sessions, some are more like a file sharing platform for teaching content, some pass out certificates for SCORM courses, some use it to conduct and evaluate complex exams etc.
+
+Even within the same feature you can make use of it completely differently: The Test & Assessment module could be used to create simple pop quizzes to just refresh some knowledge at the beginning of a live class. Or you could build a complex auto-evaluating, advanced exam platform. The downside is that the people who want to create a simple pop quiz also see the options for advanced exams.
+
+Progressive disclosure and conditional visibility could prevent the burden of unnecessary, irrelevant information.
 
 ### Conditional visibility
 
@@ -150,6 +160,10 @@ User testing yielded the following conclusions:
 
 One of the most frequently suggested tools to group and hide content are inline accordions.
 
+*Inline Accrodions in ERPNext - the save button applies to all sections (regardless if opened or closed)*
+
+![](img/ERPNext_inline-accordions.gif)
+
 User testing from the Baymard Institute and Luke Wroblewski working with London-based usability firm Etre came to the following conclusions:
 
 ### Advantages
@@ -160,7 +174,7 @@ User testing from the Baymard Institute and Luke Wroblewski working with London-
 ### Disadvantages
 
 * They "can inadvertently confuse users, or even flat out violate their expectation." when "users can’t figure out which form fields will be submitted – whether it is only the fields in the currently active inline accordion or tab “sheet”, or whether the collapsed “sheets” will be submitted as well."[^baymard_accordion-ux]
-* "Allowing multiple open sheets suggests that all sheets will be submitted, although the user may be unsure if only the open ones will be submitted."
+* "users may be unsure if only the open ones will be submitted."[^baymard_accordion-ux]
 
 ### Scenario: Multi-step processes
 
@@ -200,7 +214,7 @@ And they can hold
 
 While visually similar the concept of tabs might be used for vastly different reasons - they could separate...
 * distinctly different features of a software (Design Customization, Sending E-Mail, User Management),
-* sections of the same feature or form (Question Settings, Feedback, Hints),
+* sections of the same feature or form (Settings, Feedback, Hints of the same test question),
 * a step in a process (Shipping Address, Billing Address, Payment Information,...)
 * or an in place selection and replacement (switch between html, markdown or text-only editor to enter paragraphs of text)
 
@@ -214,7 +228,7 @@ Jamie Holst illustrates some common challenges of tabbed forms with related tabs
 > * “Is it only the options that I’m currently seeing that will be submitted or will it submit all sections (including the ‘collapsed’ ones)?” (i.e. is it a partial or a “full” submit)
 > * “Will clicking one of the other sections cause the page to reload, and if so, will the other entered data be persisted?”
 
-*Example from the classic Gmail interface: It's unclear if only this tab will be sumbitted and wether input is lost when switching the tab*[^baymard_accordion-ux]
+*Example from the classic Gmail interface: It's unclear if only this tab will be submitted and wether input is lost when switching the tab*[^baymard_accordion-ux]
 
 ![](img/gmail_tabs-submit.png)
 
@@ -240,7 +254,7 @@ Here are the results and conclusions from user testing (mostly inline) tabs:
 ### Specific to vertical tabs
 
 * "if the content is mutually exclusive, then use the standard UI element designed to indicate this: radio buttons. These can be integrated into a tab-like design, but it’s important that the radio buttons are an integrated part of that as they clearly set user expectations."[^baymard_accordion-ux]
-* "vertical tabs score better on satisfaction, eye-tracking metrics, and time to completion, my inclination is to prefer them to horizontal tabs"[^web-form-design_285]
+* "vertical tabs score better on satisfaction, eye-tracking metrics, and time to completion, my inclin[^baymard_accordion-ux] ation is to prefer them to horizontal tabs"[^web-form-design_285]
 
 *Best Buy uses radio buttons in vertical tabs to clarify that the options are mutually exclusive*[^baymard_accordion-ux]
 
@@ -323,47 +337,126 @@ There are a few things to consider when using modals for sections of a form:
 
 With all these observations, user testings and best practices in mind, let's think about which elements are the most promising to consider when optimizing ILIAS.
 
-## Switchable and optional group UI component
+## Switchable and Optional Group UI Component
 
-ILIAS 9 has UI components called Optional Group and Switchable Group that can reveal further input fields when a checkbox or radio button is ticked.
+As already mentioned, ILIAS has UI components called Optional Group and Switchable Group that can reveal further input fields when a checkbox or radio button is ticked.
 
-This approach had one of the highest satisfaction ratings in Etre's user testing and it's a component that we can use in non-legacy forms right now.
+As mentioned earlier, this approach had one of the highest satisfaction ratings in Etre's user testing and it's a component that we can use in non-legacy forms right now.
 
-Whenever we move forms from legacy code to the UI framework, we should probably consider moving some fields into Optional and Switchable Groups.
+Whenever we move forms from legacy code to the UI framework, we should consider moving some fields into Optional and Switchable Groups.
 
-An interesting edge case are important fields that are related to optional/advanced fields hidden away in such Groups. For example, a checkbox "exclude this question from point evaluation" could be considered an important input for a test question and therefor be near the top of the form. However, further down, an Optional Group "advanced evaluation settings" could get back to the same topic - but now these two related settings are spread apart. Mockups and user testing might be required to come up with clear guidelines of how such situations could be handled best.
+An interesting edge case are important fields that are related to optional/advanced fields hidden away in such Groups. Mockups and user testing might be required to come up with clear guidelines of how such situations could be handled best.
+
+## Quick Entry vs. complete forms
+
+ERPNext solves their abundance of form fields by showing simplified forms in a modal when creating an object (they call this Quick Entry). This might be a good solution for ILIAS as well.
+
+This is the full form for configuring a project in ERPNext:
+
+![](img/ERPNext_porject-full.png)
+
+However, usually, on creation you only see a fraction of these fields inside of a modal (with an option to switch to the full form):
+
+![](img/ERPNext_project-modal.png)
+
+After a few of these interactions, managing users will learn that the creation forms in modals are a shortened version of the full form, which they can switch to from the bottom of the modal.
+
+Because this modal is not opening a sub-form on top of a parent form, but the entire form is inside the modal, it will not cover up any relevant fields for object creation.
 
 ## Wizards for filling out in sequence
 
-The Creation user intent could highly benefit from simple step by step wizards. Many service providers and institutions already add paged form sequences to their plugins.
+When a complex form cannot really be shortened much, paged forms and step by step wizards could reduce the mental load during a Creation User Intent. Many service providers and institutions already add paged form sequences to their plugins.
 
-A wizard could advanced (or simply currently irrelevant) settings if they are not triggered or completely reserve them for the settings screen of the created object.
+*Wizard for creating training events in ILIAS based cate by Concepts and Training GmbH*
 
-This way, new users have a much more guided experience creating their first objects in ILIAS and experienced users might still choose to use the wizards when they know that they only need to focus on the most basic settings.
+![](img/care-training-wizard.png)
 
-## Distinguish between front-end and admin forms
+A wizard could simply not show advanced (or simply currently irrelevant) settings if they are not triggered, or reserve them for the settings screen of the created object.
+
+This way, new users have a much more guided experience creating their first objects in ILIAS. Experienced users might still choose to use the wizards when they only need to focus on the most basic settings.
+
+## End-user Forms vs Administrative Settings
 
 There is a huge difference in user intent between information prompts and adjusting administrative settings.
 
-While both need the same type of components input fields, checkboxes etc.
+While both need the same type of components like input fields, checkboxes etc., a form to (for example) *fill out* a survey requires completely different optimization than a form to *create* a survey.
 
-## Optimized for viewing and checking
+### Hiding elements differently
 
-## Multi-column approaches
+Collecting a survey is an information prompt, so conversion is the most important goal. Progressive disclosure is most likely done through form steps (or wizards) and Switchable Groups so the user might not even realize when they triggered additional content that not everyone gets/needs to see.
 
+When creating a survey, overview of all survey questions and of all possible tools is the most important goal. Here, progressive disclosure might be more effectively done through accordions, tabs or a view/edit mode for sections that keep all options somewhat visible on screen.
 
-There are also some settings in ILIAS which are just not following the mental model most users expect. To change the sorting of repository elements in a category, ILIAS displays this quite spacious switchable group:
+### Design
 
-![](img/ILIAS_switchable-group.png)
+Some research shows that labels on top of fields are easier on the eyes and have a better conversion rate. This would be fantastic for information prompts. If we break them up into steps anyway, we don't need to save space by putting labels next to the input field.
 
-Compare this to a View Control which would take significantly less space and is intuitively understood by most users:
+Labels to the left of fields cause forms to be filled out slower, but with less errors. This might be what we ant for complex settings.
 
-![](img/ILIAS_view-control-sorting.png)
+So despite handling progressive disclosure differently for different user intents, we might also benefit from using different designs depending on the main purpose of the form.
 
+## Creation vs. Viewing and Checking
 
+Staying on the side of administrating objects, we also might benefit from differentiating if we expect many or just a few settings to be changed.
 
+If we expect many fields to be changed, maybe a wizard could be a welcome step by step approach to support managing users through a longer process.
 
+If we expect just a few changes to individual fields, the form data could be rendered in a compact view mode displaying the data in an optimized order. Semantically similar information could be grouped together, very relevant data could be highlighted.
 
+We already did similar investigations for arranging the properties of items, which are much easier to read if they are segmented by their semantic role and designed more or less prominent depending on their most likely relevance to the user.
+
+Through an edit button, a managing user could edit one section or even just single fields without loosing the context, either inline, in the slate or in a modal.
+
+How exactly such a solution could work, should be developed through mockups and user testing.
+
+## One Set of Form Data, Many Display Modes
+
+Let's say we refactor the Test & Assessment Question Creation and Player. What would we need to cover all different user intents with specialized form types hiding optional and advanced settings in the most optimal way?
+
+* Object Creation: A wizard could guide users through the creation of questions step by step; advanced settings are simply skipped if they are not triggered. The wizard should be just one or two steps long if the user's requirements are very simple.
+* Adjusting Settings: After a question has been created, a managing user might want to come back and adjust a few options or dive into advanced settings. A view mode could make it easier to find specific settings while keeping a birds-eye overview. In this view, settings aren't ever completely gone, but maybe tucked away to only appear in edit mode, advanced accordions, tabs or modals.
+* Information Prompt: The test player prompting the end-user to answer a test question is an information prompt where nothing distracting should be on screen. We can optimize this form's design to take more space on mobile devices and in kiosk mode.
+
+All three form types are rendering more or less elements from the same data set. While we would still have to invest research and development into how exactly such a system would look like, getting optimized forms for different user intents might be as simple as marking the groups and individual fields that we have to define anyway with visibility information. For example, which ones should be always hidden/visible/skipped/tucked away in which type of form (wizard/settings view mode/specific frontend case).
+
+## Configuring Field Visibility
+
+In the beginning, we mentioned that ILIAS installations can be quite different from one another. ERPNext has the same problem as it contains a long list of features of which only a fraction might be in use by one organization.
+
+The solution they landed on is to make every screen and every form highly configurable. In ERPNext an administrator can edit, change defaults of and hide any field.
+For example, if you don't have departments in a small company, you can just hide anything referencing that feature - and reactivated it when you need it back.
+
+Furthermore, managing users can create their own expandable or always visible groups and move fields between them however they want.
+
+![Alt text](img/ERPNext_project-edit.png)
+
+![Alt text](img/ERPNext_project-edit_customize-form.png)
+
+You could also create views and forms from scratch starting with a completely blank workspace and only add the bare minimum. Since it's build with the Frappé framework for Python it's very likely that even developers might be using a form and view builder instead of coding manually.
+
+While this *can* give you a completely customized and laser focused software, it requires many decisions, deep knowledge of each field and a long configuration process from the managing users.
+
+In ILIAS, we had a similar attempt with a template feature for the question creation process of a test. You could create a template "simple pop quiz" and hide all fields that have anything to do with complex exam evaluation logic which is irrelevant in this use case. The test & assessment form configuration felt very detached from the UI it was modifying and (if something like this is ever added back into ILIAS) should be a general feature of all forms.
+
+A fully configured and reduced ERPNext is a joy to use and it fits the concept of a software that can do almost anything: Have everything switched on by default. If you don't want something, switch it off - starting from whole menu entries (which ILIAS can already do) down to literally any field in a form. In the end you have a software that exactly fits your needs. This concept sounds very, very tempting for ILIAS.
+
+The issue with this is that it's a cosmetic solution to a conceptual problem. It could wrongly encourage infinite expansion of forms as one could argue "you can just remove what you don't want later". Administrators without a deep knowledge of the system could accidentally soft lock their users in processes that cannot be completed, because important fields are hidden. 
+
+Before we implement any way to customize forms in the frontend we should probably further investigate how else administrators could adjust the forms in their installation without control over every single item. Maybe fields could be tagged and categorized (which we could connect with the help topics feature implemented for the new tooltips). When an admin switches off a feature like "complex exams", all fields with the corresponding tags vanish from view.
+
+# Next step
+
+We would suggest taking two to three ILIAS features with a large amount of input fields and test the research and concepts outlines in this paper by creating mockups and click dummies:
+
+* Do we have different steps aligning with the different general User Intents at different times?
+* Are the existing form groups helpful for hiding options in tabs, accordions, modals, switchable/optional groups or view mode sections? Could we make new/more semantic form groups?
+* What fields would a managing user most likely want to hide with a form configuration feature?
+* How would a wizard look for this feature?
+* How would a view mode look for this feature? Is there already something like a view mode (e.g. info tab, table representation)?
+
+Based on the findings of these experiments we could then make the final decision which form features and progressive disclosure methods we should implement in ILIAS.
+
+# Citations & Sources
 
 [^intro-user-graph]: Ciprian Borodescu. A gentle introduction to orchestrating intelligent journeys with User Intent Graphs. February 13, 2022 https://uxdesign.cc/a-gentle-introduction-to-orchestrating-intelligent-journeys-with-user-intent-graphs-503192a637e2 visited November 29, 2023.
 [^nielsen_mental-models]: Jakob Nielsen. Mental Models. nngroup.com. October 17, 2010. https://www.nngroup.com/articles/mental-models/ visited November 29, 2023.
