@@ -131,6 +131,10 @@ Progressive disclosure and conditional visibility could prevent the burden of un
 
 We already have a UI component in ILIAS that allows hiding and showing sub-forms when a checkbox or radio box is ticked (named Optional Group and Switchable Group).
 
+*Switchable Group in ILIAS 9*
+
+![](img/ILIAS_switchable-group.gif)
+
 This is an example of conditional visibility that can be set up in many form builders and is frequently used in forms all over the internet.
 
 #### Radio button reveals sub-form
