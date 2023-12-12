@@ -308,6 +308,10 @@ In the 2009 version of the Apple Checkout process, sections of the form were ren
 
 ![](img/lukew_apple-checkout.png)
 
+Elster Online has editable items in tables that trigger a sub-form page.[^grundsteuererklaerung] The table shows a summary of the entered data.
+
+![](img/elster_editable-table.png)
+
 Advantage of using viewing mode:
 
 * "if the web application is supposed to display data [...] it is hard to avoid"[^webapphuddle_inline-edit]
@@ -393,9 +397,9 @@ When creating a survey, overview of all survey questions and of all possible too
 
 ### Design
 
-Some research shows that labels on top of fields are easier on the eyes and have a better conversion rate. This would be fantastic for information prompts. If we break them up into steps anyway, we don't need to save space by putting labels next to the input field.
+Some research shows that labels on top of fields are easier on the eyes and have a better conversion rate.[^adobe_form-design] This would be fantastic for information prompts. If we break them up into steps anyway, we don't need to save space by putting labels next to the input field.
 
-Labels to the left of fields cause forms to be filled out slower, but with less errors. This might be what we ant for complex settings.
+Labels to the left of fields cause forms to be filled out slower, but with less errors.[^adobe_form-design] This might be what we want for complex settings.
 
 So despite handling progressive disclosure differently for different user intents, we might also benefit from using different designs depending on the main purpose of the form.
 
@@ -491,3 +495,5 @@ Based on the findings of these experiments we could then make the final decision
 [^ux_matters_designing-forms]: Jessica Enders. Designing UX: Forms. UX Matters. May 22, 2017. https://www.uxmatters.com/mt/archives/2017/05/designing-ux-forms.php visited December 6, 2023
 [^alphr_forgot-aplle-id]: Lee Stanton. Forgot Your Apple ID Email Address?. Alphr. August 8, 2022. https://www.alphr.com/forgot-apple-id-email-address/ visited December 6, 2023
 [^web-form-design_270]: Wroblewski. Web Form Design - Filling in the Blanks. p. 270.
+[^grundsteuererklaerung]: Evernest. Schritt-für-Schritt-Anleitung: Grundsteuererklärung mit Elster. September 23, 2022 https://www.evernest.com/de/ratgeber/immobilienwissen/schritt-fuer-schritt-grundsteuererklaerung-mit-elster/
+[^adobe_form-design]: Nick Babich. Best Practices for Form Design: Structure, Inputs, Labels and Actions. Adobe XD Blog. March 12, 2020. https://xd.adobe.com/ideas/principles/web-design/best-practices-form-design/
