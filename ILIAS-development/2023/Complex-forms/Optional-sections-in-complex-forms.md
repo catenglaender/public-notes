@@ -425,7 +425,7 @@ In this approach we don't just have "the form", but rather break up entire workf
 
 ### Disadvantages
 
-* this goes far beyond then just tweaking the current forms. A lot of concept work and user testing is required to find the optimal structure
+* this goes far beyond just tweaking the current forms. A lot of concept work and user testing is required to find the optimal structure
 * Some people might prefer an "everything" screen rather than having to drill down multiple layers
 
 
@@ -597,4 +597,4 @@ Based on the findings of these experiments we could then make the final decision
 [^grundsteuererklaerung]: Evernest. Schritt-für-Schritt-Anleitung: Grundsteuererklärung mit Elster. September 23, 2022 https://www.evernest.com/de/ratgeber/immobilienwissen/schritt-fuer-schritt-grundsteuererklaerung-mit-elster/
 [^adobe_form-design]: Nick Babich. Best Practices for Form Design: Structure, Inputs, Labels and Actions. Adobe XD Blog. March 12, 2020. https://xd.adobe.com/ideas/principles/web-design/best-practices-form-design/
 [^francis-wu_complex-forms-OOUX]: Francis Wu. Resolving complex forms with OOUX. Medium - UXdesign.cc. September 8, 2023. https://uxdesign.cc/resolving-complex-forms-f104e476f3ff visited February 13, 2024.
-[^nngroup_3-click-rule-false]: Page Laubheimer. The 3-Click Rule for Navigation Is False. bbgroup.com. August 11, 2019. https://www.nngroup.com/articles/3-click-rule/ visited February 13, 2024.
+[^nngroup_3-click-rule-false]: Page Laubheimer. The 3-Click Rule for Navigation Is False. nngroup.com. August 11, 2019. https://www.nngroup.com/articles/3-click-rule/ visited February 13, 2024.
