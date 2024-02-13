@@ -113,6 +113,24 @@ The open-source business software ERPNext for example allows administrators to r
 
 Some CRM software like WordPress distinguishes between end-user facing content and setting forms for the managing users. The advantage is that most WordPress form plugins only expose forms that are greatly simplified and optimized for conversion to the average user and only administrators see the complex setting forms where everything is visible.
 
+## Section Groups and Table of Contents
+
+Before we think about hiding elements of our forms there is one powerful strategy that should not be underestimated: Logical sections and semantic groups with accurate names can provide a great amount of overview.
+
+Bad names for sections would be vague terms like "general options" and "advanced options". The user might not know if what they have in mind, already counts as an advanced setting.
+
+### Advantages
+
+* If a section of the form is named "Schedule User Access" and the person filling out the form doesn't want to restrict the access, they can scroll past this entire section.
+* Consequently, carefully segmented forms can be filled out faster than just an incoherent list of fields.
+* A table of contents above the form or in a sidebar could help to quickly jump to relevant sections.
+
+### Disadvantages
+
+* The overall length of the form doesn't change.
+* A list of many sections might give the (potentially wrong) impression that the form takes a long time to fill it out, even if many sections are optional.
+* Jumping to sections or scrolling past sections can feel disorienting.
+
 ## Revealing options dynamically
 
 How do most forms on the web and in SaaS handle the actual hiding and showing of additional form elements?
@@ -127,8 +145,6 @@ Even within the same feature you can make use of it completely differently: The 
 
 Progressive disclosure and conditional visibility could prevent the burden of unnecessary, irrelevant information.
 
-### Conditional visibility
-
 We already have a UI component in ILIAS that allows hiding and showing sub-forms when a checkbox or radio box is ticked (named Optional Group and Switchable Group).
 
 *Switchable Group in ILIAS 9*
@@ -137,14 +153,21 @@ We already have a UI component in ILIAS that allows hiding and showing sub-forms
 
 This is an example of conditional visibility that can be set up in many form builders and is frequently used in forms all over the internet.
 
-#### Radio button reveals sub-form
+### Radio button reveals sub-form
 
 Using radio buttons for progressive disclosure (like the Switchable Group in ILIAS) gets quite a positive verdict in Luke Wroblewski's user testing:
-* They "can maintain the context of a person’s initial selection while introducing the required selection-dependent inputs where they are most relevant". [^web-form-design_318]
-* They "achieved near-perfect satisfaction ratings". [^web-form-design_318]
-* A "small number of selection-dependent inputs and animated transitions when people change their initial selections [...] help make this method work." [^web-form-design_320]
 
-#### Dropdown reveals sub-form
+#### Advantages
+
+* They "can maintain the context of a person’s initial selection while introducing the required selection-dependent inputs where they are most relevant". [^web-form-design_290]
+* They "achieved near-perfect satisfaction ratings". [^web-form-design_290]
+* A "small number of selection-dependent inputs and animated transitions when people change their initial selections [...] help make this method work." [^web-form-design_292]
+
+#### Disadvantages
+
+* "If the number of selection-dependent inputs is substantial, this method breaks down quickly. [...] page jumping and the movement of the initial set of options [...] makes for a disorientating interaction" [^web-form-design_292]
+
+### Dropdown reveals sub-form
 
 Conditional visibility could potentially also be triggered by other field types e.g. a dropdown.
 
@@ -154,11 +177,22 @@ Conditional visibility could potentially also be triggered by other field types 
 
 User testing yielded the following conclusions:
 
-* It "obscures most of the initial options—as only one option is visible in the drop-down list" [^web-form-design_286] which could be a downside if the goal is maximum overview at a glance, but an upside if you want to de-clutter the screen
+#### Advantages
+
 * "Using a single control may better communicate the scope and impact of the initial selection". [^web-form-design_286]
 * "It's easy on the eyes and completed quite quickly" [^web-form-design_287]
 * It had "relatively high satisfaction scores" [^web-form-design_287]
 * Dropdowns are "safe [...] when your list of initial options scales past a number that either horizontal or vertical tabs can support" [^web-form-design_287]
+
+#### Disadvantages
+
+* It "obscures most of the initial options—as only one option is visible in the drop-down list" [^web-form-design_286] which could be a downside if the goal is maximum overview at a glance.
+
+### Nesting conditional visibility
+
+Potentially, such sub-forms could be nested within another sub-form. It should be regulated how many forms within forms are deemed acceptable, as the benefits of an initial overview could be lost if options are hidden in deeper layers.
+
+The big disadvantage of conditional visibility is that the user doesn't know what data can be entered in the sub-forms until they meet the condition(s) to make that area visible.
 
 ## Accordion
 
@@ -195,7 +229,7 @@ Notably, in a testing with e-commerce checkout forms, accordion forms tested sur
 
 ![](img/stackexchange_accordion.png)
 
-User DaveAlger stresses another advantage of accordions over horizontal tabs: "In some cultures the far right tab is considered first but in no cultures is the item at the very bottom considered to be first or most important." [^stackexch_errors-in-tabbed-form]
+Dave Alger stresses another advantage of accordions over horizontal tabs: "In some cultures the far right tab is considered first but in no cultures is the item at the very bottom considered to be first or most important." [^stackexch_errors-in-tabbed-form]
 
 ## Tabs and progress bar steps
 
@@ -204,8 +238,9 @@ There are multiple distinct ways to split a form's content into tabs:
 * vertical tabs
 
 They commonly look like
-* drawers
-* or steps on a progress bar
+* drawers,
+* steps on a progress bar,
+* or steps in a sidebar
 
 And they can hold
 * form pages
@@ -292,8 +327,13 @@ Long forms could be split into multiple pages without a tab navigation or clicka
 
 A special type of form wizards are so called conversational forms that would more or less mimic a chat-like interaction. As with wizards, the "chatbot" would just skip irrelevant questions.
 
+#### Advantages
+
 * "This interactive approach keeps users engaged and encourages their active participation, leading to higher completion rates."[^johnson_conversational-forms]
 * This more conversational style can, in a very friendly tone, "provide immediate feedback and validation, notifying users of errors or missing information in real-time"[^johnson_conversational-forms]
+
+#### Disadvantages
+
 * "conversational forms limit users’ ability to scan and review the entire form at once."[^johnson_conversational-forms]
 
 ## Editing and viewing mode
@@ -312,15 +352,15 @@ Elster Online has editable items in tables that trigger a sub-form page.[^grunds
 
 ![](img/elster_editable-table.png)
 
-Advantage of using viewing mode:
+### Advantages
 
 * "if the web application is supposed to display data [...] it is hard to avoid"[^webapphuddle_inline-edit]
 * solves the issue with vertical accordions because there is no doubt that the data has been saved.[^baymard_accordion-ux]
 * the view mode summary could omit labels where they are clearly implied ("first name: Bob, last name: Smith" simply becomes "Bob Smith") or even hide empty or advanced inputs entirely.
 
-Advantage of always showing editable fields:
+### Disadvantages
 
-* "there is no confusion of what can be edited, no need to discover anything and no so called friction."[^webapphuddle_inline-edit]
+* The need to switch to an edit mode can potentially introduce an unnecessary obstacle. If everything is always in viewing mode "there is no confusion of what can be edited, no need to discover anything and no so called friction."[^webapphuddle_inline-edit]
 
 ## Sub-forms in modals
 
@@ -336,10 +376,58 @@ Here is an extreme example from apple, where the "labels" and field groups are l
 
 There are a few things to consider when using modals for sections of a form:
 
+### Advantages
+
 * "If you need to expose a large number of additional inputs, consider using an overlay instead of exposing them inline to avoid page jumping and disorientation."[^web-form-design_270]
+
+### Disadvantages
+
 * a modal should not cover up anything the user might still want to reference - sidebars and accordions might do a better job in that case.
 * if context is lost it's "hard for users to know where they are and what’s going on, especially those with cognitive disabilities"[^ux_matters_designing-forms]
-* it should be very easy to save and close the modal.[^web-form-design_270]
+* how the modal closes or saves needs to be made very clear to avoid frustrations.[^web-form-design_270]
+
+## Object-Oriented Branching
+
+As use cases for forms get more complex, it gets more and more important to think about the context and sequence that the individual forms are in and how everything could be connected in an intuitive way.
+
+While the previous two chapters suggested occasionally listing information as editable items in a view mode, the following approach is built all around object-oriented structures and summary or list sections exposing deeper layers to the parent.
+
+A medium article by Francis Wu[^francis-wu_complex-forms-OOUX] suggests branching sub-objects into sub-forms:
+
+![](./img/Francis-Wu_dashboard-sub-forms.png)
+
+*An example of how to branch into child objects.* [^francis-wu_complex-forms-OOUX]
+
+The higher layers work as overviews from which you can drill down into the settings and creation options of dependent child-objects.
+
+For example, creating a test (e.g. a pop quiz) in ILIAS involves the overview table with a list of all questions, the general test settings, the settings of every single question, and many tabs and sub-tabs with additional options everywhere - all of it could be seen as part of one process. One process where sometimes you can see a broad overview, and sometimes focus on a small set of settings.
+
+In the current state, you often navigate sideways between tabs and sub-tabs. While this does somewhat succeed in creating overview and offers reliable places for options the user can learn - it barely makes use of layered branching or semantic grouping.
+
+Permissions, Meta Data and Export tabs are currently presented in one line with the Questions, Participants and Result tabs.
+
+![](img/ILIAS_test-tabs.png)
+
+Those screens are part of vastly different features and processes and yet they are presented in the same location with the same visual weight.
+
+Imagine as an alternative an overview screen with a settings section (potentially drilling down into related siblings like meta-data and permissions), a creation section (focused on creating and importing questions) and a result section for all the grading and analytics workflows that happen after the test is live - with options to drill down into specifics from there.
+
+![](img/mockup_tabs-in-groups-and-viewing-mode.png)
+
+In this approach we don't just have "the form", but rather break up entire workflows following the process steps and layered data structure while still exposing important information to higher layers. This might mean we would have to split up current forms into branches and layers, but also potentially merge forms and expose selected settings to viewing modes higher up.
+
+### Advantages
+
+* object oriented structures align with the user's mental model to focus on one object at a time [^francis-wu_complex-forms-OOUX]
+* this approach offers clear way-finding (which is more important than the high click count that might come with this approach) [^nngroup_3-click-rule-false]
+* exposing selected information from lower layers in view mode increases the overview and saves clicks.
+* "Breaking large and complex forms into smaller and simpler forms is a fundamental principle in creating mobile-friendly designs."[^francis-wu_complex-forms-OOUX]
+
+### Disadvantages
+
+* this goes far beyond then just tweaking the current forms. A lot of concept work and user testing is required to find the optimal structure
+* Some people might prefer an "everything" screen rather than having to drill down multiple layers
+
 
 # Possible solutions for ILIAS
 
@@ -379,9 +467,16 @@ When a complex form cannot really be shortened much, paged forms and step by ste
 
 ![](img/care-training-wizard.png)
 
-A wizard could simply not show advanced (or simply currently irrelevant) settings if they are not triggered, or reserve them for the settings screen of the created object.
+### Advantages
 
-This way, new users have a much more guided experience creating their first objects in ILIAS. Experienced users might still choose to use the wizards when they only need to focus on the most basic settings.
+* A wizard could simply not show advanced (or simply currently irrelevant) settings if they are not triggered, or reserve them for the settings screen of the created object.
+* This way, new users have a much more guided experience creating their first objects in ILIAS. Experienced users might still choose to use the wizards when they only need to focus on the most basic settings.
+
+### Disadvantages
+
+* Wizards are not suitable for viewing or editing existing objects.
+* The nature of the Wizard never gives me an overview of all settings.
+* If a user quickly wants to change something that the wizard asks for in step 6, I have to click quite a few times to arrive there.
 
 ## End-user Forms vs Administrative Settings
 
@@ -427,6 +522,10 @@ Let's say we refactor the Test & Assessment Question Creation and Player. What w
 
 All three form types are rendering more or less elements from the same data set. While we would still have to invest research and development into how exactly such a system would look like, getting optimized forms for different user intents might be as simple as marking the groups and individual fields that we have to define anyway with visibility information. For example, which ones should be always hidden/visible/skipped/tucked away in which type of form (wizard/settings view mode/specific frontend case).
 
+Here is a rough proof of concept applying a design optimized for adjusting, one optimized for conversion and one optimized for viewing to the same exact html input elements:
+
+![](img/form-type-demo.gif)
+
 ## Configuring Field Visibility
 
 In the beginning, we mentioned that ILIAS installations can be quite different from one another. ERPNext has the same problem as it contains a long list of features of which only a fraction might be in use by one organization.
@@ -440,21 +539,21 @@ Furthermore, managing users can create their own expandable or always visible gr
 
 ![Alt text](img/ERPNext_project-edit_customize-form.png)
 
-You could also create views and forms from scratch starting with a completely blank workspace and only add the bare minimum. Since it's build with the Frappé framework for Python it's very likely that even developers might be using a form and view builder instead of coding manually.
-
 While this *can* give you a completely customized and laser focused software, it requires many decisions, deep knowledge of each field and a long configuration process from the managing users.
 
 In ILIAS, we had a similar attempt with a template feature for the question creation process of a test. You could create a template "simple pop quiz" and hide all fields that have anything to do with complex exam evaluation logic which is irrelevant in this use case. The test & assessment form configuration felt very detached from the UI it was modifying and (if something like this is ever added back into ILIAS) should be a general feature of all forms.
 
-A fully configured and reduced ERPNext is a joy to use and it fits the concept of a software that can do almost anything: Have everything switched on by default. If you don't want something, switch it off - starting from whole menu entries (which ILIAS can already do) down to literally any field in a form. In the end you have a software that exactly fits your needs. This concept sounds very, very tempting for ILIAS.
+The issue with this is that it's a cosmetic solution to a conceptual problem. It could wrongly encourage infinite expansion of forms as one could argue "you can just remove what you don't want later". Administrators without a deep knowledge of the system could accidentally soft lock their users in processes that cannot be completed, because important fields are hidden.
 
-The issue with this is that it's a cosmetic solution to a conceptual problem. It could wrongly encourage infinite expansion of forms as one could argue "you can just remove what you don't want later". Administrators without a deep knowledge of the system could accidentally soft lock their users in processes that cannot be completed, because important fields are hidden. 
+The power to configure a form could also open up a floodgate of never ending feature request and conceptual challenges. Should admins be able to change visibility of fields by role? How should the settings be by default? Since ILIAS already demands a lot of configuration effort, we should be careful to add even more of it.
 
-Before we implement any way to customize forms in the frontend we should probably further investigate how else administrators could adjust the forms in their installation without control over every single item. Maybe fields could be tagged and categorized (which we could connect with the help topics feature implemented for the new tooltips). When an admin switches off a feature like "complex exams", all fields with the corresponding tags vanish from view.
+So, before we implement any way to customize forms in the frontend we should probably further investigate how else administrators could adjust their ILIAS installation without control over every single form field.
+
+One approach could be to choose modules or feature sets during installation or the build process of an instance. If an entire system never uses the Test & Assessment for exams, the more advanced grading options and logic don't need to exist in this ILIAS instance at all. This would subsequently simplify forms as it wouldn't show fields for features that aren't installed.
 
 # Next step
 
-We would suggest taking two to three ILIAS features with a large amount of input fields and test the research and concepts outlines in this paper by creating mockups and click dummies:
+We would suggest taking two to three ILIAS features with a large amount of input fields and test the research and concepts outlined in this paper by creating mockups and click dummies:
 
 * Do we have different steps aligning with the different general User Intents at different times?
 * Are the existing form groups helpful for hiding options in tabs, accordions, modals, switchable/optional groups or view mode sections? Could we make new/more semantic form groups?
@@ -472,8 +571,8 @@ Based on the findings of these experiments we could then make the final decision
 [^designlabs_tricks]: Designlab.com. Form UI Design: 36 Tips & Best Practices. June 16, 2022. https://designlab.com/blog/form-ui-design-best-practices/ visited November 29, 2023.
 [^web-form-design_ebay]: Luke Wroblewski. Web Form Design - Filling in the Blanks. Rosenfeld Media. Brooklyn, New York. 2008; p. 233.
 [^dhis2-doc]: DHIS2 Documentation. Forms. https://ui.dhis2.nu/principles/forms/ visited November 29, 2023.
-[^web-form-design_318]: Wroblewski. Web Form Design - Filling in the Blanks. p. 318.
-[^web-form-design_320]: Wroblewski. Web Form Design - Filling in the Blanks. p. 320.
+[^web-form-design_290]: Wroblewski. Web Form Design - Filling in the Blanks. p. 318.
+[^web-form-design_292]: Wroblewski. Web Form Design - Filling in the Blanks. p. 320.
 [^conditional-form-field]: Dustin Horstmann. Conditional Form Field with Bootstrap. February 26, 2018. https://codepen.io/horstmannd/pen/jZeXev screen recording from November 29, 2023.
 [^web-form-design_286]: Wroblewski. Web Form Design - Filling in the Blanks. p. 286.
 [^web-form-design_287]: Wroblewski. Web Form Design - Filling in the Blanks. p. 287.
@@ -497,3 +596,5 @@ Based on the findings of these experiments we could then make the final decision
 [^web-form-design_270]: Wroblewski. Web Form Design - Filling in the Blanks. p. 270.
 [^grundsteuererklaerung]: Evernest. Schritt-für-Schritt-Anleitung: Grundsteuererklärung mit Elster. September 23, 2022 https://www.evernest.com/de/ratgeber/immobilienwissen/schritt-fuer-schritt-grundsteuererklaerung-mit-elster/
 [^adobe_form-design]: Nick Babich. Best Practices for Form Design: Structure, Inputs, Labels and Actions. Adobe XD Blog. March 12, 2020. https://xd.adobe.com/ideas/principles/web-design/best-practices-form-design/
+[^francis-wu_complex-forms-OOUX]: Francis Wu. Resolving complex forms with OOUX. Medium - UXdesign.cc. September 8, 2023. https://uxdesign.cc/resolving-complex-forms-f104e476f3ff visited February 13, 2024.
+[^nngroup_3-click-rule-false]: Page Laubheimer. The 3-Click Rule for Navigation Is False. bbgroup.com. August 11, 2019. https://www.nngroup.com/articles/3-click-rule/ visited February 13, 2024.
