@@ -360,7 +360,7 @@ Elster Online has editable items in tables that trigger a sub-form page.[^grunds
 
 ### Disadvantages
 
-* The need to switch to an edit mode can potentially introduce an unnecessary obstacle. If everything is always in viewing mode "there is no confusion of what can be edited, no need to discover anything and no so called friction."[^webapphuddle_inline-edit]
+* The need to switch to an edit mode can potentially introduce an unnecessary obstacle. If everything is always in editing mode "there is no confusion of what can be edited, no need to discover anything and no so called friction."[^webapphuddle_inline-edit]
 
 ## Sub-forms in modals
 
