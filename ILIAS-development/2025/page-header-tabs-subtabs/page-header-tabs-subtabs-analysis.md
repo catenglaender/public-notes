@@ -79,6 +79,13 @@ Let's jump ahead and assume we have a test now that is up and running. First res
 
 Each of these branches would have its own structure of Tabs allowing the user to fully focus on the task at hand.
 
+Don Norman describes the main goal of any design in The Design of Everyday things like this: "[M]ake sure that (1) the user can figure out what to do, and (2) the user can tell what is going on."[^Norman-Design-Everyday-Things-design-goals]
+
+This proposal would the User's understanding of the process front and center instead of the system's capabilities.
+
+[^Norman-Design-Everyday-Things-design-goals]: Don Norman. The Design of Everyday Things. 2002 edition. 1988. Basic Books. p. 188 
+
+
 ### Proposal 2
 
 The downside of the first solution is that it is very specific and requires in-depth knowledge of all different type of users, their goals and their workflow.
@@ -89,17 +96,17 @@ Once again this is a snapshot of the current state of this concept and might sti
 
 [ View ] [ Edit & Organize Questions ] [ Test Settings ] [ Assign ] [ Evaluate & Analyze ]
 
-The hierarchy is always based on the words View, Edit (Content), Settings, Assign, Evaluate, because they are associated with different larger tasks that are usually focused on separately. They might have words added to them for clarification and to make them fit better to the exact nature of the object.
+The hierarchy is always based on the words View, Edit (Content), (Object) Settings, Assign, Evaluate, because they are associated with different larger tasks that are usually focused on separately. They might be re-worded per object for clarification and to make them fit better to the exact nature of the object, but the idea of these categories should remain.
 
-We discourage to keep them totally uniform just for the sake of it as the Sub-Tab content will be different for every object anyway.
+We discourage to keep them totally uniform just for the sake of it as the Sub-Tab content within will be different for every object anyway.
 
 The goal is to give a user all tools they need for a current step in the workflow so that they generally do not need to leave a Tab until they move on to another step.
 
 ### Proposal 3
 
-There are also many smaller ideas and concepts we can already work into our current Tabs and Sub-Tabs. These are collected near the end of this paper. These improvements can be considered independently of a larger restructuring effort.
+There are also smaller ideas and tweaks we can already work into our current Tabs and Sub-Tabs. These are collected near the end of this paper. These improvements can be considered independently of a larger restructuring effort.
 
-Now, we would like to explain how we developed this concept and what best practices it is based on.
+Now, we would like to explain how we developed these concepts and what UX/UI best practices it is based on.
 
 ## UI/UX Best Practices
 
@@ -162,15 +169,17 @@ Going into the settings tab of any ILIAS Test & Assessment, a person with permis
 
 The 7 +/- 2 guideline mentioned earlier is broken and screens require the user to read every single tab's name to find the one that is actually relevant.
 
-### No Hierarchy in Tabs of the same Bar
+### Order & Hierarchy in Tabs of the same Bar
 
-No tab label in their corresponding bar is visually different from another (except for the Back tab which shows a glyph). This is problematic, because not all tabs have the same relevance to the user at any given time. A general settings tab is much more frequented than some obscure advanced settings.
+No tab label in their corresponding bar is visually different from another (except for the Back tab which shows a glyph). This uniformity can be an issue, because not all tabs have the same relevance to the user at any given time. A general settings tab is much more frequented than some obscure advanced settings.
 
 There is a light sense of priority given in their order: Tabs to the left are noticed first because of the left to right reading order. The rightmost entry is also likely to get more attention than an entry in the middle. Users tend to look for save buttons and important dropdowns in the right top corner of screens and groupings.
 
+More than relying on order, we might want to explore segmenting and specializing views even further to always keep options both in Tabs and in Forms in manageable numbers.
+
 ### Adaption to User Intent
 
-Additionally, the tab bars do rarely anticipate or support the User Intent. With few exceptions they display all tabs that the current user has access to all the time. This means that even if a user is doing completely different tasks they are forced to see a lot of currently irrelevant elements.
+The tab bars do rarely anticipate or support the User Intent. With few exceptions they display all tabs that the current user has access to all the time. This means that even if a user is doing completely different tasks they are forced to see a lot of currently irrelevant elements.
 
 However, over time or because of the role of the user within an institution, one user's tasks might be vastly different from another's. For example, in the case of the Test & Assessment maybe they want to...
 - set up a simple multiple choice quiz for a quick evaluation at the end of an in person lesson
@@ -180,7 +189,13 @@ However, over time or because of the role of the user within an institution, one
 
 Even if there are specialized screens for some of those activities, we rarely simplify or optimize the page header. The user generally has to set and find their own focus and disregard (in some cases) dozens of elements irrelevant to their current task.
 
-The UI in ILIAS often mirrors the capabilities of the Implementation Model. It's generally structured by what the system can do and what objects and fields it has internally.
+There is a lot to be gained to refine our interfaces more towards specific User Intent in the future:
+
+> User goals, which comprise needs, desires, and expectations, lie at the heart of successful product design. Understanding these goals and translating them into design not only drives user engagement and satisfaction but also ultimately bolsters product success.[^design-bootcamp-user-goals]
+
+[^design-bootcamp-user-goals]: Anaïs Gracia. User Goals. medium.com. July 15, 2023. https://medium.com/design-bootcamp/user-goals-381b8c61f3dc visited August 21, 2025.
+
+The UI in ILIAS often mirrors the capabilities of the Implementation Model. It's generally structured by what the system can do and what objects and fields it has internally. It shows functionality a user can use to achieve their goals, but they often have to figure out for themselves what to focus on.
 
 In some cases though, we do already adapt to User Intents:
 - A user with only the permission to take the test, actually sees a highly minimized interface with fewer to even no tabs.
@@ -224,7 +239,8 @@ After some brainstorming during the workshop that this paper is based on, we lan
 - Manage/create sub-objects: Questions, Export
 - Connect this object with other objects: Participants
 
-We also found...
+We also found in other views...
+- Actions (immediately trigger a change in data)
 - Navigation Back or Up
 
 ### Developer vs User Perspective
@@ -241,9 +257,15 @@ The goal with these distinctions is to meet the user's mental models. To reduce 
 
 ### Measuring the status quo
 
-We had a look at 20 screens. As one screen we define the view a user sees when entering an object. Usually within one screen the Tab bar stays the same and Sub-Tabs change depending on the currently selected Tab.
+We had a look at 20 screens and categorized the options within. As one screen we define the view a user sees when entering an object. Usually within one screen the Tab bar stays the same and Sub-Tabs change depending on the currently selected Tab.
 
 When advancing through Tabs to evaluate Sub-Tabs, the main Tabs have not been counted again. However, entries with the same name and behavior that are repeated on different screens are counted as separate occurrences.
+
+So this is how the tagging data for a screen looks like where all options are seen for the first time in this context and therefore have been marked:
+
+![Color Coding Tabs](imgs/color-coding-Tabs.png)
+
+From this we extracted the total number of occurrences for each of the types:
 
 |                           | Tabs | Sub-Tabs | Toolbar | Top-Right Dropdown |
 |---------------------------|------|----------|---------|--------------------|
@@ -287,6 +309,24 @@ Looking at Toolbar vs Sub-Tabs:
 What do we do with outliers like these?
 * Back navigation in Tabs
 * Toolbar and Action Dropdown leading to a Settings page
+
+#### Outliers
+
+The outliers are the easiest ones come up with the concept for a fix as the patterns that we do have for Tabs already provide a frame of reference to recognize that something isn't right.
+
+Let's look at the header of an ILIAS Learning Module:
+
+![](imgs/so-much-learning-progress.png)
+
+To allow for the user to focus, the Learning Module switches to a reduced view without Tabs. However, Tab pages (Learning Progress Settings, Info, Edit Pages,...) are still linked here tucked away in the dropdown next to the navigation, inside the action dropdown and Learning Progress even gets a prominent button.
+
+While we definitely need alternative kiosk mode views, redistributing Tabs like this is a very risky move. It breaks the pattern that users have learned and come to expect. Furthermore, putting some options in the navigation dropdown and some in the page dropdown is confusing.
+
+Two suggestions to move forward:
+- Show the Tabs as they would usually look
+- Develop a universal way to expand and hide tabs that all ILIAS pages could use
+
+The (currently almost released) Sequence Navigator Component might be of use here. It adds a place to hook in options that are relevant to the sequence or the current single sequence segment, clearly distinguishable from the navigation.
 
 #### Inside Out Settings
 
@@ -513,15 +553,17 @@ To reduce the workload to distill the exact User Intent from every big component
 
 This reduces the effort required from developing custom User Intent Stories, to just deciding which comes closest. With a good guide and helpful examples, this could be a relatively quick process.
 
-Here is a work in progress draft of what general User Intents we might want to use - we might consider alternative wording (in brackets) when it works better with the nature of the object (as we go for quick, intuitive understanding over consistency):
+During the workshop, we tried to find the perfect words that could cover all contexts. But maybe this uniformity is not necessary as the core of the idea is to intuitively understand and connect to the User Intent behind it. Therefore, we might want to consider alternative wording (in brackets) and adapt to what works best with the specific object.
+
+Here is a work in progress draft of what general User Intents we might want to use:
 
 - View (Explore / Learn / Launch)
-- Edit (Create / Manage)
+- Edit (Create / Manage) {Content}
 - Assign (Connect)
 - {Object Name} Settings
 - Evaluate (Analyze)
 
-Maybe these modes would now be the Tabs and then there would be Sub-Tabs below them.
+Maybe these User Intent modes would now be the Tabs and then there would be Sub-Tabs below them.
 
 ##### View
 
@@ -572,28 +614,35 @@ This is the area for Analytics and Reports. It's also the spot for content and s
 - Learning Progress (what was tracked)
 - Manual Scoring
 
-#### Proposal C: Clarifying through Groupings and Locations
+#### Proposal C: Tweaks and Clarifications
 
 The minimum action we would recommend is to clean up worst offenders:
 - "back" or "back up" buttons should move out of the Tab area, maybe near the headline or very prominently into the breadcrumb bar
 - avoid duplicated options across Toolbar, Tabs, Sub-Tabs and Dropdowns
-- reduce number of Tabs and move content into Sub-Tabs where possible
+- reduce number of Tabs and move content into Sub-Tabs where possible (how many times do people use Meta Data and Export?)
+- Actions should never be in the Tab as both Mental Models for Tabs only reveal or go to content. We might need to create a new location to perform actions like unsubscribing (maybe next to the action dropdown?)
+- Toolbar and Dropdown Actions should not lead to a settings page. Settings pages are clearly the main purpose of Tabs.
+- the Toolbar location is deprecated as part of the Removing LUI projects. There is another project to re-locate Toolbar buttons elsewhere (e.g. attach them to the Table component that they control)
 
+## Coding Approach
 
+The proposals outlined in this paper could lead to some very tedious, very individual work on many components.
 
-## 
+During conversations some ideas on how to approach this during development were already discussed. While they still have to be expanded and refined, we wanted to share them in their current shape.
 
-Odd places:
-- Kursmitgliedschaft beenden
-- Info in Dropdown Lernmdoul
+At the moment, the content of tabs is build very explicit. Like a page in a book the content is dropped into a Tab, and it pretty much stays there. Maybe something is grayed out or a Tab or Sub-Tab (dis)appears, but the nature of a Tab is a very static one. Most logic for hiding interface elements is based on permissions.
 
-Towards Semantically-Aware UI Design Tools: Design, Implementation and
-Evaluation of Semantic Grouping Guidelines https://storage.googleapis.com/gweb-research2023-media/pubtools/7295.pdf
+If we approached Tabs and their content less like a location and more like a  systematic structure, this would open up the possibility to branch and distribute functionality
 
-Nested Tab UI https://www.designmonks.co/blog/nested-tab-ui
+Maybe instead of building relatively rigid page layouts, the process could require programmers to hook functionality into slots (e.g. the suggested View, Edit, Assign, Settings, Evaluate pattern).
 
-Visual Hierarchy in UI: https://www.nngroup.com/articles/visual-hierarchy-ux-definition/
+Furthermore, assigning tags based on when a functionality would be needed during the User's workflow like "pre-setup", "setup ongoing", "while published", "just imported" could describe how the interface reacts to the relevancy of options changing during a workflow. These markers should be general enough to apply to all components so maintainers do not have to reinvent the wheel for the logic of their own component.
 
-What are Gestalt Principles? https://www.uxdesigninstitute.com/blog/gestalt-principles-ux-ui-design/
+Basically, instead of just mapping the implementation to the frontend, we would describe it in terms of User Intent and changing needs - like a facade that translates between User Mental Models and Computer Data.
 
-Gestalt Proximity https://www.nngroup.com/articles/gestalt-proximity/
+## Conclusion
+
+* Tabs are still one of the best ways to navigate between a collections of views.
+* A break in a pattern indicates that a system or grouping could be optimized.
+* By following User Intent we can sort and nest Tabs in ways that feel more intuitive and frictionless to our users.
+
