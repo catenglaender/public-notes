@@ -36,11 +36,11 @@ This paper builds and expands on the findings and ideas generated in this worksh
 
 There are some pointers and guidelines about Tabs for example a [Feature Wiki entry from 2010](https://docu.ilias.de/ilias.php?baseClass=ilwikihandlergui&cmdNode=16g:rq&cmdClass=ilobjwikigui&cmd=viewPage&ref_id=1357&page=Tabs_Guideline) and a Project to [Streamline Sub-Tabs](https://docu.ilias.de/ilias.php?baseClass=ilwikihandlergui&cmdNode=16g:rq&cmdClass=ilobjwikigui&cmd=viewPage&ref_id=1357&page=Streamline_%28Sub-%29Tabs).
 
-While these pages record some decisions (e.g. for the order of tabs), there are no explanations on why and on what basis these have been made. 
+While these pages record some decisions (e.g. for the order of tabs), there are no further explanations on what basis these have been made and what goals they achieve.
 
 ### Building on the Knowledge of Pros
 
-With this document we pick up the strings, and discuss improvements to the Tabs and Sub-Tabs on an analytical level. We believe that gathering UX/UI best practices, studies and user testing experiences is the key to finding the best possible Tab Navigation.
+With this document we pick up the strings of these decade old decisions, and discuss improvements to the Tabs and Sub-Tabs on an analytical level. We believe that gathering UX/UI best practices, studies and user testing experiences is the key to finding the best possible Tab Navigation.
 
 One important source are the publications of the [Nielsen Norman Group](https://www.nngroup.com).
 
@@ -79,9 +79,9 @@ Let's jump ahead and assume we have a test now that is up and running. First res
 
 Each of these branches would have its own structure of Tabs allowing the user to fully focus on the task at hand.
 
-Don Norman describes the main goal of any design in The Design of Everyday things like this: "[M]ake sure that (1) the user can figure out what to do, and (2) the user can tell what is going on."[^Norman-Design-Everyday-Things-design-goals]
+Don Norman describes the main goals of any design in The Design of Everyday things like this: "[M]ake sure that (1) the user can figure out what to do, and (2) the user can tell what is going on."[^Norman-Design-Everyday-Things-design-goals]
 
-This proposal would the User's understanding of the process front and center instead of the system's capabilities.
+This proposal prioritize the User's understanding of the current step in the process instead of the system's capabilities.
 
 [^Norman-Design-Everyday-Things-design-goals]: Don Norman. The Design of Everyday Things. 2002 edition. 1988. Basic Books. p. 188 
 
@@ -491,7 +491,7 @@ Most of the time, having links to the same view on the same page is not a good i
 
 Linking to the same location from multiple structures can lead to immense confusion. When the User has to do work across both structures, and they encounter duplicate links, they may waste time and clicks to confirm if they have seen it before or if it's a new link.[^nngroup-link-duplicate]
 
-[^nngroup-link-duplicate]: Hoa Loranger. The Same Link Twice on the Same Page: Do Duplicates Help or Hurt? https://www.nngroup.com/articles/duplicate-links/
+[^nngroup-link-duplicate]: Hoa Loranger. The Same Link Twice on the Same Page: Do Duplicates Help or Hurt? nngroup.com. March 13, 2016. https://www.nngroup.com/articles/duplicate-links/ visited August 21, 2025.
 
 However, it might be worth breaking this rule here under the following conditions:
 * Once the User decided for one User Intent, they MUST NOT come across a duplicate link/tab.
