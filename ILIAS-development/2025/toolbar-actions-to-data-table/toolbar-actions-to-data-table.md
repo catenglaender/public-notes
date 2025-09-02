@@ -33,8 +33,9 @@ Instead, we want to add to the Table with a solid concept and an information arc
 
 We propose to...
 * remove any operations controlling or modifying data shown in a Data Table from the Toolbart location (which leaves many of them completely empty)
-* allow UI framework consumers to place certain Inputs and Buttons to Add/Assign/Import below the table header and above View Controls and Filters
-* deprecate Select Dropdowns with Submit Buttons to trigger actions like exports to avoid confusion with View Controls and Filters
+* allow UI framework consumers to place certain Inputs and Buttons to Add/Assign/Import below the table titel and above View Controls and Filters
+* place export options of table data in a new table action location
+* deprecate Select Inputs with Submit Buttons to trigger actions like exports to avoid confusion with View Controls and Filters in favor of buttons or dropdown menu entries
 * apply some minor tweaks to the visual hierarchy to aid usability
 
 ## UI/UX Principles
@@ -265,11 +266,13 @@ The mix of content and data representation might have caused some confusion for 
 
 Adding sub-pages may be a function that is logical for a page toolbar. However, adding users to a table that happens to be on the page is actually breaking the logic.
 
-Seeing the toolbar as toolbar for managing page itself immediately disqualifies it for many things that it has been used for in the past. Some things should go to the table itself, as we have established, (adding table items, exporting table data) and some Tabs are actually page actions that would fit very well to a Toolbar in charge of the current page and its sub-pages (Manage).
+Seeing the toolbar as toolbar for managing page itself immediately disqualifies it for many things that it has been used for in the past. Some things should go to the table itself, as we have established, (adding table items, exporting table data) and some operations are actually page actions that would fit very well to a Toolbar in charge of the current page and its sub-pages (Manage).
 
 Currently, we cannot investigate this further. However, it seems that actual content pages and data views might require fundamentally different representation.
 
-Keeping the header in ILIAS uniform for both might hurt usability and prevent us from providing specialized interfaces for workflow steps with entirely different requirements. If we introduce specialized data view screens those might actually manage the location of Add New buttons, View Controls, Filters and so on and not the components itself.
+As a future project we should examine which operations left inside the toolbar are page-/object-level actions and likely need a consistent place within the page header.
+
+Keeping the header in ILIAS uniform for working with data and working with bodies of content might hurt usability and prevent us from providing specialized interfaces for workflow steps with entirely different requirements. If we introduce specialized data view screens those might actually manage the location of Add New buttons, View Controls, Filters and so on and not the components itself.
 
 ### Controls around Tables
 
@@ -388,7 +391,8 @@ In order of importance we recommend the following steps:
 
 This should introduce the new functionality to add items to a Data Table with strong hierarchy and logical visual architecture than can easily be learned and operated.
 
-Additionally, we might want to consider the following changes and additions, so that the visual hierarchy of the Data Table is further optimized.
+Additionally, we might want to consider the following changes and additions, so that the visual hierarchy of the Data Table is further optimized:
 
 * introduce the inside out dropdown menu concept at least for multi- and table-actions, so Export functions can be presented more prominently.
-* in cases where table headline and page headline are identical, we might want to consider removing the page headline or display the headline of the parent location instead - this should further clarify what data set a User is working with.
+* in cases where table headline and page headline are identical, we might want to consider removing the page headline or display the headline of the parent location instead - this should further clarify what data set a User is working with
+* further analyze how to deal with page/object-level actions to take out of the toolbar and into the page header (potentially differentiating between data view and content pages).
