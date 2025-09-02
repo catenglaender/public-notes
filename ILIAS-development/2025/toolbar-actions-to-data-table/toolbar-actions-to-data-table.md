@@ -300,10 +300,15 @@ Considering...
 we suggest the following architecture:
 
 {Headline} {Actions table or all data}
+
 {Item Creation} {Import}
+
 {View Controls} {Save/Reset Filter & View}
+
 {Add/Edit Filter Toggle} {Active Filters}
+
 {Expanded Filter Options}
+
 {Table Columns & Rows}
 
 ### Item Creation
