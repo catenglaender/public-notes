@@ -2,7 +2,7 @@
 
 ## Mission Statement
 
-In many views, user can trigger actions directly connected to a table. For example, a managing user expects from a table listing participants that they can find a button nearby to assign more participants. If they do so, they expect the new participants to show up in this table as well. The user "added" an item to the table.
+In many views, users can trigger actions directly connected to a table. For example, they expect from a table listing participants that they can find a button nearby to assign more participants. If they do so, they expect the new participants to show up in this table as well. The user "added" an item to the table.
 
 In this paper, we will explore which kinds of these actions already exist in the deprecated Toolbar location. We present a concept how exactly they could become a part of the Data Table Component.
  
@@ -371,9 +371,7 @@ As selecting multiple items is a prominent feature, it might be worth considerin
 
 ### Deprecate Select plus Button Actions
 
-The combination of a Dropdown Select next to a Submit button should be avoided.
-
-An example for this is this export toolbar:
+The combination of a Dropdown Select Input next to a Submit button should be avoided.
 
 We teach the User that any information shown on the Filter and View Control inputs reflects a display state. Consequently, we should avoid having a rival concept (a select with a state that has no current effect on the data shown).
 
