@@ -33,7 +33,7 @@ Instead, we want to add to the Table with a solid concept and an information arc
 
 We propose to...
 * remove any operations controlling or modifying data shown in a Data Table from the Toolbart location (which leaves many of them completely empty)
-* allow UI framework consumers to place certain Inputs and Buttons to Add/Assign/Import below the table titel and above View Controls and Filters
+* allow UI framework consumers to place certain Inputs and Buttons to Add/Assign/Import below the table titel and above Filters and View Controls
 * place export options of table data in a new table action location
 * deprecate Select Inputs with Submit Buttons to trigger actions like exports to avoid confusion with View Controls and Filters in favor of buttons or dropdown menu entries
 * apply some minor tweaks to the visual hierarchy to aid usability
@@ -272,7 +272,7 @@ Currently, we cannot investigate this further. However, it seems that actual con
 
 As a future project we should examine which operations left inside the toolbar are page-/object-level actions and likely need a consistent place within the page header.
 
-Keeping the header in ILIAS uniform for working with data and working with bodies of content might hurt usability and prevent us from providing specialized interfaces for workflow steps with entirely different requirements. If we introduce specialized data view screens those might actually manage the location of Add New buttons, View Controls, Filters and so on and not the components itself.
+Keeping the header in ILIAS uniform for working with data and working with bodies of content might hurt usability and prevent us from providing specialized interfaces for workflow steps with entirely different requirements. If we introduce specialized data view screens that display multiple tables and diagrams those might actually manage the location of Add New buttons, View Controls, Filters and so on and not the components itself.
 
 ### Controls around Tables
 
@@ -299,15 +299,15 @@ Considering...
 * and the relation to other elements of the Data Table (part of the table but outside the filtered view)
 we suggest the following architecture:
 
-{Headline} {Actions table or all data}
+{Headline} {Actions for the table or all data}
 
 {Item Creation} {Import}
 
-{View Controls} {Save/Reset Filter & View}
-
-{Add/Edit Filter Toggle} {Active Filters}
+{Add/Edit Filter} {Active Filters} {Save/Reset Filter & View}
 
 {Expanded Filter Options}
+
+{View Controls}
 
 {Table Columns & Rows}
 
@@ -319,9 +319,11 @@ For tables like the Questions in Question Pools, or assigning Members to Groups,
 
 Adding items is also outside the process of filtering and sorting existing data.
 
-Consequently, we suggest displaying any Add or Import buttons below the table heading and general table actions (export, renaming the table), but above view controls and filter.
+Consequently, we suggest displaying any Add or Import buttons below the table heading and general table actions (export, renaming the table), but above filters and view controls.
 
-Given that the Data Table is also specialized in displaying data, not editing it, we recommend 
+To use the Gestalt Principles effectively, we propose starting new rows for new types of elements instead of cramming them together.
+
+Given that the Data Table is also specialized in displaying data, not editing it, we recommend keeping the sortation as part of the View Controls. Clicking on the header cells should only ever change sortation as a secondary, optional control because this functionality might be too obscure for users with little experience.
 
 We propose multiple ways of item creation:
 
@@ -390,7 +392,7 @@ We suggest explicitly adding such options as their separate dropdown menu entrie
 In order of importance we recommend the following steps:
 
 * introduce a withCreation parameter to the Data Table that accepts Add/Assign Item and Import Items type buttons or prompts, and renders above ViewControls and Filters
-* put Filters after View Controls as the view control settings apply to the filtered data
+* put View Controls after Filters as the view control settings set the stage for how the filtered output is presented
 * display multi-actions for all data (table-actions) at the very top, even above new object creation
 * develop an inline form container (or a Context Renderer) that can display form inputs and their submit button next to each other - this should cover the current quick add functionality where Users can provide a name or other settings to start the creation with.
 
@@ -398,6 +400,6 @@ This should introduce the new functionality to add items to a Data Table with st
 
 Additionally, we might want to consider the following changes and additions, so that the visual hierarchy of the Data Table is further optimized:
 
-* introduce the inside out dropdown menu concept at least for multi- and table-actions, so Export functions can be presented more prominently.
+* introduce the inside out button from dropdown menu concept at least for multi- and table-actions, so Export functions can be presented more prominently.
 * in cases where table headline and page headline are identical, we might want to consider removing the page headline or display the headline of the parent location instead - this should further clarify what data set a User is working with
 * further analyze how to deal with page/object-level actions to take out of the toolbar and into the page header (potentially differentiating between data view and content pages).

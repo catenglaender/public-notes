@@ -66,7 +66,7 @@ Let the User tell us, what they are about to do. These options could greet someo
 
 After the user decided to create a simple pop-quiz, they would only see the tabs relevant to their declared intent:
 
-[ Questions ] [ Settings ] [ Participants ] [ Scoring ]
+[ Questions ] [ Test Settings ] [ Participants ]
 
 Where did the Learning Progress Setting go? Well, in the mind of most Users, at this point in time, Learning Progress is a setting. So that is where it is, under Settings. Since you don't want to export an empty test, we also don't need to show any Export functions anywhere.
 
