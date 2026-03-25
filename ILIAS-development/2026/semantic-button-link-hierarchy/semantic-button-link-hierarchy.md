@@ -59,11 +59,15 @@ Typically, many webapps seem to use three visual levels of priority for their **
   * "Usage: optional actions, often for additional features. 
   * Design: minimal styling, often text-based."[^button-basics]
 
+[^button-basics]: Jennifer Pelegrin. Button design for websites and mobile apps. June 3, 2024. justinmind.com. https://www.justinmind.com/blog/button-design-websites-mobile-apps/
+
 Primary and secondary buttons are often above text links in the Information Architecture. Tertiary shy buttons may look exactly like text links.
 
-[^button-basics]: Jennifer Pelegrin. Button design for websites and mobile apps. June 3, 2024. justinmind.com. https://www.justinmind.com/blog/button-design-websites-mobile-apps/ 
+This is comparable to the main design options offered by the tried and tested design framework of the UK government[^govuk-button-types]:
 
+[^govuk-button-types]: GOV.UK Design System team. Buttons. https://design-system.service.gov.uk/components/button/
 
+![govuk-button-options.png](img/govuk-button-options.png)
 
 In cate, an LMS based on ILIAS, the designers have introduced a fourth level between secondary and tertiary buttons. It splits the two less remarkable into three levels:
 * secondary: medium importance, somewhat frequently used
@@ -79,7 +83,15 @@ Consequently, we would recommend the following 4 levels for a more complex webap
 
 [^icapps-semantic-names]: Koen Geerinckx. Button naming for design systems: a more semantic approach. October 26, 2022. icapps.com. https://icapps.com/blog/buttons-design-system. Last visited: March 18, 2026.
 
-Another scale used by the UI University of Bern uses associations with sound loudness. In such a system, our levels could be named:
+HeroUI[^heroui-buttons] is a UI framework that offers 4 button levels plus a shy button (and alert buttons, which we will have a look at later):
+
+![heroui-button-levels.png](img/heroui-button-levels.png)
+
+[^heroui-buttons]: HeroUI Community. Button. https://heroui.com/docs/react/components/button
+
+We need to be aware that naming buttons "primary", "secondary" and "tertiary", but also "outline" and "danger" introduces an inconsistency, a category error. This list mixes a priority count ("primary") with a description of design ("Outline"), with a description of context ("Danger"). Most UI frameworks do this and to some degree it might be unavoidable. However, we should strive for a consistent naming - at least for our basic range of buttons.
+
+A scale used by the UI University of Bern uses associations with sound loudness. In such a system, our levels could be named:
 
 * loudest
 * loud
@@ -87,6 +99,10 @@ Another scale used by the UI University of Bern uses associations with sound lou
 * whisper
 
 ![btn-levels.png](img/btn-levels.png)
+
+This naming does not mix context hints or concrete descriptions of design. A whisper button could be outlined, or it could just have a faint background - we can leave this up to the skin.
+
+The only thing that this naming demands is that (going down the scale) each button draws less attention than the previous one.
 
 These levels usually use the colors of a branded design.
 
@@ -96,7 +112,7 @@ There are also "alert buttons" that use colors following a general symbolism:[^r
 
 [^red-buttons]: Nick Babich. Using Red and Green in UI Design. January 1st, 2019. UX Planet. https://uxplanet.org/using-red-and-green-in-ui-design-66b39e13de91 last visited on March 16th, 2026
 
-* red buttons for actions with potentially negative consequences like "Delete" or "Reset"
+* red buttons for actions with potentially negative consequences (like "Delete" or "Reset")
 * green buttons for actions likely leading to a successful conclusion like "Confirm" or "Save"
 
 The framework Webawesome uses alert buttons next to two prioritized buttons (they also offer an outlined variant for every button):
@@ -131,9 +147,27 @@ Observe how alert buttons push their action above the "loud" level:
 
 ![btn-alert-alternatives.png](img/btn-alert-alternatives.png)
 
+We should also keep in mind that it is fairly clear which buttons should be red or green in this example. Some cases are more ambiguous:
+
+What about a dialog confirming "Should this document be overridden? (Yes) (No)". Is "Yes" dangerous because the previous document will be lost? Is "No" dangerous because the new document remains unsaved? 
+
 Many design frameworks have even more variations of this concept like info buttons, warning buttons - usually mirroring the priorities of a status message box (see Bootstrap 5 documentation: https://getbootstrap.com/docs/5.0/components/buttons/).
 
+Here is the range of buttons in Bootstrap 5 (they also offer an outlined variant for each):
+![bootstrap-button-range.png](img/bootstrap-button-range.png)
+
+The Bootstrap documentation does not offer semantic guidelines clarifying which button to use in which case. Deciding which button to use where is left entirely up to the consumer building the interface.[^bootstrap-button-doc]
+
+[^bootstrap-button-doc]: Bootstrap Team. Button. https://getbootstrap.com/docs/5.3/components/buttons/
+
 In ILIAS, we ended up not using these variations for buttons while these styles were available, so they have been removed when Bootstrap was replaced.
+
+A "danger" button could definitely prevent some unfortunate accidents. But as we could see in the mockup above, a loudest button works just as well to draw attention to the positive action.
+
+Red and green buttons do introduce a new set of problems:
+- bad UX for people with red-green-blindness
+- sometimes it is not clear which option is the dangerous one
+- what about designs of brands that use a lot of red or green?
 
 #### Links
 
@@ -257,13 +291,21 @@ user intent: dive into some details, not all, keeping the overview
 * opening and closing the node of a tree
 * vertical or horizontal tabs
 
+#### Inline Add
+
+In our research we found the dotted button in the Antdesign UI framework, which has a semantic purpose. It is described to be "commonly used for adding more actions."[^antdesign-button]
+
+[^antdesign-button]: Ant Group and AntDesign Community. Button. https://ant.design/components/button
+
+This is a similar distinction we already have in ILIAS for the "add filter input" button. We will probably not further investigate this very specific button type in this paper.
+
 ### Investigating Challenges
 
 #### For my user or for others?
 
 Two common semantics we have not yet integrated in our model. They are...
 - user scope: does the action only affect my user or all users of the system
-- action persistance: does the action only have a temporary or permanent effect
+- action persistence: does the action only have a temporary or permanent effect
 
 Some webapps like Notion can filter a database just for the current user, but one click can force this filter for every user. They communicate this through the label reading "Save for everyone" and red colors indicating that the filter is not permanent nor visible to everyone.
 
@@ -301,6 +343,8 @@ We start with an interface where none of our observations have been applied. Thi
 
 ![btn-interface-01-bland.png](img/btn-interface-01-bland.png)
 
+For the sake of simplicity and clarity we will not use a button with an identical look to a link.
+
 Applying the priority level scale we discussed earlier, we may get something like this:
 
 ![btn-interface-02-colored-levels.png](img/btn-interface-02-colored-levels.png)
@@ -316,7 +360,7 @@ To experiment with spacing let's give each priority step and each new action typ
 
 The button stack within the item definitely becomes difficult to decipher at a glance. However, the header of the list is coming along nicely. We can clearly differentiate the main action, filters and view controls. This is a quality we definitely want from our interface.
 
-At this point, it appears like differentiating workflow starting actions from workflow ending actions doesn't contribute to clarity. It requires thinking to truly understand how "send message" might differ from "make admin". Let's switch back to coloring the buttons by priority level.
+At this point, it appears like differentiating workflow starting actions from workflow ending actions through two different colors doesn't contribute to clarity. It requires thinking to truly understand why "send message" would have a different color than "make admin". Let's switch back to coloring the buttons by priority level.
 
 To tidy up the content of the item cards, we can fall back onto a previous paper we made about ordering the properties on an entity. We also recently decided in a workshop to split the action buttons on an entity into managing actions, workflow actions and reaction locations. So instead of stacking them, we shift them into fixed slots that all entity-like structures can share:
 
@@ -328,11 +372,17 @@ But let's not give up on the idea of communicating action type through button de
 * Glyph icons are also widely used in view controls. There is a whole set of icons to communicate sortation, type of view etc. we can already rely on.
 * Using Filters and View Controls require a different mindset compared to browsing an already adjusted and filtered view. In many use cases, I come in with a goal, set up my view and filter accordingly and then browse the results. These steps feel somewhat distinct and separate. Consequently, we have already been experimenting with styling view controls and filters differently to set them apart from any really impactful actions that can be done on or with items.
 
+The UI framework from gov.uk uses a dedicated "Start" button to enter the main service of a website:
+
+![govuk-start-button.png](img/govuk-start-button.png)
+
 Adding these new ideas gives us an interesting mix of both priority levels and some action types being communicated through design and size:
 
 ![btn-interface-06-level-type-mix.png](img/btn-interface-06-level-type-mix.png)
 
-Notice how view controls and filters effectively communicate that they are "something else" and how that breaks the unnecessary competition with the buttons within the items.
+Notice how view controls and filters effectively communicate that they are "something else" and how that breaks the unnecessary competition with the buttons within the items. The area above the list steps back and lets the loud buttons of the items take back the spotlight. This seems appropriate if we expect the user to actually work on the items.
+
+With this change we are beginning to mix two categories of buttons. We now have our button priority scale as well as styling some buttons depending on their purpose. However, since this improved the information architecture with an extra step, we might have found the valid exception to the rule.
 
 As we are nearing the end of this visual experiment it becomes quite obvious that colors and type marking can effectively help guide the user.
 
@@ -364,6 +414,15 @@ One aspect that has been lost: When there is only one loudest button, it clearly
 
 This means that inside an isolated context (a toolbar, a line, a boxed item) the priority order somewhat resets and counts for mostly this context.
 
+Since the repeated loudest button clutters the screen let's walk that change back. Drawing the eye to the most important action of the page by using that color exclusively seemed to have been the right choice. Let's additionally modify the header to use a larger size to further strengthen the one actions that will be most likely the reason why the user came to this page:
+
+![btn-interface-09-larger-header-actions.png](img/btn-interface-09-larger-header-actions.png)
+
+With this, we have achieved a very clear information architecture:
+* eye is drawn to the most important actions at the top
+* filters and view controls can be easily identified when needed, but step back when they are not of interest
+* There is a strong local context and hierarchy through priority levels and positions inside each repeated item.
+
 ## Conclusions
 
 ### General
@@ -373,6 +432,14 @@ This means that inside an isolated context (a toolbar, a line, a boxed item) the
 * To de-clutter the interface, segmenting and splitting it into distinct sections and groups seems to be the most effective way. 
 * Most apps do not seem to distinguish button types by the action type they trigger. However, using a different design for view control and filter type buttons can help to reduce competition for other often more or differently important actions.
 * Buttons triggering an action type we identified as "start workflow" might benefit from a distinct design. These actions throw the user into a longer process and both not finding the button when needed and accidentally clicking it can be frustrating.
+
+### Out of scope
+
+There are some more aspects that we only touched on, but could be investigated further:
+* A huge aspect that makes or breaks a button is its label. A good label makes clear what exactly happens when its clicked. A bad label causes confusion and accidents. This field of "micro copy" has been extensively studied and written about - especially in the context of marketing. It might be well worth to investigate this further and how it can be applied to buttons inside a web app.
+* How are design modifiers (size, full width, floating) connected to semantic slots and groupings?
+* Should low or very high priority slots to nest whole container UI components change the appearance of all buttons inside?
+* Could button priority management done by a context- and/or type-aware button bar component?
 
 ### Recommendations for ILIAS
 
@@ -390,4 +457,3 @@ This means that inside an isolated context (a toolbar, a line, a boxed item) the
   * button default --> loud
   * (button simple) --> quiet
   * button shy --> whisper
-
