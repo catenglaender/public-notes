@@ -125,7 +125,7 @@ Next to our volume scale, a set of alert buttons would look like this.
 
 Red and green buttons to indicate dangerous or positive actions also come with additional challenges. 8% of men are colorblind.[^colorblind-statistics] So to them (depending on the shade) the buttons may look similar or the same.
 
-[^color-blind-statistics]: About Colour Blindness. https://www.colourblindawareness.org/colour-blindness/. last visited on March 23, 2026.
+[^colorblind-statistics]: About Colour Blindness. https://www.colourblindawareness.org/colour-blindness/. last visited on March 23, 2026.
 
 Leagues United describes [here](https://leaguesunited.org/news/366) how they solved this issue in their game by uniquely decorating the buttons when a Color Blind Assistance Mode is toggled in the settings:
 
