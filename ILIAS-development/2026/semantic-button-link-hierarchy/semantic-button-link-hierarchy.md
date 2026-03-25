@@ -12,7 +12,7 @@ Consistent hierarchy and reliable behavior will help both beginners and experien
 
 * One more button type would add one more nuance to the information architecture in ILIAS.
 * Treating some buttons differently depending on the type of action they trigger can reduce distractions.
-* Finding groupings and dedicated locations for buttons in smaller contexts makes busy interfaces more manageable.
+* Finding groupings and dedicated locations for buttons in fenced contexts makes busy interfaces more manageable.
 
 We will investigate and build these findings over the course of this document.
 
@@ -117,13 +117,13 @@ There are also "alert buttons" that use colors following a general symbolism:[^r
 
 The framework Webawesome uses alert buttons next to two prioritized buttons (they also offer an outlined variant for every button):
 
-![img.png](img/webawesome-btns.png)
+![webawesome-btns.png](img/webawesome-btns.png)
 
 Next to our volume scale, a set of alert buttons would look like this.
 
 ![btn-with-alert-and-success.png](img/btn-with-alert-and-success.png)
 
-Red and green buttons to indicate dangerous or positive actions also come with additional challenges. 8% of men are colorblind.[^colorblind-statistic] So to them (depending on the shade) the buttons may look similar or the same.
+Red and green buttons to indicate dangerous or positive actions also come with additional challenges. 8% of men are colorblind.[^colorblind-statistics] So to them (depending on the shade) the buttons may look similar or the same.
 
 [^color-blind-statistics]: About Colour Blindness. https://www.colourblindawareness.org/colour-blindness/. last visited on March 23, 2026.
 
@@ -414,7 +414,7 @@ One aspect that has been lost: When there is only one loudest button, it clearly
 
 This means that inside an isolated context (a toolbar, a line, a boxed item) the priority order somewhat resets and counts for mostly this context.
 
-Since the repeated loudest button clutters the screen let's walk that change back. Drawing the eye to the most important action of the page by using that color exclusively seemed to have been the right choice. Let's additionally modify the header to use a larger size to further strengthen the one actions that will be most likely the reason why the user came to this page:
+Since the repeated loudest button clutters the screen let's walk that change back. Drawing the eye to the most important action of the page by using that color exclusively seemed to have been the right choice. Let's additionally modify the header to use a larger size to further strengthen the two actions that are the most essential for the workflow cycle of a Group:
 
 ![btn-interface-09-larger-header-actions.png](img/btn-interface-09-larger-header-actions.png)
 
